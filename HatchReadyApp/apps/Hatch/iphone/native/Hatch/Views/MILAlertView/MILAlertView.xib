@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14D113c" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Tuffy.otf">
+            <string>Tuffy</string>
+        </mutableArray>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="MILAlertView" customModule="Hatch" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LABEL" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gd2-Dc-bhA">
+                    <rect key="frame" x="100" y="0.0" width="214" height="50"/>
+                    <fontDescription key="fontDescription" name="Tuffy" family="Tuffy" pointSize="13"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EKJ-v8-7Gb">
+                    <rect key="frame" x="8" y="3" width="44" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="44" id="Eny-OR-EvK"/>
+                        <constraint firstAttribute="height" constant="44" id="zIA-9F-8NG"/>
+                    </constraints>
+                    <state key="normal" image="refresh_white">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <state key="selected" image="refresh_dk_orange"/>
+                    <state key="highlighted" image="refresh_dk_orange"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.98878854513168335" green="0.38199827075004578" blue="0.15223357081413269" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="gd2-Dc-bhA" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Bst-zB-sLD"/>
+                <constraint firstAttribute="trailing" secondItem="gd2-Dc-bhA" secondAttribute="trailing" constant="100" id="QfP-pu-Aou"/>
+                <constraint firstItem="gd2-Dc-bhA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="100" id="SiA-sg-c8E"/>
+                <constraint firstItem="gd2-Dc-bhA" firstAttribute="centerY" secondItem="EKJ-v8-7Gb" secondAttribute="centerY" id="XQi-r2-DXy"/>
+                <constraint firstItem="EKJ-v8-7Gb" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="8" id="tkM-iI-HC5"/>
+                <constraint firstAttribute="bottom" secondItem="gd2-Dc-bhA" secondAttribute="bottom" id="xrC-S7-SQz"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <nil key="simulatedBottomBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="alertLabel" destination="gd2-Dc-bhA" id="qka-NV-ajO"/>
+                <outlet property="reloadButton" destination="EKJ-v8-7Gb" id="Pgq-CI-Dcm"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="refresh_dk_orange" width="34" height="34"/>
+        <image name="refresh_white" width="34" height="34"/>
+    </resources>
+</document>

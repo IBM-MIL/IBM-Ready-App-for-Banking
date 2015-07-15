@@ -1,0 +1,73 @@
+/**************************************
+ *
+ *  Licensed Materials - Property of IBM
+ *  © Copyright IBM Corporation 2015. All Rights Reserved.
+ *  This sample program is provided AS IS and may be used, executed, copied and modified without royalty payment by customer
+ *  (a) for its own instruction and study, (b) in order to develop applications designed to run with an IBM product,
+ *  either for customer's own internal use or for redistribution by customer, as part of such an application, in customer's
+ *  own products.
+ *
+ ***************************************/
+.add-goal-container {
+  background-color: $green-30;
+  color: $white;
+  height: 100vh;
+  letter-spacing: 3px;
+  overflow: hidden;
+  text-align: center;
+  width: 100vw;
+}
+
+.add-goal-page {
+  background-color: $green-30;
+  height: 100vh;
+  position: absolute;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around;
+  &.left.ng-hide {
+    left: -100vw;
+  }
+
+  &.right.ng-hide {
+    left: 100vw;
+  }
+}
+
+.add-goal-button {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 2;
+  justify-content: center;
+  background-color: transparent;
+  border: 0;
+  outline: none;
+  height: 34px;
+  width: 34px;
+  padding: 0;
+  margin: 0;
+
+  img { 
+    height: 34px;
+    width: 34px;
+    position: relative;
+    display: flex;
+  }
+
+  &.ng-click-active img {
+    content: url('../assets/images/confirm_dk_green.png');
+  }
+
+  &:disabled img {
+    content: url('../assets/images/confirm_dk_green.png');
+  }
+}
+
+.add-goal-page.right,
+.add-goal-page.left {
+  left: 0;
+  transition: left .5s;
+}

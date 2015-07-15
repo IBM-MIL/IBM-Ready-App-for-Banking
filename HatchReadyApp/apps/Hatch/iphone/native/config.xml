@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+#
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+# 
+# http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+#  KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+#
+-->
+<widget>
+	<preference name="AllowInlineMediaPlayback" value="false" />
+    <preference name="AutoHideSplashScreen" value="true" />
+    <preference name="BackupWebStorage" value="local" />
+    <preference name="DisallowOverscroll" value="false" />
+    <preference name="EnableViewportScale" value="false" />
+    <preference name="FadeSplashScreen" value="true" />
+    <preference name="FadeSplashScreenDuration" value=".25" />
+    <preference name="HideKeyboardFormAccessoryBar" value="false" />
+    <preference name="KeyboardDisplayRequiresUserAction" value="true" />
+    <preference name="KeyboardShrinksView" value="false" />
+    <preference name="MediaPlaybackRequiresUserAction" value="false" />
+    <preference name="ShowSplashScreenSpinner" value="false" />
+    <preference name="SuppressesIncrementalRendering" value="false" />
+    <preference name="TopActivityIndicator" value="gray" />
+    <preference name="GapBetweenPages" value="0" />
+    <preference name="PageLength" value="0" />
+    <preference name="PaginationBreakingMode" value="page" />
+    <preference name="PaginationMode" value="unpaginated" />
+    <preference name="EnableLocation" value="false" /><!-- DEPRECATED -->
+    <preference name="UIControls" value='{"TabBarSettings": {"position": "bottom", "height": 49}, "ToolBarSettings": {"style": "Default"}}'/>
+   
+    <feature name="LocalStorage">
+        <param name="ios-package" value="CDVLocalStorage" />
+    </feature>
+    <feature name="Battery">
+        <param name="ios-package" value="CDVBattery" />
+    </feature>
+    <feature name="Camera">
+        <param name="ios-package" value="CDVCamera" />
+    </feature>
+    <feature name="Console">
+        <param name="ios-package" value="CDVLogger" />
+    </feature>
+    <feature name="Contacts">
+        <param name="ios-package" value="CDVContacts" />
+    </feature>
+    <feature name="Device">
+        <param name="ios-package" value="CDVDevice" />
+    </feature>
+    <feature name="Accelerometer">
+        <param name="ios-package" value="CDVAccelerometer" />
+    </feature>
+    <feature name="Compass">
+        <param name="ios-package" value="CDVCompass" />
+    </feature>
+    <feature name="Notification">
+        <param name="ios-package" value="CDVNotification" />
+    </feature>
+    <feature name="File">
+        <param name="ios-package" value="CDVFile" />
+    </feature>
+    <feature name="FileTransfer">
+        <param name="ios-package" value="CDVFileTransfer" />
+    </feature>
+    <feature name="Geolocation">
+        <param name="ios-package" value="CDVLocation" />
+    </feature>
+    <feature name="Globalization">
+        <param name="ios-package" value="CDVGlobalization" />
+    </feature>
+    <feature name="InAppBrowser">
+        <param name="ios-package" value="CDVInAppBrowser" />
+    </feature>
+    <feature name="Media">
+        <param name="ios-package" value="CDVSound" />
+    </feature>
+    <feature name="Capture">
+        <param name="ios-package" value="CDVCapture" />
+    </feature>
+    <feature name="NetworkStatus">
+        <param name="ios-package" value="CDVConnection" />
+    </feature>
+    <feature name="SplashScreen">
+        <param name="ios-package" value="CDVSplashScreen" />
+    </feature>
+    <feature name="StatusBar">
+        <param name="ios-package" value="CDVStatusBar"/>
+    </feature>
+    <feature name="Vibration">
+        <param name="ios-package" value="CDVVibration" />
+    </feature>
+
+    
+    <!--worklight-->
+    <feature name="WLSplashScreen">
+        <param name="ios-package" value="WLSplashPlugin" />
+    </feature>
+    <feature name="LoggerPlugin">
+        <param name="ios-package" value="LoggerPlugin" />
+    </feature>
+    <feature name="DeviceAuth">
+        <param name="ios-package" value="DeviceAuthPlugin" />
+    </feature>
+    <feature name="UserAuth">
+        <param name="ios-package" value="UserAuthPlugin" />
+    </feature>
+    <feature name="WebResourcesDownloader">
+        <param name="ios-package" value="WebResourcesDownloader" />
+    </feature>
+    <feature name="WLDirectUpdatePlugin">
+        <param name="ios-package" value="WLDirectUpdatePlugin" />
+    </feature>
+    <feature name="WLNotification">
+        <param name="ios-package" value="WLNotification" />
+    </feature>
+    <feature name="WLApp">
+        <param name="ios-package" value="WLApp" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="UIControls">
+        <param name="ios-package" value="UIControls" />
+    </feature>
+    <feature name="Push">
+        <param name="ios-package" value="Push" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="NetworkDetector">
+        <param name="ios-package" value="NetworkDetector" />
+    </feature>
+    <feature name="NativePage">
+        <param name="ios-package" value="NativePage" />
+    </feature>
+    <feature name="SecurityPlugin">
+        <param name="ios-package" value="SecurityPlugin" />
+    </feature>
+    <feature name="StoragePlugin">
+        <param name="ios-package" value="StoragePlugin" />
+    </feature>
+    <feature name="FIPSHttpPlugin">
+    	<param name="ios-package" value="FIPSHttpPlugin" />
+    </feature>
+    <feature name="Badge">
+        <param name="ios-package" value="Badge" />
+    </feature>
+    <feature name="NotificationEx">
+        <param name="ios-package" value="NotificationEx" />
+    </feature>
+    <feature name="WifiPlugin">
+        <param name="ios-package" value="WifiPlugin" />
+    </feature>
+    <feature name="CoreLocationGetLocationPlugin">
+        <param name="ios-package" value="CoreLocationGetLocationPlugin" />
+    </feature>
+    <feature name="CoreLocationWatchPlugin">
+        <param name="ios-package" value="CoreLocationWatchPlugin" />
+    </feature>
+    <feature name="SignificantChangeWatchPlugin">
+        <param name="ios-package" value="SignificantChangeWatchPlugin" />
+    </feature>
+    <feature name="SignificantChangeGetLocationPlugin">
+        <param name="ios-package" value="SignificantChangeGetLocationPlugin" />
+    </feature>
+    <feature name="WLNativeXHRPlugin">
+        <param name="ios-package" value="WLNativeXHRPlugin" />
+    </feature>
+    <feature name="WLActionSenderPlugin">
+    	<param name="ios-package" value="WLActionSenderPlugin" />
+    </feature>
+    <feature name="WLTrusteer">
+    	<param name="ios-package" value="WLTrusteerPlugin" />
+    </feature>
+    <access origin="*" />
+</widget>

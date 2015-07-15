@@ -1,0 +1,313 @@
+/*
+Licensed Materials - Property of IBM
+© Copyright IBM Corporation 2015. All Rights Reserved.
+*/
+
+import UIKit
+
+/**
+*  A custom UIViewController used to display a user's account and business information
+*/
+class DashboardViewController: UIViewController {
+    @IBOutlet weak var bottomView: UIView!
+    /// Username UILabel
+    @IBOutlet weak var usernameLabel: UILabel!
+    /// Greetings UILabel
+    @IBOutlet weak var greetingLabel: UILabel!
+    /// Spendings UITableView
+    @IBOutlet weak var spendingsTableView: UITableView!
+    /// Accounts UITableView
+    @IBOutlet weak var accountsTableView: UITableView!
+    /// Custom UIPageControl
+    @IBOutlet weak var hatchPageControl: HatchPageControl!
+    /// Height constraint for the accounts UITableView
+    @IBOutlet weak var accountsTableViewHeightConstraint: NSLayoutConstraint!
+    /// Height constraint for the spendings UITableView
+    @IBOutlet weak var spendingTableViewHeightConstraint: NSLayoutConstraint!
+    /// Available amount for all accounts UILabel
+    @IBOutlet weak var availableAmountLabel: UILabel!
+    /// Total amount for all accounts UILabel
+    @IBOutlet weak var totalAccountAmountLabel: UILabel!
+    /// The current BusinessViewController in the UIPageViewController
+    var businessViewController: BusinessViewController!
+    /// The array of businesses for the user
+    var businesses: [Business]! = []
+    /// The current business being display
+    var business: Business! = Business()
+    /// Value for the account cell hieght in the UITableView. Used to calculate the total height of the DashboardViewController.
+    var accountCellHeight: CGFloat!
+    /// Value for the height of the view without the UITableViews. Used to calculate the total height of the DashboardViewController.
+    var viewHeightWithoutTableViews: CGFloat!
+    /// PageViewController for the businesses
+    var pageBusinessViewController: UIPageViewController!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        MILLoadViewManager.sharedInstance.show()
+        hatchPageControl.useGreenDots()
+        
+        greetingLabel.text = Utils.getRandomGreeting()
+        DashboardDataManager.sharedInstance.getDashboardData(dashboardDataReturned)
+        viewHeightWithoutTableViews = bottomView.bottom - (accountsTableViewHeightConstraint.constant + spendingTableViewHeightConstraint.constant)
+        accountCellHeight = accountsTableViewHeightConstraint.constant
+    }
+    
+    /**
+    Updates the accounts and spendings when a user selects a new business
+    
+    :param: index The index of the array of businesses that the user has moved to
+    */
+    func updateAccounts(index: Int) {
+        business = businesses[index]
+        self.hatchPageControl.setCurrentPageIndex(index)
+        accountsTableView.reloadData()
+        spendingsTableView.reloadData()
+        
+        let totalAccountAmount = Utils.getAccountsTotal(business.accounts)
+        let spendingTotal = Utils.getAccountsTotal(business.spendings)
+        
+        let  availableAmount = totalAccountAmount - spendingTotal
+        
+        Utils.setUpViewKern(self.view)
+        
+        totalAccountAmountLabel.attributedText = Utils.getPriceAttributedString(LocalizationUtils.localizeCurrency(totalAccountAmount), dollarSize: 48, centSize: 28, color: totalAccountAmountLabel.textColor)
+        availableAmountLabel.attributedText = Utils.getPriceAttributedString(LocalizationUtils.localizeCurrency(availableAmount), dollarSize: 38, centSize: 23, color: availableAmountLabel.textColor)
+        
+        
+        var accountsTableHeight = business.accounts.count.toFloat.toCGFloat * accountCellHeight
+        var spendingsTableHeight =  business.spendings.count.toFloat.toCGFloat * accountCellHeight
+        accountsTableViewHeightConstraint.constant = accountsTableHeight
+        spendingTableViewHeightConstraint.constant = spendingsTableHeight
+        
+        let height = viewHeightWithoutTableViews + accountsTableHeight + spendingsTableHeight
+        (parentViewController as! ContainerDashboardViewController).setHeight(height)
+        MILLoadViewManager.sharedInstance.hide()
+    }
+    
+    // MARK: - Navigation
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        if (segue.identifier == "pageSegue") {
+            pageBusinessViewController = segue.destinationViewController as! UIPageViewController
+            pageBusinessViewController.dataSource = self
+            pageBusinessViewController.delegate = self
+            pageBusinessViewController.view.backgroundColor = UIColor.greenHatch()
+            let startingViewController = self.businessViewControllerAtIndex(0)
+            pageBusinessViewController.setViewControllers([startingViewController!], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+            
+        }
+    }
+    
+    // MARK: Dashboard Data
+    
+    /**
+    This is the callback method that is passed to the DashboardDataManager that is triggered on success/failure of the getDashboardData method.
+    
+    :param: success True if data retrieval was successful
+    */
+    func dashboardDataReturned(success: Bool, businesses: [Business]!){
+        
+        if (success){
+            
+            MQALogger.log("dashboardDataReturned success")
+            
+            usernameLabel.text = LoginDataManager.sharedInstance.currentUser.firstName.uppercaseString + "!"
+            
+            self.businesses = businesses
+            business = businesses.first
+            
+            businessViewController.businessNameLabel.text = business.name
+            businessViewController.logoImageView.image = UIImage(named: business.imageName)
+            
+            self.hatchPageControl.numberOfPages = businesses.count
+            
+            let startingViewController = self.businessViewControllerAtIndex(DashboardDataManager.sharedInstance.businessIndex)
+            pageBusinessViewController.setViewControllers([startingViewController!], direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
+            self.updateAccounts(DashboardDataManager.sharedInstance.businessIndex)
+            DashboardDataManager.sharedInstance.businessIndex = 0
+        } else {
+            MQALogger.log("dashboardDataReturned failure")
+        }
+    }
+    
+}
+
+extension DashboardViewController: UITableViewDataSource {
+    /**
+    Delegate method to set the number of rows for the accounts or spending table.
+    
+    :param: tableView
+    :param: section
+    
+    :returns:
+    */
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if tableView.tag == 0 {
+            return business.accounts.count
+        }else{
+            return business.spendings.count
+        }
+    }
+    
+    /**
+    Delegate method to create the cell for the accounts or spending table.
+    
+    :param: tableView <#tableView description#>
+    :param: indexPath <#indexPath description#>
+    
+    :returns: <#return value description#>
+    */
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+<<<<<<< HEAD
+        var cell = tableView.dequeueReusableCellWithIdentifier("accountCell") as! AccountViewCell
+        
+        Utils.setUpViewKern(cell)
+        
+=======
+        var cell = tableView.dequeueReusableCellWithIdentifier("accountCell") as AccountViewCell
+
+>>>>>>> develop
+        var account : Account
+        
+        if tableView.tag == 0 {
+            account = business.accounts[indexPath.row]
+        }else{
+            account = business.spendings[indexPath.row]
+        }
+        
+        cell.nameLabel.text = account.accountName
+        Utils.setUpViewKern(cell)
+        
+        cell.amountLabel.attributedText = Utils.getPriceAttributedString(LocalizationUtils.localizeCurrency(account.balance), dollarSize: 38, centSize: 23, color: UIColor.darkGrayTextHatch())
+        
+        return cell
+    }
+}
+
+extension DashboardViewController: UITableViewDelegate {
+    
+    /**
+    Delegate method to show a account transactions when an account is tapped
+    
+    :param: tableView
+    :param: indexPath
+    */
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        var segueAccount : Account!
+        if tableView.tag == 0 {
+            let  segueAccount = business.accounts[indexPath.row]
+            if segueAccount.hasTransactions {
+                let transactionsViewController = UIStoryboard(name: "Dashboard", bundle: nil).instantiateViewControllerWithIdentifier("TransactionViewController") as! TransactionsViewController
+                transactionsViewController.account = segueAccount
+                self.navigationController?.pushViewController(transactionsViewController, animated: true)
+            } else if segueAccount.accountName.uppercaseString == "GOALS" {
+                goToGoalsFromDashboard()
+            }
+        }else{
+            let segueAccount = business.spendings[indexPath.row]
+            if segueAccount.accountName.uppercaseString == "GOALS" {
+                goToGoalsFromDashboard()
+            }
+        }
+    }
+    
+    /**
+    Goes to goal from dashboard to show back button
+    */
+    func goToGoalsFromDashboard(){        
+        let mainStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        MenuViewController.transition(mainStoryboard)
+        WL.sharedInstance().sendActionToJS("changePage", withData: ["route":""]);
+        let appDelegate = UIApplication.sharedApplication().delegate as AppDelegate
+        appDelegate.hybridViewController.fromGoals = true
+        appDelegate.hybridViewController.isFirstInstance = true
+    }
+}
+
+extension DashboardViewController: UIPageViewControllerDataSource {
+    /**
+    This method must be implemented since DashboardViewController uses UIPageViewControllerDataSource. It will return the viewcontroller to be shown before whichever viewcontroller is currently being shown
+    
+    :param: pageViewController
+    :param: viewController
+    
+    :returns:
+    */
+    func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController?{
+        var index = (viewController as! BusinessViewController).pageIndex as Int
+        
+        if ((index == 0) || (index == NSNotFound)) {
+            return nil
+        }
+        
+        index--
+        return self.businessViewControllerAtIndex(index)
+    }
+    
+    /**
+    This method must be implemented since DashboardViewController uses UIPageViewControllerDataSource. It will return the viewcontroller to be shown after whichever viewcontroller is currently being shown
+    
+    :param: pageViewController
+    :param: viewController
+    
+    :returns:
+    */
+    func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController?{
+        var index = (viewController as! BusinessViewController).pageIndex as Int
+        
+        if ((index == self.businesses.count-1) || (index == NSNotFound)) {
+            return nil
+        }
+        
+        index++
+        return self.businessViewControllerAtIndex(index)
+        
+    }
+    
+    func businessViewControllerAtIndex(index: Int) -> BusinessViewController? {
+        
+        let dashboardStoryboard = UIStoryboard(name: "Dashboard", bundle: nil)
+        
+        businessViewController = dashboardStoryboard.instantiateViewControllerWithIdentifier("BusinessViewController") as! BusinessViewController!
+        
+        if ((self.businesses.count != 0) && (index < self.businesses.count)) {
+            let business = businesses[index]
+            businessViewController.businessName = business.name
+            businessViewController.logoImage = UIImage(named: business.imageName)
+            businessViewController.pageIndex = index
+        }else{
+            businessViewController.pageIndex = 0
+        }
+        
+        return businessViewController
+    }
+}
+
+
+extension DashboardViewController: UIPageViewControllerDelegate {
+    
+    /**
+    This method should update the hatchPageControl's current page (shows correct dot based on page being shown). This also signals when to update the accounts and spendings.
+    
+    :param: pageViewController
+    :param: finished
+    :param: previousViewControllers
+    :param: completed
+    */
+    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [AnyObject], transitionCompleted completed: Bool) {
+        if !completed {
+            return
+        }
+        
+        self.hatchPageControl.setCurrentPageIndex((pageViewController.viewControllers.last as! BusinessViewController).pageIndex)
+        
+        self.updateAccounts((pageViewController.viewControllers.last as! BusinessViewController).pageIndex)
+    }
+    
+}
+
+
+
+
+
+

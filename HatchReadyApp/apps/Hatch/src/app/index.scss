@@ -1,0 +1,54 @@
+/**************************************
+ *
+ *  Licensed Materials - Property of IBM
+ *  © Copyright IBM Corporation 2015. All Rights Reserved.
+ *  This sample program is provided AS IS and may be used, executed, copied and modified without royalty payment by customer
+ *  (a) for its own instruction and study, (b) in order to develop applications designed to run with an IBM product,
+ *  either for customer's own internal use or for redistribution by customer, as part of such an application, in customer's
+ *  own products.
+ *
+ ***************************************/
+ 
+ @import '../libs/_ng-sortable.scss';
+ 
+$small-text: .813rem; //~13px
+$body-text: 1.125rem; //~18px
+$header-text: 1.438rem; //~23px
+$large-text: 1.875rem; //~30px
+$title-text: 2.375rem; //~38px
+html {
+    font-size: 16px;
+}
+body {
+    margin: 0;
+    font-family: 'Tuffy';
+    font-size: $body-text;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+@mixin animation($animate...) {
+    $max: length($animate);
+    $animations: '';
+
+    @for $i from 1 through $max {
+        $animations: #{$animations + nth($animate, $i)};
+
+        @if $i < $max {
+            $animations: #{$animations + ", "};
+        }
+    }
+    animation: $animations;
+}
+
+@mixin keyframes($animation-name) {
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+// injector
+// endinjector

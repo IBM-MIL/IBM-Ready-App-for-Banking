@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ 
+  Licensed Materials - Property of IBM © Copyright IBM Corporation 2015. All
+  Rights Reserved. This sample program is provided AS IS and may be used,
+  executed, copied and modified without royalty payment by customer (a) for its
+  own instruction and study, (b) in order to develop applications designed to
+  run with an IBM product, either for customer's own internal use or for
+  redistribution by customer, as part of such an application, in customer's own
+  products.
+
+-->
+<wl:adapter name="SBBAdapter"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:wl="http://www.ibm.com/mfp/integration"
+	xmlns:http="http://www.ibm.com/mfp/integration/http">
+
+	<displayName>SBBAdapter</displayName>
+	<description>SBBAdapter</description>
+	<connectivity>
+		<connectionPolicy xsi:type="http:HTTPConnectionPolicyType">
+			<protocol>http</protocol>
+			<domain>rss.cnn.com</domain>
+			<port>80</port>	
+			<connectionTimeoutInMilliseconds>30000</connectionTimeoutInMilliseconds>
+			<socketTimeoutInMilliseconds>30000</socketTimeoutInMilliseconds>
+			<maxConcurrentConnectionsPerNode>50</maxConcurrentConnectionsPerNode>
+			<!-- Following properties used by adapter's key manager for choosing specific certificate from key store  
+			<sslCertificateAlias></sslCertificateAlias> 
+			<sslCertificatePassword></sslCertificatePassword>
+			-->		
+		</connectionPolicy>
+	</connectivity>
+
+	<procedure name="test" />
+	<procedure name="getUser" securityTest="ReadyAppHatch-securityTest"/>
+	<procedure name="getAccounts" securityTest="ReadyAppHatch-securityTest"/>
+	<procedure name="getTransactions" securityTest="ReadyAppHatch-securityTest"/>
+	<procedure name="getGoals" securityTest="ReadyAppHatch-securityTest"/>
+	<procedure name="getDashboardData" securityTest="ReadyAppHatch-securityTest"/>
+	<procedure name="getFeasibility" securityTest="ReadyAppHatch-securityTest"/>
+	<procedure name="submitAuthentication" />
+	<procedure name="getTradeoffSolution" securityTest="ReadyAppHatch-securityTest">
+		<displayName>getTradeoffSolution</displayName>
+	</procedure>
+	<procedure name="getOffers" securityTest="ReadyAppHatch-securityTest">
+		<displayName>getOffers</displayName>
+	</procedure>
+</wl:adapter>

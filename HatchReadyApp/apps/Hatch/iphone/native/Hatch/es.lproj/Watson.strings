@@ -1,0 +1,57 @@
+
+/* Class = "UIButton"; normalTitle = "NOT SURE"; ObjectID = "3JM-6q-Qtc"; */
+"3JM-6q-Qtc.normalTitle" = "ES-NOT SURE";
+
+/* Class = "UIButton"; normalTitle = "BOTH"; ObjectID = "5mV-kA-ND9"; */
+"5mV-kA-ND9.normalTitle" = "ES-BOTH";
+
+/* Class = "UIButton"; normalTitle = "YES"; ObjectID = "6zV-0w-H1E"; */
+"6zV-0w-H1E.normalTitle" = "ES-YES";
+
+/* Class = "UIButton"; normalTitle = "LIQUIDITY"; ObjectID = "9yU-gH-Oxf"; */
+"9yU-gH-Oxf.normalTitle" = "ES-LIQUIDITY";
+
+/* Class = "UILabel"; text = "LET'S ANSWER A FEW\nQUESTIONS TO FIND THE RIGHT\nACCOUNT FOR YOU"; ObjectID = "F4q-yY-nQR"; */
+"F4q-yY-nQR.text" = "ES-LET'S ANSWER A FEW\nQUESTIONS TO FIND THE RIGHT\nACCOUNT FOR YOU";
+
+/* Class = "UILabel"; text = "WOULD YOU LIKE TO\nSWITCH TO THIS ACCOUNT?"; ObjectID = "Lc6-fb-nT7"; */
+"Lc6-fb-nT7.text" = "ES-WOULD YOU LIKE TO\nSWITCH TO THIS ACCOUNT?";
+
+/* Class = "UIButton"; normalTitle = "AS OFTEN AS I CAN"; ObjectID = "Q3H-8F-53Y"; */
+"Q3H-8F-53Y.normalTitle" = "ES-AS OFTEN AS I CAN";
+
+/* Class = "UIButton"; normalTitle = "HIGH INTEREST RATE"; ObjectID = "RMF-vI-RVa"; */
+"RMF-vI-RVa.normalTitle" = "ES-HIGH INTEREST RATE";
+
+/* Class = "UILabel"; text = "AWESOME!\nTHE BEST PLAN FOR YOU IS:"; ObjectID = "T6P-p0-r45"; */
+"T6P-p0-r45.text" = "ES-AWESOME!\nTHE BEST PLAN FOR YOU IS:";
+
+/* Class = "UILabel"; text = "DO YOU WANT A PLAN\nTHAT HAS OVERDRAFT\nPROTECTION?"; ObjectID = "Wfc-L1-buu"; */
+"Wfc-L1-buu.text" = "ES-DO YOU WANT A PLAN\nTHAT HAS OVERDRAFT\nPROTECTION?";
+
+/* Class = "UIButton"; normalTitle = "ONCE OR TWICE"; ObjectID = "cju-3u-g55"; */
+"cju-3u-g55.normalTitle" = "ES-ONCE OR TWICE";
+
+/* Class = "UIButton"; normalTitle = "NO"; ObjectID = "dOP-tR-FB6"; */
+"dOP-tR-FB6.normalTitle" = "ES-NO";
+
+/* Class = "UILabel"; text = "ALL OFFERS"; ObjectID = "dPy-NU-a6f"; */
+"dPy-NU-a6f.text" = "ES-ALL OFFERS";
+
+/* Class = "UIButton"; normalTitle = "ALL ACCOUNT OPTIONS"; ObjectID = "deh-ZE-ClS"; */
+"deh-ZE-ClS.normalTitle" = "ES-ALL ACCOUNT OPTIONS";
+
+/* Class = "UILabel"; text = "WE WILL CALL YOU SHORTLY\nTO SET UP YOUR ACCOUNT!"; ObjectID = "g5c-Xf-K0g"; */
+"g5c-Xf-K0g.text" = "ES-WE WILL CALL YOU SHORTLY\nTO SET UP YOUR ACCOUNT!";
+
+/* Class = "UILabel"; text = "HOW OFTEN\nDO YOU ANTICIPATE\nWITHDRAWING FROM THIS\nACCOUNT PER MONTH?"; ObjectID = "gZs-eU-2wi"; */
+"gZs-eU-2wi.text" = "ES-HOW OFTEN\nDO YOU ANTICIPATE\nWITHDRAWING FROM THIS\nACCOUNT PER MONTH?";
+
+/* Class = "UILabel"; text = "WHICH IS MORE\nIMPORTANT TO YOU?"; ObjectID = "jWK-Fc-EZ0"; */
+"jWK-Fc-EZ0.text" = "ES-WHICH IS MORE\nIMPORTANT TO YOU?";
+
+/* Class = "UILabel"; text = "BUSINESS ADVANTAGE\nSAVINGS ACCOUNT"; ObjectID = "kIB-ke-8tc"; */
+"kIB-ke-8tc.text" = "ES-BUSINESS ADVANTAGE\nSAVINGS ACCOUNT";
+
+/* Class = "UILabel"; text = "HEY MEADOW!"; ObjectID = "wIB-bJ-KdX"; */
+"wIB-bJ-KdX.text" = "ES-HEY MEADOW!";

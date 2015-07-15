@@ -1,0 +1,206 @@
+/**************************************
+ *
+ *  Licensed Materials - Property of IBM
+ *  © Copyright IBM Corporation 2015. All Rights Reserved.
+ *  This sample program is provided AS IS and may be used, executed, copied and modified without royalty payment by customer
+ *  (a) for its own instruction and study, (b) in order to develop applications designed to run with an IBM product,
+ *  either for customer's own internal use or for redistribution by customer, as part of such an application, in customer's
+ *  own products.
+ *
+ ***************************************/
+.feasibility-container {
+  position: absolute;
+  text-transform: uppercase;
+  height: 100vh;
+  width: 100vw;
+  font-size: $small-text;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  letter-spacing: 3px;
+  color: $dark-grey;
+
+  .feasibility-title {
+    font-size: $header-text;
+  }
+
+  .feasibility-description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .feasibility-suggestion {
+    padding-top: 5%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .date {
+      font-size: $title-text;
+    }
+  }
+
+  .prompt {
+    font-size: $header-text;
+    padding: 2.5% 0;
+  }
+
+  .feasibility-options {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 7vh;
+    bottom: 0;
+    text-align: center;
+
+    .more-options {
+      width: 100%;
+      height: 100%;
+      color: $white;
+      text-transform: uppercase;
+      font-size: $body-text;
+      font-family: 'Tuffy';
+      letter-spacing: 3px;
+      border: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+  }
+}
+
+.feasibility-options-list {
+  position: absolute;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  list-style-type: none;
+  text-transform: uppercase;
+  font-size: $small-text;
+  letter-spacing: 3px;
+  color: $cool-gray-70;
+
+  .feasibility-options-item {
+    width: 100%;
+
+    .feasibility-options-payment {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 5%;
+    }
+  }
+
+  .light-background {
+    background-color: $white;
+
+    .feasibility-warning:after {
+      position: absolute;
+      content: '';
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid $white;
+      top: 0;
+      left: 48.5%;
+    }
+  }
+
+  .dark-background {
+    background-color: $offer-grey;
+
+    .feasibility-warning:after {
+      position: absolute;
+      content: '';
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-top: 5px solid $offer-grey;
+      top: 0;
+      left: 48.5%;
+    }
+  }
+}
+
+.feasibility-warning {
+  position: relative;
+  background-color: $orange-30;
+  color: $white;
+  text-transform: none;
+  padding: 5%;
+  margin: 0;
+}
+
+.option-number {
+  border: 2px solid $cool-gray-70;
+  border-radius: 50%;
+  width: $title-text;
+  height: $title-text;
+  font-size: $body-text;
+  text-align: center;
+  line-height: $title-text;
+  padding-left: 2px;
+  margin-bottom: $small-text;
+}
+
+.feasibility-container,
+.feasibility-options-list {
+
+  .feasibility-details {
+    padding: 5%;
+    width: 90%;
+
+    .feasibility-details-row {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  .date {
+    font-size: $header-text;
+  }
+
+  .money {
+    font-size: $title-text;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+
+    .money-cents {
+      font-size: $header-text;
+    }
+  }
+
+  .positive-color {
+    color: $green-30;
+  }
+
+  .positive-background-color {
+    background-color: $green-30;
+  }
+
+  .negative-color {
+    color: $orange-30;
+  }
+
+  .negative-background-color {
+    background-color: $orange-30;
+  };
+
+  .faded-text {
+    color: $cool-gray-30;
+  }
+}
+
+.list-container {
+  width: 100%;
+  height: 100%;
+}

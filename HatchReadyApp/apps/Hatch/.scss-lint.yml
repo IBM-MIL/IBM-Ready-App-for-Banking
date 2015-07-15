@@ -1,0 +1,12 @@
+exclude: 'src/libs/_ng-sortable.scss'
+
+linters:
+    EmptyLineBetweenBlocks:
+        enabled: false
+        ignore_single_line_blocks: true
+    PropertySortOrder:
+        enabled: false
+    Indentation:
+        enabled: false
+    Comment:
+        enabled: false

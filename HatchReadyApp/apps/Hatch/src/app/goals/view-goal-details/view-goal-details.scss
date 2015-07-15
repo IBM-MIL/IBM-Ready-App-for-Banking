@@ -1,0 +1,536 @@
+/**************************************
+ *
+ *  Licensed Materials - Property of IBM
+ *  © Copyright IBM Corporation 2015. All Rights Reserved.
+ *  This sample program is provided AS IS and may be used, executed, copied and modified without royalty payment by customer
+ *  (a) for its own instruction and study, (b) in order to develop applications designed to run with an IBM product,
+ *  either for customer's own internal use or for redistribution by customer, as part of such an application, in customer's
+ *  own products.
+ *
+ ***************************************/
+ul {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.hacky-space-container {
+  min-height: 15vh;
+}
+
+.hacky-progress-space-container {
+  height: 40px;
+  padding-bottom: 10px;
+}
+
+.detail-list {
+  -webkit-overflow-scrolling: touch;
+}
+
+.detail-containter {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100%;
+  letter-spacing: .2em;
+  color: $cool-gray-70;
+}
+
+.detail-progress {
+  position: fixed;
+  height: 40px;
+  list-style: none;
+  margin: 0;
+  width: 100%;
+  letter-spacing: .2em;
+  color: $cool-gray-70;
+}
+
+.detail {
+  height: 70px;
+  list-style: none;
+  margin: 0;
+  width: 100%;
+  letter-spacing: .2em;
+  color: $cool-gray-70;
+
+  .detail-title {
+    align-items: center;
+    display: flex;
+    font-size: $small-text;
+    height: 35%;
+    justify-content: center;
+    margin: 0;
+    color: $cool-gray-30;
+  }
+
+  .detail-data {
+    align-items: center;
+    border: 0;
+    display: flex;
+    font-size: $title-text;
+    height: 65%;
+    justify-content: center;
+    margin: 0;
+    list-style: none;
+    letter-spacing: normal;
+  }
+
+  .detail-data-cents {
+    margin: 0;
+    font-size: $header-text;
+    letter-spacing: normal;
+    padding-bottom: .5%;
+  }
+}
+
+.amount-container {
+	height: 90px;
+	margin: 0;
+	padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
+  letter-spacing: .2em;
+  color: $cool-gray-70;
+
+
+	.amount-item {
+		width: 50%;
+		margin: 0;
+		padding: 0;
+    letter-spacing: .2em;
+    color: $cool-gray-70;
+	}
+
+  .amount-title {
+    margin: 0;
+    font-size: $small-text;
+    color: $cool-gray-30;
+    padding-bottom: 5px;
+  }
+
+  .amount-data {
+    margin: 0;
+    font-size: $large-text;
+    letter-spacing: normal;
+  }
+
+  .amount-data-cents {
+    margin: 0;
+    font-size: $body-text;
+    letter-spacing: normal;
+    padding-bottom: 1%;
+  }
+}
+
+.amount-data-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  list-style: none;
+}
+
+.amount-data-container-small {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  list-style: none;
+  max-height: 50px;
+}
+
+.recurr-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  letter-spacing: .2em;
+  color: $cool-gray-70;
+  padding-top: 20px;
+}
+
+.recurr-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  letter-spacing: .2em;
+  color: $cool-gray-70;
+
+  .recurr-title {
+    margin: 0;
+    font-size: $small-text;
+    color: $cool-gray-30;
+    padding-bottom: 5px;
+  }
+
+}
+
+
+.per-container {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  list-style: none;
+  letter-spacing: .2em;
+  color: $cool-gray-70;
+
+
+  .per-item {
+    margin: 0;
+    padding: 0;
+  }
+
+  .per-title {
+    margin: 0;
+    font-size: $small-text;
+    color: $cool-gray-30;
+  }
+
+  .per-data {
+    display: flex;
+    margin: 0;
+    font-size: $large-text;
+    justify-content: flex-end;
+    color: $orange-30;
+    letter-spacing: normal;
+    line-height: 35px;
+  }
+
+  .per-data-cents {
+    display: flex;
+    margin: 0;
+    font-size: $body-text;
+    letter-spacing: normal;
+    padding-bottom: 1%;
+    justify-content: flex-end;
+    color: $orange-30;
+  }
+
+  .per-period {
+    display: flex;
+    margin: 0;
+    font-size: $small-text;
+    padding-left: 8px;
+    padding-bottom: 2px;
+  }
+}
+
+.detail-notes-container {
+  width: 100%;
+  height: 50vh;
+  margin: 0;
+  background-color: $neutral-cool-3;
+  list-style: none;
+  letter-spacing: .2em;
+  color: $cool-gray-70;
+
+  .detail-notes-title {
+    font-size: $small-text;
+    height: 11%;
+    text-align: left;
+    background-color: $white;
+    display: flex;
+    align-items: flex-end;
+    padding-left: 10px;
+    margin-bottom: 0;
+  }
+
+  .detail-notes-field {
+    background-color: $neutral-cool-3;
+    border: 0;
+    font-size: $small-text;
+    height: 85%;
+    margin: 2%;
+    padding: 0;
+    width: 96%;
+  }
+}
+
+.detail-goal-content {
+  top: 0;
+  left: 0;
+  z-index: 100;
+  text-align: center;
+  background-color: $green-30;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+   width: 100%;
+   height: 40px;
+  &.warning {
+    background-color: $yellow-30;
+  }
+  &.unfeasible {
+    background-color: $orange-30;
+  }
+
+  .detail-goal-progress {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: $green-40;
+    z-index: 1000000000000000;
+    font-size: $small-text;
+    color: $white;
+    &.warning {
+      background-color: $yellow-40;
+    }
+    &.unfeasible {
+      background-color: $orange-40;
+    }
+  }
+}
+
+.detail-goal {
+  position: relative;
+  display: flex;
+  flex-grow: 1;
+  overflow-x: hidden;
+  color: $white;
+}
+
+.time-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  letter-spacing: .2em;
+  color: $cool-gray-70;
+}
+
+.time {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  letter-spacing: .2em;
+  color: $cool-gray-70;
+
+  .time-start {
+    display: flex;
+    text-align: left;
+    font-size: $small-text;
+    width: 50%;
+    justify-content: flex-start;
+    padding-left: 10%;
+  }
+
+  .time-start-date {
+    display: flex;
+    text-align: left;
+    width: 50%;
+    justify-content: flex-start;
+    color: $green-30;
+    font-size: $body-text;
+    padding-left: 10%;
+    margin-top: 0;
+    padding-top: 10px;
+
+    &.warning {
+      color: $yellow-30;
+    }
+    &.unfeasible {
+      color: $orange-30;
+    }
+  }
+
+  .time-end {
+    display: flex;
+    text-align: right;
+    font-size: $small-text;
+    width: 50%;
+    justify-content: flex-end;
+    padding-right: 10%;
+  }
+
+  .time-end-date {
+    display: flex;
+    text-align: right;
+    width: 50%;
+    justify-content: flex-end;
+    color: $green-30;
+    font-size: $body-text;
+    padding-right: 10%;
+    margin-top: 0;
+    padding-top: 10px;
+
+    &.warning {
+      color: $yellow-30;
+    }
+    &.unfeasible {
+      color: $orange-30;
+    }
+  }
+}
+
+.time-progress {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+
+  .time-progress-bar {
+    background-color: $cool-gray-30;
+    height: 3px;
+    width: 80%;
+    display: flex;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+  }
+
+  .time-progress-fill {
+    background-color: $green-30;
+    height: 3px;
+    display: flex;
+    justify-content: flex-end;
+    align-content: center;
+    align-items: center;
+    white-space: nowrap;
+
+    &.warning {
+      background-color: $yellow-30;
+    }
+    &.unfeasible {
+      background-color: $orange-30;
+    }
+  }
+}
+
+.alert-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  list-style: none;
+  background-color: $yellow-30;
+  padding: 2% 0;
+
+  &.ng-click-active {
+      background-color: $yellow-40;
+    }
+
+  &.unfeasible {
+    background-color: $orange-30;
+
+    &.ng-click-active {
+      background-color: $orange-40;
+    }
+  }
+}
+
+.progress-alert-container {
+  width: 95%;
+}
+
+.progress-alert {
+  margin: 0;
+  color: $white;
+  font-size: $small-text;
+  letter-spacing: .2em;
+}
+
+.img-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  list-style: none;
+}
+
+.forward-img {
+  //need to uncomment these for browsers other than safari
+        //-moz-transform: scaleX(-1);
+        //-o-transform: scaleX(-1);
+        //-webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        //-ms-filter: "FlipH";
+}
+
+.confirm-button-contianer {
+  position: fixed;
+  bottom: 0;
+  height: 15vh;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $cool-gray-70;
+}
+
+.track-dot {
+  background-color: $green-30;
+  border-radius: 50%;
+  height: 9px;
+  width: 9px;
+  min-width: 9px;
+
+  &.warning {
+    background-color: $yellow-30;
+  }
+  &.unfeasible {
+    background-color: $orange-30;
+  }
+}
+
+.edit-btn {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0 14vw;
+  &.ng-click-active {
+    content: url('../assets/images/edit_dk_yellow.png');
+  }
+}
+
+.delete-btn {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0 14vw;
+  &.ng-click-active {
+    content: url('../assets/images/trash_dk_orange.png');
+  }
+}
+
+@for $i from 1 through 100 {
+      .progress-#{$i} {
+        @include animation('grow-by-#{$i} 1s ease forwards');
+        width: ($i / 100) * 100%;
+
+        @if $i <= 10 {
+          justify-content: flex-start;
+        } @else {
+          justify-content: flex-end;
+        }
+          
+      }
+
+      @include keyframes(grow-by-#{$i}) {
+        0% { width: 0; }
+        100% { width: ($i / 100) * 100%; }
+      }
+      
+  }
+//have to do this otherwise variable scope gets broken
+@for $j from 1 through 100 {
+      .progress-time-#{$j} {
+        @include animation('grow-by-#{$j} 1s ease forwards');
+        width: ($j / 100) * 100%;
+          
+      }
+
+      @include keyframes(grow-by-#{$j}) {
+        0% { width: 0; }
+        100% { width: ($j / 100) * 100%; }
+      }
+      
+  }

@@ -1,0 +1,90 @@
+/*
+ Licensed Materials - Property of IBM
+ © Copyright IBM Corporation 2015. All Rights Reserved.
+ */
+
+
+/* relative time */
+"1 day ago" = "ES-1 day ago";
+
+/* relative time */
+"1 hour ago" = "ES-1 hour ago";
+
+/* relative time */
+"1 minute ago" = "ES-1 minute ago";
+
+/* relative time */
+"\(Int(days)) days ago" = "ES-\(Int(days)) days ago";
+
+/* relative time */
+"\(Int(hours)) hours ago" = "ES-\(Int(hours)) hours ago";
+
+/* relative time */
+"\(Int(minutes)) minutes ago" = "ES-\(Int(minutes)) minutes ago";
+
+/* relative time */
+"\(Int(seconds)) seconds ago" = "ES-\(Int(seconds)) seconds ago";
+
+/* No comment provided by engineer. */
+"ACCOUNTS" = "ES-ACCOUNTS";
+
+/* Touch ID authentication message */
+"Authenticate to login" = "ES-Authenticate to login";
+
+/* No comment provided by engineer. */
+"GOOD AFTERNOON" = "ES-GOOD AFTERNOON";
+
+/* No comment provided by engineer. */
+"GOOD EVENING" = "ES-GOOD EVENING";
+
+/* No comment provided by engineer. */
+"GOOD MORNING" = "ES-GOOD MORNING";
+
+/* No comment provided by engineer. */
+"HAPPY TO SEE YOU" = "ES-HAPPY TO SEE YOU";
+
+/* No comment provided by engineer. */
+"HEY" = "ES-HEY";
+
+/* No comment provided by engineer. */
+"HI THERE" = "ES-HI THERE";
+
+/* No comment provided by engineer. */
+"HOWDY" = "ES-HOWDY";
+
+/* Invalid username or password error message in login */
+"INVALID USERNAME OR PASSWORD" = "ES-INVALID USERNAME OR PASSWORD";
+
+/* relative time */
+"just now" = "ES-just now";
+
+/* No comment provided by engineer. */
+"MORNIN’" = "ES-MORNIN’";
+
+/* No comment provided by engineer. */
+"NOTIFICATIONS" = "ES-NOTIFICATIONS";
+
+/* No comment provided by engineer. */
+"PROFILE PICTURE" = "ES-PROFILE PICTURE";
+
+/* No comment provided by engineer. */
+"RISE AND SHINE" = "ES-RISE AND SHINE";
+
+/* No comment provided by engineer. */
+"TOUCH ID" = "ES-TOUCH ID";
+
+/* No comment provided by engineer. */
+"WHAT'S UP" = "ES-WHAT'S UP";
+
+/* No comment provided by engineer. */
+"YO" = "ES-YO";
+
+/* No comment provided by engineer. */
+"Would you like to use \"Hatch\" in demo mode?" = "ES-Would you like to use \"Hatch\" in demo mode?";
+
+/* No comment provided by engineer. */
+"Yes" = "ES-Yes";
+
+/* No comment provided by engineer. */
+"No" = "ES-No";
+

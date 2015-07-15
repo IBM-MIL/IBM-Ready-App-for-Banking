@@ -1,0 +1,36 @@
+<!--
+  Licensed Materials - Property of IBM
+  © Copyright IBM Corporation 2015. All Rights Reserved.
+  This sample program is provided AS IS and may be used, executed, copied and modified without
+  royalty payment by customer (a) for its own instruction and study, (b) in order to develop
+  applications designed to run with an IBM product, either for customer's own internal use or for
+  redistribution by customer, as part of such an application, in customer's own products.
+-->
+
+<ul class="feasibility-options-list">
+  <li class="feasibility-options-item" ng-repeat="option in feasibility.options" ng-class-odd="'light-background'" ng-class-even="'dark-background'" ng-click="feasibility.swapGoal(option, 'feasibility')">
+    <div class="feasibility-options-payment">
+      <span class="option-number">{{feasibility.getIndex(option, feasibility.options)}}</span>
+      <span class="faded-text" translate="LOWERECURRINGPAYMENT"></span>
+      <div class="money">
+        <span>{{ (option.goal.depositAmount | currency).split(feasibility.formatter.getDecimalSeperator())[0] }}</span>
+        <span class="money-cents">{{ feasibility.formatter.getDecimalSeperator() + (option.goal.depositAmount | currency).split(feasibility.formatter.getDecimalSeperator())[1] }}</span>
+      </div>
+      <span>{{ ((option.goal.depositFrequency === 'month') ? 'MONTHLY' : 'WEEKLY') | translate }}</span>
+    </div>
+    <div class="feasibility-details">
+      <div class="feasibility-details-row">
+        <span translate="START"></span>
+        <span translate="END"></span>
+      </div>
+      <hr>
+      <div class="feasibility-details-row">
+        <span class="date {{ (option.goal.feasibility === 'feasible') ? 'positive-color' : 'negative-color' }}">{{option.goal.start | date:'shortDate' }}</span>
+        <span class="date {{ (option.goal.feasibility === 'feasible') ? 'positive-color' : 'negative-color' }}">{{option.goal.end | date:'shortDate' }}</span>
+      </div>
+    </div>
+    <div ng-if="option.changedGoals !== undefined" class="feasibility-warning" >
+      <p ng-repeat="changed in option.changedGoals">Option {{feasibility.getIndex(option, feasibility.options)}} will move the end date of {{changed.title}} to {{ changed.end | date : 'shortDate'}} with a recurring payment of {{changed.depositAmount | currency}} / {{((changed.depositFrequency).toUpperCase() | translate).toLowerCase()}}</p>
+    </div>
+  </li>
+</ul>

@@ -1,0 +1,104 @@
+<!--
+  Licensed Materials - Property of IBM
+  © Copyright IBM Corporation 2015. All Rights Reserved.
+  This sample program is provided AS IS and may be used, executed, copied and modified without
+  royalty payment by customer (a) for its own instruction and study, (b) in order to develop
+  applications designed to run with an IBM product, either for customer's own internal use or for
+  redistribution by customer, as part of such an application, in customer's own products.
+-->
+
+<div class="detail-progress">
+	<div class="detail-goal-content {{detailGoals.goals.goalToView.feasibility}}">
+		<div class="detail-goal-progress {{detailGoals.goals.goalToView.feasibility}} progress-{{detailGoals.goals.goalToView.progress}}">
+			<p count-to="{{detailGoals.goals.goalToView.progress}}" value="{{0}}" duration="1" style="min-width: 25px; padding-left: 4px;"></p>
+			<p style="padding-right:2%; min-width: 13px;">%</p>
+		</div>
+	</div>
+</div>
+<div class="detail-container">
+	<div class="hacky-progress-space-container"></div>
+	<ul data-ng-model="detailGoals.goals.goalToView" class="detail-list">
+		<li class="detail">
+			<p class="detail-title" translate="TOTAL"></p>
+			<div class="amount-data-container-small">
+				<p class="detail-data">{{ (detailGoals.goals.goalToView.goalAmount | currency).split(detailGoals.formatter.getDecimalSeperator())[0] }}</p>
+				<p class="detail-data-cents">.{{ (detailGoals.goals.goalToView.goalAmount | currency).split(detailGoals.formatter.getDecimalSeperator())[1] }}</p>
+			</div>
+		</li>
+		<div>
+			<ul class="alert-container {{detailGoals.goals.goalToView.feasibility}}" ng-show="detailGoals.goals.goalToView.feasibility === 'warning' || detailGoals.goals.goalToView.feasibility ==='unfeasible'" ng-click="detailGoals.toOptions()">
+				<li class="progress-alert-container">
+					<p class="progress-alert" translate="ALRT1"></p>
+					<p class="progress-alert" translate="ALRT2"></p>
+				</li>
+				<li class="img-container">
+					<img src="assets/images/back_white.png" class="forward-img" width="45" height="45"></img>
+				</li>
+			</ul>
+		</div>
+		<div>
+			<ul class="amount-container">
+				<li class="amount-item">
+					<p class="amount-title" translate="AMOUNTPAID"></p>
+					<div class="amount-data-container">
+						<p class="amount-data">{{ (detailGoals.goals.goalToView.saved | currency).split(detailGoals.formatter.getDecimalSeperator())[0] }}</p>
+						<p class="amount-data-cents">{{ detailGoals.formatter.getDecimalSeperator() + (detailGoals.goals.goalToView.saved | currency).split(detailGoals.formatter.getDecimalSeperator())[1] }}</p>
+					</div>
+				</li>
+				<li class="amount-item">
+					<p class="amount-title" translate="AMOUNTLEFT"></p>
+					<div class="amount-data-container">
+						<p class="amount-data">{{ (detailGoals.goals.goalToView.goalAmount - detailGoals.goals.goalToView.saved | currency).split(detailGoals.formatter.getDecimalSeperator())[0] }}</p>
+						<p class="amount-data-cents">{{ detailGoals.formatter.getDecimalSeperator() + (detailGoals.goals.goalToView.goalAmount - detailGoals.goals.goalToView.saved | currency).split(detailGoals.formatter.getDecimalSeperator())[1] }}</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div>
+			<ul class="time-container">
+				<li class="time">
+					<p class="time-start" translate="START"></p>
+					<p class="time-end" translate="END"></p>
+				</li>
+				<li class="time-progress">
+					<div class="time-progress-bar">
+						<div class="time-progress-fill {{detailGoals.goals.goalToView.feasibility}} progress-time-{{detailGoals.calc.calcTimePercentComplete(detailGoals.goals.goalToView.start, detailGoals.goals.goalToView.end)}}">
+							<div class="track-dot {{detailGoals.goals.goalToView.feasibility}}"></div>
+						</div>
+					</div>
+				</li>
+				<li class="time">
+					<p class="time-start-date {{detailGoals.goals.goalToView.feasibility}}">{{detailGoals.goals.goalToView.start | date:'shortDate' }}</p>
+					<p class="time-end-date {{detailGoals.goals.goalToView.feasibility}}">{{detailGoals.goals.goalToView.end | date:'shortDate' }}</p>
+				</li>
+			</ul>
+		</div>
+		<div>
+			<ul class="recurr-container">
+				<li class="recurr-item">
+					<p class="recurr-title" translate="RECURRINGPAYMENT"></p>
+					<ul class="per-container">
+						<li class="per-item">
+							<div class="amount-data-container">
+								<p class="per-data">{{ (detailGoals.goals.goalToView.depositAmount | currency).split(detailGoals.formatter.getDecimalSeperator())[0] }}</p>
+								<p class="per-data-cents">{{ detailGoals.formatter.getDecimalSeperator() + (detailGoals.goals.goalToView.depositAmount | currency).split(detailGoals.formatter.getDecimalSeperator())[1] }}</p>
+							</div>
+						</li>
+						<li class="per-item">
+							<p class="per-period">/ {{ detailGoals.goals.goalToView.depositFrequency.toUpperCase() | translate }}</p>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+		<li class="detail-notes-container">
+			<p class="detail-notes-title" translate="NOTES"></p>
+			<textarea readonly="true" id='notesField' class="detail-notes-field">{{detailGoals.goals.goalToView.notes}}</textarea>
+		</li>
+	</ul>
+	<div class="hacky-space-container"></div>
+</div>
+<div class="confirm-button-contianer">
+	<img class="edit-btn" src="assets/images/edit_yellow.png" width="34" height="34" ng-click="detailGoals.navigation.toEdit(detailGoals.goals.goalToView)"/>
+	<img class="delete-btn" src="assets/images/trash_orange.png" width="34" height="34" ng-click="detailGoals.goals.deleteGoal(detailGoals.goals.goalToView); detailGoals.navigation.exitPage()" />
+</div>

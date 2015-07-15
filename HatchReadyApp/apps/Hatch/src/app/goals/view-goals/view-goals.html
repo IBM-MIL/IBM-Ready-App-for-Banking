@@ -1,0 +1,49 @@
+<!--
+  Licensed Materials - Property of IBM
+  © Copyright IBM Corporation 2015. All Rights Reserved.
+  This sample program is provided AS IS and may be used, executed, copied and modified without
+  royalty payment by customer (a) for its own instruction and study, (b) in order to develop
+  applications designed to run with an IBM product, either for customer's own internal use or for
+  redistribution by customer, as part of such an application, in customer's own products.
+-->
+
+<div id="goal-container" class="goal-container">
+    <ul data-as-sortable="viewGoals.dragControlListeners" data-ng-model="viewGoals.goals.allGoals" class="goal-list">
+        <li data-ng-repeat="goal in viewGoals.goals.allGoals" data-as-sortable-item class="goal">
+            <div class="goal-content {{goal.feasibility}}" ng-class="{'slide-left': goal.showEdit, 'slide-right': goal.showDelete}" ng-swipe-right="goal.showEdit=true; goal.showGoal=false;" ng-swipe-left="goal.showDelete=true; goal.showGoal=false;" ng-click="viewGoals.navigation.toView(goal)">
+                <div class="goal-progress {{goal.feasibility}} progress-{{goal.progress}}"></div>
+                <div>
+                <span class="handle" data-as-sortable-item-handle>
+                    <img src="assets/images/handle-icon.png" width="3" height="17" />
+                </span>
+                    <p class="goal-name">
+                        {{ goal.title }}
+                    </p>
+                    <p class="goal-amount">
+                        {{ goal.progress }}%
+                    </p>
+                </div>
+            </div>
+            <div class="goal-delete goal-action" ng-show="goal.showDelete" ng-swipe-right="goal.showDelete=false; goal.showGoal=true;">
+                <div>
+                    <img class="delete-icon" src="assets/images/trash_white.png" width="34" height="34" ng-click="viewGoals.goals.deleteGoal(goal)"/>
+                </div>
+            </div>
+            <div class="goal-edit goal-action" ng-show="goal.showEdit" ng-swipe-left="goal.showEdit=false; goal.showGoal=true;">
+                <div>
+                    <img class="delete-icon" src="assets/images/edit_white.png" width="34" height="34" ng-click="viewGoals.navigation.toEdit(goal)" />
+                </div>
+            </div>
+        </li>
+        <li ng-show="viewGoals.goals.allGoals.length === 0">
+            <p translate="NO_GOALS" translate-compile></p>
+        </li>
+    </ul>
+    
+</div>
+<div class="view-goals-button-contianer">
+<button class="btn add-btn" ng-hide="viewGoals.dragging" ng-click="viewGoals.navigation.toAddGoal()">
+</button>
+ <button class="btn cancel-btn" ng-show="viewGoals.dragging" ng-click="viewGoals.cancelPriorities()"></button>
+ <button class="btn submit-btn" ng-show="viewGoals.dragging" ng-click="viewGoals.submitPriorities()"></button>
+</div>

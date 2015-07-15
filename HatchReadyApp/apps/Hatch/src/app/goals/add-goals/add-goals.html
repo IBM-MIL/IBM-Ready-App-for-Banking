@@ -1,0 +1,20 @@
+<!--
+  Licensed Materials - Property of IBM
+  © Copyright IBM Corporation 2015. All Rights Reserved.
+  This sample program is provided AS IS and may be used, executed, copied and modified without
+  royalty payment by customer (a) for its own instruction and study, (b) in order to develop
+  applications designed to run with an IBM product, either for customer's own internal use or for
+  redistribution by customer, as part of such an application, in customer's own products.
+-->
+
+<div class="add-goal-container" ng-if="!addGoals.goalSubmitted">
+  <div ng-repeat="page in addGoals.pageLayout" ng-form="inputForm">
+    <div ng-show="page.showPage" class="add-goal-page" ng-class="{'left': page.swipeLeft, 'right': !page.swipeLeft}" ng-swipe-left="addGoals.nextPage(page, inputForm)" ng-swipe-right="addGoals.lastPage(page)">
+      <add-goals-directive page="page" empty-goal="addGoals.formItems" goal-key="addGoals.emptyGoal[addGoals.getIndex(page)]" get-index="addGoals.getIndex(page)"></add-goals-directive>
+      <nav-dots-directive items="addGoals.pageLayout" current-item="page"></nav-dots-directive>
+      <button class="add-goal-button" ng-disabled="inputForm.$invalid" ng-click="addGoals.submitButton(page, inputForm)">
+      	<img src="assets/images/confirm_white.png">
+      </button>
+    </div>
+  </div>
+</div>

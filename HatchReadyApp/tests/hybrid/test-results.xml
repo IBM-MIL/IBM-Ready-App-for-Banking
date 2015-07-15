@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<testsuites>
+  <testsuite name="PhantomJS 1.9.8 (Mac OS X)" package="" timestamp="2015-03-24T22:12:57" id="0" hostname="stephanies-mbp.austin.ibm.com" tests="10" errors="0" failures="0" time="0.056">
+    <properties>
+      <property name="browser.fullName" value="Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.8 Safari/534.34"/>
+    </properties>
+    <testcase name="should say &quot;New Goal&quot; when in English" time="0.026" classname="PhantomJS 1.9.8 (Mac OS X).add-goals-directive"/>
+    <testcase name="should say &quot;What are you saving for?&quot; when in English" time="0.002" classname="PhantomJS 1.9.8 (Mac OS X).add-goals-directive"/>
+    <testcase name="should have elements with class name &quot;nav-dot&quot;" time="0.006" classname="PhantomJS 1.9.8 (Mac OS X).nav-dots-directive"/>
+    <testcase name="should have 3 elements" time="0.002" classname="PhantomJS 1.9.8 (Mac OS X).nav-dots-directive"/>
+    <testcase name="should have 5 elements" time="0.009" classname="PhantomJS 1.9.8 (Mac OS X).nav-dots-directive"/>
+    <testcase name="should only have 1 element with the class name &quot;current&quot;" time="0.002" classname="PhantomJS 1.9.8 (Mac OS X).nav-dots-directive"/>
+    <testcase name="should not hide if &lt;3 goals" time="0.003" classname="PhantomJS 1.9.8 (Mac OS X).view-goals-controller $rootScope_checkShouldHide"/>
+    <testcase name="should not hide if &gt;3 goals" time="0.002" classname="PhantomJS 1.9.8 (Mac OS X).view-goals-controller $rootScope_checkShouldHide"/>
+    <testcase name="should add a goal" time="0.002" classname="PhantomJS 1.9.8 (Mac OS X).view-goals-controller $rootScope_addGoal"/>
+    <testcase name="should delete a goal and update priorities" time="0.002" classname="PhantomJS 1.9.8 (Mac OS X).view-goals-controller $rootScope_deleteGoal"/>
+    <system-out><![CDATA[PhantomJS 1.9.8 (Mac OS X) LOG: <nav-dots-directive items="['one', 'two', 'three']" current-item="'one'" class="ng-scope ng-isolate-scope"><!-- ngRepeat: item in totalItems --><span ng-repeat="item in totalItems" class="nav-dot ng-scope current" ng-class="{'current': item === current}"></span><!-- end ngRepeat: item in totalItems --><span ng-repeat="item in totalItems" class="nav-dot ng-scope" ng-class="{'current': item === current}"></span><!-- end ngRepeat: item in totalItems --><span ng-repeat="item in totalItems" class="nav-dot ng-scope" ng-class="{'current': item === current}"></span><!-- end ngRepeat: item in totalItems --> </nav-dots-directive>
+
+]]></system-out>
+    <system-err/>
+  </testsuite>
+</testsuites>

@@ -1,0 +1,44 @@
+<!--
+  Licensed Materials - Property of IBM
+  © Copyright IBM Corporation 2015. All Rights Reserved.
+  This sample program is provided AS IS and may be used, executed, copied and modified without
+  royalty payment by customer (a) for its own instruction and study, (b) in order to develop
+  applications designed to run with an IBM product, either for customer's own internal use or for
+  redistribution by customer, as part of such an application, in customer's own products.
+-->
+
+<div id="offer-container" class="offer-container">
+    <ul data-ng-model="offers.offers.allOffers" class="offer-list">
+        <li data-ng-repeat="offer in offers.offers.allOffers" class="offer" ng-class="{'expanded': offer.expanded}" ng-click="offer.expanded = !offer.expanded">
+            <p class="offer-name">{{offer.name}}</p>
+            <span class="offer-details">
+          <div class="apy">
+            <p class="apy-rate"> {{offer.displayApy}}</p>
+            <p class="apy-label" translate="APY" translate-compile></p>
+          </div>
+          <div class="fee">
+            <p class="fee-label" translate="FEE" translate-compile></p>
+            <p class="fee-rate"> {{offer.fee}}</p>
+          </div>
+          <ul data-ng-model="offer.features" class="feature-list">
+               <li class="feature" data-ng-repeat="feature in offer.features">
+                    <p>{{feature.name}}</p>
+                    <img src="assets/images/confirm_green.png" height="17" width="17" />
+               </li>
+           </ul>
+       </span>
+            <button class="btn accept-btn" ng-click="offers.toggleFlyover();$event.stopPropagation()">
+            Select This Offer
+            </button>
+        </li>
+    </ul>
+    <div class="phone-bar">
+        <img src="assets/images/phone_green.png" height="34" width="34" />
+    </div>
+    <div class="call-container" ng-class="{'slide-up': offers.showFlyover}">
+        <div class="call-content">
+            <p class="call-text" translate="CALL_YOU_TEXT" translate-compile></p>
+            <button class="confirm-btn" ng-click="offers.toggleFlyover()"></button>
+        </div>
+    </div>
+</div>
