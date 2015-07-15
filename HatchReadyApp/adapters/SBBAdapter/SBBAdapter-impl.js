@@ -199,7 +199,6 @@ function getFeasibility(userId, businessId, newGoal, existingGoals) {
 	userId = !userId ? null : userId;
 	businessId = !businessId ? null : businessId;
 	newGoal = !newGoal ? null : JSON.stringify(newGoal);
-	
 	existingGoals = !existingGoals ? null : JSON.stringify(existingGoals);
 
 	var locale = getUserLocale().toString();

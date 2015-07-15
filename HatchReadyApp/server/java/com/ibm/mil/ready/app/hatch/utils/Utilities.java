@@ -123,13 +123,6 @@ public class Utilities {
 	public <T> T parseObject(String json, Class<T> newClass) {
 		T newObj  = null; 
 		try {
-			//Testing only, don't uncomment!
-//			if (json.startsWith("\"")) {
-//				json = json.substring(1, json.length());
-//			}
-//			if (json.endsWith("\"")) {
-//				json = json.substring(0,json.length()-1);
-//			}
 			newObj = parser.fromJson(json, newClass);
 		} catch(Exception ex) {
 			SBBAdapter.LOGGER.info(ex.getLocalizedMessage());

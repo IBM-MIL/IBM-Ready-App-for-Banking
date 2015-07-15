@@ -1,4 +1,4 @@
-exclude: 'src/libs/_ng-sortable.scss'
+exclude: 'src/app/_ng-sortable.scss'
 
 linters:
     EmptyLineBetweenBlocks:
@@ -7,6 +7,4 @@ linters:
     PropertySortOrder:
         enabled: false
     Indentation:
-        enabled: false
-    Comment:
         enabled: false
