@@ -4,6 +4,7 @@
   "dependencies": {},
   "devDependencies": {
     "eslint": "^0.17.1",
+    "karma": "~0.12.37",
     "eslint-plugin-angular": "0.0.6",
     "karma-chrome-launcher": "^0.1.7",
     "karma-jasmine": "~0.3.1",
