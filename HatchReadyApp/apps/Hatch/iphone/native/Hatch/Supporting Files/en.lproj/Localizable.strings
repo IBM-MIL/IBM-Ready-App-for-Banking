@@ -1,0 +1,90 @@
+/*
+ Licensed Materials - Property of IBM
+ © Copyright IBM Corporation 2015. All Rights Reserved.
+ */
+
+/* relative time */
+"1 day ago" = "1 day ago";
+
+/* relative time */
+"1 hour ago" = "1 hour ago";
+
+/* relative time */
+"1 minute ago" = "1 minute ago";
+
+/* relative time */
+"\(Int(days)) days ago" = "\(Int(days)) days ago";
+
+/* relative time */
+"\(Int(hours)) hours ago" = "\(Int(hours)) hours ago";
+
+/* relative time */
+"\(Int(minutes)) minutes ago" = "\(Int(minutes)) minutes ago";
+
+/* relative time */
+"\(Int(seconds)) seconds ago" = "\(Int(seconds)) seconds ago";
+
+/* No comment provided by engineer. */
+"ACCOUNTS" = "ACCOUNTS";
+
+/* Touch ID authentication message */
+"Authenticate to login" = "Authenticate to login";
+
+/* No comment provided by engineer. */
+"GOOD AFTERNOON" = "GOOD AFTERNOON";
+
+/* No comment provided by engineer. */
+"GOOD EVENING" = "GOOD EVENING";
+
+/* No comment provided by engineer. */
+"GOOD MORNING" = "GOOD MORNING";
+
+/* No comment provided by engineer. */
+"HAPPY TO SEE YOU" = "HAPPY TO SEE YOU";
+
+/* No comment provided by engineer. */
+"HEY" = "HEY";
+
+/* No comment provided by engineer. */
+"HI THERE" = "HI THERE";
+
+/* No comment provided by engineer. */
+"HOWDY" = "HOWDY";
+
+/* Invalid username or password error message in login */
+"INVALID USERNAME OR PASSWORD" = "INVALID USERNAME OR PASSWORD";
+
+/* relative time */
+"just now" = "just now";
+
+/* No comment provided by engineer. */
+"MORNIN’" = "MORNIN’";
+
+/* No comment provided by engineer. */
+"NOTIFICATIONS" = "NOTIFICATIONS";
+
+/* No comment provided by engineer. */
+"PROFILE PICTURE" = "PROFILE PICTURE";
+
+/* No comment provided by engineer. */
+"RISE AND SHINE" = "RISE AND SHINE";
+
+/* No comment provided by engineer. */
+"TOUCH ID" = "TOUCH ID";
+
+/* No comment provided by engineer. */
+"WHAT'S UP" = "WHAT'S UP";
+
+/* No comment provided by engineer. */
+"YO" = "YO";
+
+/* No comment provided by engineer. */
+"Would you like to use \"Hatch\" in demo mode?" = "Would you like to use \"Hatch\" in demo mode?";
+
+/* No comment provided by engineer. */
+"Yes" = "Yes";
+
+/* No comment provided by engineer. */
+"No" = "No";
+
+

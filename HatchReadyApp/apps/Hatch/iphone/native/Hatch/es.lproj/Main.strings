@@ -1,0 +1,48 @@
+
+/* Class = "UIButton"; normalTitle = "SETTINGS"; ObjectID = "3kx-35-gRg"; */
+"3kx-35-gRg.normalTitle" = "ES-SETTINGS";
+
+/* Class = "UITextField"; placeholder = "USERNAME"; ObjectID = "77y-8i-5fT"; */
+"77y-8i-5fT.placeholder" = "ES-USERNAME";
+
+/* Class = "UIButton"; normalTitle = "LOG OUT"; ObjectID = "9ew-aQ-DUB"; */
+"9ew-aQ-DUB.normalTitle" = "ES-LOG OUT";
+
+/* Class = "UIButton"; normalTitle = "FORGOT PASSWORD?"; ObjectID = "PZM-wm-PSw"; */
+"PZM-wm-PSw.normalTitle" = "ES-FORGOT PASSWORD?";
+
+/* Class = "UIButton"; normalTitle = "GOALS"; ObjectID = "ReR-wl-gSm"; */
+"ReR-wl-gSm.normalTitle" = "ES-GOALS";
+
+/* Class = "UILabel"; text = "GOALS"; ObjectID = "WyC-wR-ZZV"; */
+"WyC-wR-ZZV.text" = "ES-GOALS";
+
+/* Class = "UIButton"; normalTitle = "NOTIFICATION CENTER"; ObjectID = "ZOS-t6-8aG"; */
+"ZOS-t6-8aG.normalTitle" = "ES-NOTIFICATION CENTER";
+
+/* Class = "UIButton"; normalTitle = "PAY BILLS"; ObjectID = "aJE-ev-McY"; */
+"aJE-ev-McY.normalTitle" = "ES-PAY BILLS";
+
+/* Class = "UIButton"; highlightedTitle = "ACCOUNTS"; ObjectID = "btd-5t-6QS"; */
+"btd-5t-6QS.highlightedTitle" = "ES-ACCOUNTS";
+
+/* Class = "UIButton"; normalTitle = "ACCOUNTS"; ObjectID = "btd-5t-6QS"; */
+"btd-5t-6QS.normalTitle" = "ES-ACCOUNTS";
+
+/* Class = "UITextField"; placeholder = "PASSWORD"; ObjectID = "lEb-k1-asg"; */
+"lEb-k1-asg.placeholder" = "ES-PASSWORD";
+
+/* Class = "UIButton"; normalTitle = "CALL SUPPORT"; ObjectID = "ppx-Q5-1Pf"; */
+"ppx-Q5-1Pf.normalTitle" = "ES-CALL SUPPORT";
+
+/* Class = "UIButton"; normalTitle = "DEPOSIT CHECKS"; ObjectID = "sAN-kS-yLi"; */
+"sAN-kS-yLi.normalTitle" = "ES-DEPOSIT CHECKS";
+
+/* Class = "UILabel"; text = "INVALID PASSWORD. TRY AGAIN."; ObjectID = "ulK-U1-m2E"; */
+"ulK-U1-m2E.text" = "ES-INVALID PASSWORD. TRY AGAIN.";
+
+/* Class = "UIButton"; normalTitle = "INVOICES"; ObjectID = "xxL-3P-WRO"; */
+"xxL-3P-WRO.normalTitle" = "ES-INVOICES";
+
+/* Class = "UIButton"; normalTitle = "NEW ACCOUNT"; ObjectID = "zhB-6H-mIK"; */
+"zhB-6H-mIK.normalTitle" = "ES-NEW ACCOUNT";

@@ -1,0 +1,165 @@
+/*
+Licensed Materials - Property of IBM
+© Copyright IBM Corporation 2015. All Rights Reserved.
+*/
+
+import UIKit
+
+/**
+*  The NativeViewController allows the app to achieve native transitions between the different hybrid screens that are rendered in HybridViewController.
+*/
+class NativeViewController: UIViewController {
+    /// outlet for the back button
+    @IBOutlet weak var backArrow: UIButton!
+    /// outlet for the menu button
+    @IBOutlet weak var menuButton: UIButton!
+    /// outlet for the header title
+    @IBOutlet weak var titleLabel: UILabel!
+    /// Temporarily shown when the view controller is transitioning to block the flickering from the hybrid components
+    var imageView : UIImageView!
+    /// determines whether or not the back button should be shown given the current hybrid view
+    var showBackButton = false
+    ///  the header title that should be shown for the current hybrid view
+    var headerTitle: String?
+    /// Reference to the AppDelegate to allow access to the HybridViewController that was instantiated at start up. This prevent us from re-creating a HybridViewController for each transition.
+    var appDelegate: AppDelegate!
+    ///  A hexadecimal string representation of the header color background
+    var headerColor: String?
+    /// Lets the view controller know if the view disappearing is from the back button being tapped
+    var backButtonTapped = false
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        
+        if self.headerTitle != nil {
+            self.titleLabel.text = headerTitle
+            self.titleLabel.setKernAttribute(ConfigManager.sharedInstance.KernValue)
+            
+            if headerColor != nil {
+                MQALogger.log("header color \(headerColor)")
+                self.view.backgroundColor = UIColor(hex: headerColor!)
+                var navColor = NavColor.Green
+                if headerColor?.lowercaseString == "#ffffff" {
+                    navColor = NavColor.White
+                } else if headerColor?.lowercaseString == "#ff7832" {
+                    navColor = NavColor.Red
+                }
+                self.setNavColors(navColor)
+            }
+            
+            self.backArrow.hidden = !showBackButton
+        } else if appDelegate.hybridViewController.fromDash && appDelegate.hybridViewController.fromGoals {
+            self.backArrow.hidden = true
+            appDelegate.hybridViewController.fromDash = false
+        }
+        
+        self.titleLabel.setKernAttribute(ConfigManager.sharedInstance.KernValue)
+        menuButton.addTarget(self.navigationController, action: "menuButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
+        backArrow.addTarget(self.navigationController, action: "backButtonTapped:", forControlEvents: UIControlEvents.TouchUpInside)
+        backArrow.addTarget(self, action: "updateImage", forControlEvents: UIControlEvents.TouchDown)
+    }
+    
+    /**
+    Takes a screenshot of the current state of the hybrid view when the back button is tapped. This is used to make the transitions smoother
+    */
+    func updateImage(){
+        backButtonTapped = true
+        self.imageView = UIImageView(frame: appDelegate.hybridViewController.view.frame)
+        self.imageView.image = Utils.imageWithView(appDelegate.hybridViewController.view)
+        self.view.addSubview(self.imageView)
+    }
+    
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if self.imageView != nil {
+            self.imageView.removeFromSuperview()
+            self.imageView = nil
+        }
+        
+        MQALogger.log("NativeViewController#viewWillAppear(Bool) invoked!")
+        self.setUpContainer()
+        
+        if appDelegate.hybridViewController.isFirstInstance {
+            if appDelegate.hybridViewController.fromGoals {
+                GoalsDataManager.sharedInstance.fetchGoalsData()
+                appDelegate.hybridViewController.fromGoals = false
+            }else{
+                OffersDataManager.sharedInstance.retryCall()
+            }
+        }
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        if !backButtonTapped {
+            self.imageView = UIImageView(frame: appDelegate.hybridViewController.view.frame)
+            self.imageView.image = appDelegate.hybridViewController.image
+            self.view.addSubview(self.imageView)
+        }
+        super.viewWillDisappear(animated)
+    }
+    
+    /**
+    This method sets up the container to hold the HybridViewController within the NativeViewController.
+    */
+    func setUpContainer(){
+        self.addChildViewController(appDelegate.hybridViewController)
+        appDelegate.hybridViewController.view.frame = CGRectMake(self.view.frame.origin.x, 120, self.view.frame.size.width, self.view.frame.size.height - 120)
+        
+        self.view.addSubview(appDelegate.hybridViewController.view)
+        
+        appDelegate.hybridViewController.didMoveToParentViewController(self)
+    }
+    
+    private enum NavColor {
+        case Green
+        case White
+        case Red
+    }
+    
+    private func setNavColors(navColor: NavColor) {
+        var backArrowNormal: String
+        var backArrowHighlighted: String
+        var menuButtonNormal: String
+        var menuButtonHighlighted: String
+        var titleColor: UIColor
+        
+        switch navColor {
+        case .Green:
+            backArrowNormal = "back_white"
+            backArrowHighlighted = "back_green"
+            menuButtonNormal = "menu_white"
+            menuButtonHighlighted = "menu_green"
+            titleColor = UIColor.whiteColor()
+        case .White:
+            backArrowNormal = "back_grey"
+            backArrowHighlighted = "back_white"
+            menuButtonNormal = "menu_grey"
+            menuButtonHighlighted = "menu_white"
+            titleColor = UIColor.lightGrayTextHatch()
+        case .Red:
+            backArrowNormal = "back_white"
+            backArrowHighlighted = "back_grey"
+            menuButtonNormal = "menu_white"
+            menuButtonHighlighted = "menu_grey"
+            titleColor = UIColor.whiteColor()
+        }
+        
+        self.backArrow.setImage(UIImage(named: backArrowNormal), forState: UIControlState.Normal)
+        self.backArrow.setImage(UIImage(named: backArrowHighlighted), forState: UIControlState.Highlighted)
+        
+        self.menuButton.setImage(UIImage(named: menuButtonNormal), forState: UIControlState.Normal)
+        self.menuButton.setImage(UIImage(named: menuButtonHighlighted), forState: UIControlState.Highlighted)
+        
+        self.titleLabel.textColor = titleColor
+    }
+    
+}
+
+extension NativeViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+}

@@ -1,0 +1,138 @@
+/**************************************
+ *
+ *  Licensed Materials - Property of IBM
+ *  © Copyright IBM Corporation 2015. All Rights Reserved.
+ *  This sample program is provided AS IS and may be used, executed, copied and modified without royalty payment by customer
+ *  (a) for its own instruction and study, (b) in order to develop applications designed to run with an IBM product,
+ *  either for customer's own internal use or for redistribution by customer, as part of such an application, in customer's
+ *  own products.
+ *
+ ***************************************/
+$slide-transition-time: .5s;
+.offer-container {
+	height: 100vh;
+	width: 100vw;
+}
+// scss-lint:disable VendorPrefixes
+.offer-list {
+		list-style: none;
+		text-align: center;
+		overflow: scroll;
+		padding-bottom: 96px;
+		//supposed to fix ios webkit flickering bug
+		-webkit-backface-visibility: hidden;
+		-webkit-font-smoothing: subpixel-antialiased;
+		-webkit-perspective: 1000;		
+}
+
+.offer {
+			max-height: 98px;
+			text-align: center;
+			transition: max-height 1s;
+			overflow: hidden;
+			text-transform: uppercase;
+			&.expanded {
+				max-height: 100%;
+				
+			}
+			.offer-name {
+				width: 200px;
+				margin: 0 auto;
+				padding-top: 23px;
+				padding-bottom: 23px;
+			}
+
+			.apy-rate {
+				color: $green-30;
+				font-size: $title-text;
+				margin: 0;
+			}
+
+			.apy-label {
+				font-size: $small-text;
+				margin-top: 5px;
+				padding-bottom: 10px;
+			}
+
+			.fee-label {
+				font-size: $small-text;
+				color: $cool-gray-30;
+			}
+			.fee-rate {
+				font-size: $header-text;
+				margin: 0;
+			}
+
+			.feature {
+				color: $cool-gray-30;
+			}
+
+			.btn {
+				color: $white;
+				width: 100vw;
+				height: 64px;
+				font-size: $body-text;
+				margin-top: 15px;
+				background-color: $green-30;
+				text-transform: uppercase;
+				border: 0;
+			}
+}
+.offer:nth-of-type(odd) {
+			background-color: $offer-grey;
+}
+
+.call-container {
+	position: fixed;
+	top: 100vh;
+	left: 0;
+	height: 100vh;
+	width: 100vw;
+	background-color: $green-30;
+	z-index: 100;
+	transition: top $slide-transition-time;
+	&.slide-up {
+      top: 0;
+    }
+	.call-content {
+		position: absolute;
+		top: 50%;
+        transform: translateY(-50%);
+        width: 100vw;
+	}
+	.confirm-btn {
+	    background-color: transparent;
+        border: 0;
+        background-size: 34px 34px;
+        background-repeat: no-repeat;
+        height: 34px;
+        width: 34px;
+        background-image: url('../assets/images/confirm_white.png');
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    &:active {
+      background-image: url('../assets/images/confirm_black.png');
+    }
+  }
+  .call-text {
+    	font-size: $header-text;
+    	width: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        color: $white;
+    }
+}
+.phone-bar {
+	position: fixed;
+	bottom: 0;
+	z-index: 99;
+	background-color: $cool-gray-70;
+	height: 92px;
+	width: 100%;
+	text-align: center;
+	img {
+		margin-top: 31px;
+	}
+}

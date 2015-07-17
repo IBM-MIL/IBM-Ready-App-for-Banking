@@ -1,0 +1,58 @@
+<!--
+  Licensed Materials - Property of IBM
+  © Copyright IBM Corporation 2015. All Rights Reserved.
+  This sample program is provided AS IS and may be used, executed, copied and modified without
+  royalty payment by customer (a) for its own instruction and study, (b) in order to develop
+  applications designed to run with an IBM product, either for customer's own internal use or for
+  redistribution by customer, as part of such an application, in customer's own products.
+-->
+
+<div class="item-container" ng-form="editForm">
+	<ul data-ng-model="editGoals.goals.goalToEdit">
+		<li ng-show="totalForm.$invalid" class="form-warning">
+			<p translate="TOTALALERT"></p>
+		</li>
+		</div>
+		<li class="item" ng-form="totalForm">
+			<p class="item-title" translate="TOTAL"></p>
+			<ul class="currency-container">
+				
+				<input id="totalContainer" name="totalContainer" type="tel" maxlength="19" class="currency-number" currency-input ng-model="editGoals.goalCopy.goalAmount" ng-required="true" zero period ng-focus="editGoals.focusing()" ng-blur="editGoals.blurring()">
+				</input>
+			</ul>
+		</li>
+		<li ng-show="startForm.$invalid" class="form-warning">
+			<p translate="STARTALERT"></p>
+		</li>
+		<li class="item" ng-form="startForm">
+			<p class="item-title" translate="STARTDATE"></p>
+			<input id="startDateField" type="date" ng-model="editGoals.goalCopy.start" class="item-date" ng-required="true" ng-focus="editGoals.focusing()" ng-blur="editGoals.blurring()" num-date></input>
+		</li>
+		<li ng-show="endForm.$invalid" class="form-warning">
+			<p translate="ENDALERT"></p>
+		</li>
+		<li class="item" ng-form="endForm">
+			<p class="item-title" translate="ENDDATE"></p>
+			<input id="endDateField" type="date" ng-model="editGoals.goalCopy.end" class="item-date" ng-required="true" ng-focus="editGoals.focusing()" ng-blur="editGoals.blurring()" past num-date></input>
+		</li>
+		<li class="item">
+			<p class="item-title" translate="RECURRINGPAYMENT"></p>
+			<p class="item-data">{{ (editGoals.showMonthly ? editGoals.getMonthlyTotal(editGoals.goalCopy.goalAmount, editGoals.goalCopy.end) : editGoals.getWeeklyTotal(editGoals.goalCopy.goalAmount, editGoals.goalCopy.end)) | currency }}</p>
+		</li>
+	</ul>
+	<div>
+		<ul class="period-container">
+			<li id="week" class="period handle" ng-class="{active: editGoals.showWeekly}" translate="WEEKLY" ng-click="editGoals.changeActivePeriod('week')"></li>
+			<li id="month" class="period handle" ng-class="{active: editGoals.showMonthly}" translate="MONTHLY" ng-click="editGoals.changeActivePeriod('month')"></li>
+		</ul>
+	</div>
+	<div class="notes-container">
+		<p class="notes-title" translate="NOTES"></p>
+		<textarea id='notesField' class="notes-field" ng-model="editGoals.goalCopy.notes" ng-focus="editGoals.focusing()" ng-blur="editGoals.blurring()"></textarea>
+	</div>
+	<div class="hacky-space-container" ng-hide="editGoals.focus.isTyping"></div>	
+	<div class="edit-button-container" ng-class="{typing: editGoals.focus.isTyping}">
+		<img class="cancel-button" src="assets/images/cancel_orange.png" width="34" height="34" ng-click="editGoals.cancelEdit()" />
+	    <img class="confirm-button {{totalForm.$invalid || startForm.$invalid || endForm.$invalid}}" src="assets/images/confirm_green.png" width="34" height="34" ng-click="(totalForm.$invalid || startForm.$invalid || endForm.$invalid) ? WL.Logger.info('invalid form') : editGoals.submitChanges(editGoals.goalCopy)"/>
+	</div>
+</div>

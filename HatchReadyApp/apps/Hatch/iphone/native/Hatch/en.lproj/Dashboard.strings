@@ -1,0 +1,42 @@
+
+/* Class = "UILabel"; text = "ACCOUNT NAME"; ObjectID = "2p1-iW-Nai"; */
+"2p1-iW-Nai.text" = "ACCOUNT NAME";
+
+/* Class = "UILabel"; text = "ESTIMATED AVAILABLE"; ObjectID = "7No-KP-o0g"; */
+"7No-KP-o0g.text" = "ESTIMATED AVAILABLE";
+
+/* Class = "UILabel"; text = "SPENDING"; ObjectID = "CZz-Zk-P6E"; */
+"CZz-Zk-P6E.text" = "SPENDING";
+
+/* Class = "UILabel"; text = "CHECKING"; ObjectID = "E6g-H3-XVl"; */
+"E6g-H3-XVl.text" = "CHECKING";
+
+/* Class = "UILabel"; text = "HEB"; ObjectID = "E9L-yt-q6m"; */
+"E9L-yt-q6m.text" = "HEB";
+
+/* Class = "UILabel"; text = "GREETING"; ObjectID = "Eh3-QI-a2R"; */
+"Eh3-QI-a2R.text" = "GREETING";
+
+/* Class = "UILabel"; text = "ACCOUNTS"; ObjectID = "I6s-hQ-6l5"; */
+"I6s-hQ-6l5.text" = "ACCOUNTS";
+
+/* Class = "UILabel"; text = "-  $5.89"; ObjectID = "LsU-53-cyW"; */
+"LsU-53-cyW.text" = "-  $5.89";
+
+/* Class = "UILabel"; text = "MONDAY 1/5/2015"; ObjectID = "Sx6-CR-guc"; */
+"Sx6-CR-guc.text" = "MONDAY 1/5/2015";
+
+/* Class = "UILabel"; text = "BUSINESS NAME"; ObjectID = "dyd-W2-h6I"; */
+"dyd-W2-h6I.text" = "BUSINESS NAME";
+
+/* Class = "UILabel"; text = "BALANCE"; ObjectID = "f6t-8I-f1A"; */
+"f6t-8I-f1A.text" = "BALANCE";
+
+/* Class = "UILabel"; text = "USER'S NAME"; ObjectID = "kEP-Yd-OzC"; */
+"kEP-Yd-OzC.text" = "USER'S NAME";
+
+/* Class = "UILabel"; text = "TOTAL BALANCE"; ObjectID = "pkf-RM-axm"; */
+"pkf-RM-axm.text" = "TOTAL BALANCE";
+
+/* Class = "UILabel"; text = "ACCOUNT NAME"; ObjectID = "wgW-9h-zo8"; */
+"wgW-9h-zo8.text" = "ACCOUNT NAME";

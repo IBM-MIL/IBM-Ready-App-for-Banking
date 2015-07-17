@@ -1,0 +1,48 @@
+# NOTE: This list is unofficial and may not be suitable for every MFP project.
+# Partially based on the information found in the following URL:
+# http://www-01.ibm.com/support/knowledgecenter/SSZH4A_6.2.0/com.ibm.worklight.dev.doc/devref/r_integrating_with_source_contro.html?lang=en
+# Please consider this file as a starting point.
+# This file should be placed at the root level of the MFP project.
+# Also remember, any folders or files that should be ignored should not be already added to git, as that will override the ignores.
+# To remove a resource from Git, you can use the following command: git rm -rf <folder name> 
+
+bin/
+classes/
+
+# Android resources to ignore
+apps/*/android/native/assets/www
+apps/*/android/native/bin
+apps/*/android/native/gen
+apps/*/android/native/out
+
+# iOS resources to ignore
+apps/*/i*/native/www
+apps/*/i*/native/CordovaLib
+apps/*/i*/native/WorklightSDK
+apps/*/i*/native/worklight.plist
+apps/*/i*/native/*.xcodeproj/xcuserdata
+apps/*/i*/native/*.xcodeproj/project.xcworkspace/xcuserdata
+
+# Windows resources to ignore
+apps/*/windowsphone*/native/Bin
+apps/*/windowsphone*/native/obj
+apps/*/windowsphone*/native/www
+
+# Adapted from
+# https://github.com/github/gitignore/blob/master/Objective-C.gitignore
+apps/*/i*/native/build/
+apps/*/i*/native/*.pbxuser
+!apps/*/i*/native/default.pbxuser
+apps/*/i*/native/*.mode1v3
+!apps/*/i*/native/efault.mode1v3
+apps/*/i*/native/*.mode2v3
+!apps/*/i*/native/default.mode2v3
+apps/*/i*/native/*.perspectivev3
+!apps/*/i*/native/default.perspectivev3
+apps/*/i*/native/xcuserdata
+apps/*/i*/native/*.xccheckout
+apps/*/i*/native/*.moved-aside
+apps/*/i*/native/DerivedData
+apps/*/i*/native/*.hmap
+apps/*/i*/native/*.ipa
+apps/*/i*/native/*.xcuserstate

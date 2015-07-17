@@ -1,0 +1,249 @@
+/**************************************
+ *
+ *  Licensed Materials - Property of IBM
+ *  © Copyright IBM Corporation 2015. All Rights Reserved.
+ *  This sample program is provided AS IS and may be used, executed, copied and modified without royalty payment by customer
+ *  (a) for its own instruction and study, (b) in order to develop applications designed to run with an IBM product,
+ *  either for customer's own internal use or for redistribution by customer, as part of such an application, in customer's
+ *  own products.
+ *
+ ***************************************/
+ul {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.item-containter {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  width: 100vw;
+}
+
+.item {
+  height: 100px;
+  list-style: none;
+  margin: 0;
+  width: 100%;
+  letter-spacing: .2em;
+  color: $cool-gray-70;
+
+  .item-title {
+    align-items: center;
+    display: flex;
+    font-size: $small-text;
+    height: 35%;
+    justify-content: center;
+    margin: 0;
+  }
+
+  .item-data {
+    align-items: center;
+    background-color: $neutral-cool-3;
+    border: 0;
+    display: flex;
+    font-size: $header-text;
+    height: 65%;
+    justify-content: center;
+    margin: 0;
+    width: 100%;
+    letter-spacing: normal;
+  }
+
+  .item-date {
+    font-size: $header-text;
+    width: 100%;
+    height: 65%;
+    margin: 0;
+    border: 0;
+    background-color: $neutral-cool-3;
+    text-align: center;
+  }
+
+}
+
+.currency-container {
+	margin: 0;
+ 	border: 0;
+  	padding: 0;
+  	width: 100vw;
+  	height: 65%;
+  	background-color: $neutral-cool-3;
+  	display: flex;
+  	justify-content: center;
+  	letter-spacing: .2em;
+  	color: $cool-gray-70;
+
+	.currency-symbol {
+		margin: 0;
+ 		border: 0;
+  		padding: 0;
+  		display: flex;
+		text-align: right;
+		width: 50%;
+		background-color: $neutral-cool-3;
+		justify-content: flex-end;
+		align-items: center;
+		font-size: $header-text;
+	}
+
+	.currency-number {
+		margin: 0;
+ 		border: 0;
+  		padding: 0;
+  		display: flex;
+		text-align: center;
+		width: 100%;
+		background-color: $neutral-cool-3;
+		font-size: $header-text;
+		letter-spacing: normal;
+  		color: $cool-gray-70;
+	}
+}
+// scss-lint:disable QualifyingElement
+input[type="date"] {
+  -webkit-appearance: none;
+  //-webkit-align-items: center;
+  align-items: center;
+  display: block;
+  //padding-top: 5%;
+  line-height: 240%;
+  text-align: center;
+  overflow-y: visible;
+  overflow-x: visible;
+  color: $cool-gray-70;
+  font-family: 'Tuffy';
+}
+// scss-lint:disable QualifyingElement
+input[type="text"] {
+  align-items: center;
+  text-align: left;
+  display: flex;
+  overflow-y: visible;
+  overflow-x: visible;
+  padding-left: 2%;
+  padding-right: 2%;
+  letter-spacing: normal;
+  color: $cool-gray-70;
+  font-family: 'Tuffy';
+}
+
+.notes-container {
+  width: 100%;
+  height: 40vh;
+  margin: 0;
+  background-color: $neutral-cool-3;
+  list-style: none;
+  letter-spacing: .2em;
+  color: $cool-gray-70;
+
+  .notes-title {
+    font-size: $small-text;
+    height: 15%;
+    margin: 0;
+    width: 100%;
+    margin-top: 1px;
+    background-color: $white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .notes-field {
+    background-color: $neutral-cool-3;
+    border: 0;
+    font-size: $small-text;
+    height: 79%;
+    margin: 2%;
+    padding: 0;
+    width: 96%;
+  }
+}
+
+.period-container {
+  display: flex;
+  height: 8vh;
+  list-style: none;
+  margin: 0;
+  width: 100%;
+}
+
+.period {
+  align-items: center;
+  background-color: $cool-gray-20;
+  display: flex;
+  font-size: 100%;
+  justify-content: center;
+  width: 100%;
+  letter-spacing: .2em;
+  color: $cool-gray-70;
+
+  &.active {
+    align-items: center;
+    background-color: $green-30;
+    color: $white;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    &.ng-click-active {
+      background-color: $green-40;
+    }
+  }
+
+  &.ng-click-active {
+    background-color: $cool-gray-60;
+  }
+}
+
+.form-warning {
+	background-color: $orange-30;
+	color: $white;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 30px;
+}
+
+.edit-button-container {
+  align-items: center;
+  background-color: $cool-gray-70;
+  bottom: 0;
+  display: flex;
+  height: 15vh;
+  justify-content: center;
+  width: 100%;
+  position: fixed;
+
+  &.typing {
+  	position: static;
+  }
+
+  .cancel-button {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 0 14vw;
+
+    &.ng-click-active {
+      content: url('../assets/images/cancel_dk_orange.png');
+    }
+  }
+
+  .confirm-button {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 0 14vw;
+
+    &.true,
+    &.true.ng-click-active {
+      content: url('../assets/images/confirm_black.png');
+    }
+
+    &.ng-click-active {
+      content: url('../assets/images/confirm_black.png');
+    }
+  }
+}

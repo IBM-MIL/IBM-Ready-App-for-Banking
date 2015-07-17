@@ -1,0 +1,79 @@
+// UNDER CONSTRUCTION - WORK IN PROGRESS
+// THIS FILE MAY END UP IN THE MIL COMMON ASSETS REPO INSTEAD OF HERE
+
+defaultTasks 'help'
+
+//Setup
+
+//Configurations 
+configurations {
+	sshAntTask
+}
+
+//Repositories
+repositories {
+	mavenCentral()
+}
+
+//Dependencies
+dependencies {
+	sshAntTask 'org.apache.ant:ant-jsch:1.9.2'
+}
+
+ant.taskdef(name: 'scp', classname: 'org.apache.tools.ant.taskdefs.optional.ssh.Scp', classpath: configurations.sshAntTask.asPath)
+ant.taskdef(name: 'ssh', classname: 'org.apache.tools.ant.taskdefs.optional.ssh.SSHExec', classpath: configurations.sshAntTask.asPath)
+
+//Command line arguments
+def userFromJenkins = System.getProperty("user")
+def commandLineHost = System.getProperty("host")
+def passwordFromJenkins = System.getProperty("password", "foobar")
+def commandLineProductName = System.getProperty("productName")
+def commandLineVersionNumber = System.getProperty("versionNumber")
+def commandLineDocsLocation = System.getProperty("docsLocation")
+
+//Validate user credentials passed from Jenkins
+if(passwordFromJenkins != null && !"".equals(passwordFromJenkins)){
+	passwordFromJenkins = passwordFromJenkins.split(":")[1]
+}
+
+if(userFromJenkins != null && !"".equals(userFromJenkins)){
+	userFromJenkins = userFromJenkins.split(":")[0]
+} 
+
+//Set the command line arguments
+project.ext.set("user", userFromJenkins)
+project.ext.set("host", commandLineHost)
+project.ext.set("password", passwordFromJenkins)
+project.ext.set("productName", commandLineProductName)
+project.ext.set("versionNumber", commandLineVersionNumber)
+project.ext.set("docsLocation", commandLineDocsLocation)
+
+//println "docsLocation1: $commandLineDocsLocation"
+//logger.info("docsLocation2: $commandLineDocsLocation")
+
+//Tasks
+
+//Delete the directory
+task deleteDirectory << {
+ant.ssh(host:"${host}", username: "${user}", password:"${password}", command:"rm -rf /var/www/html/ReadyApps/${productName}-${versionNumber}")
+}
+
+//Make the directory to put the docs into
+task makeDirectory(dependsOn: deleteDirectory) << {
+	ant.ssh(host:"${host}", username: "${user}", password:"${password}", command:"mkdir -p /var/www/html/ReadyApps/${productName}-${versionNumber}")
+}
+
+//SCP the docs into the proper folder
+task scpDocs(dependsOn: makeDirectory) << {
+	//call ant scp
+	ant.scp(todir:"${user}@${host}:/var/www/html/ReadyApps/${productName}-${versionNumber}", password:"${password}", verbose:'true'){
+		fileset(dir:"${docsLocation}") {
+			include(name:'**/*')
+		}
+	}
+}
+
+//Order to run tasks at
+
+scpDocs.mustRunAfter(makeDirectory)
+makeDirectory.mustRunAfter(deleteDirectory)

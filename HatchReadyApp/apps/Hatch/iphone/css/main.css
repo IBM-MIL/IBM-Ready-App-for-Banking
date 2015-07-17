@@ -1,0 +1,15 @@
+
+/* this CSS file extends the application CSS file found under common\css */
+
+/*Optional iOS 7 status bar filler*/
+#wl_ios7bar{
+	background-color: white;
+	height: 15pt;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width:100%;
+}
+body.wl_ios7{
+	padding-top: 15pt;
+}

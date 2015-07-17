@@ -1,0 +1,95 @@
+/**************************************
+ *
+ *  Licensed Materials - Property of IBM
+ *  © Copyright IBM Corporation 2015. All Rights Reserved.
+ *  This sample program is provided AS IS and may be used, executed, copied and modified without royalty payment by customer
+ *  (a) for its own instruction and study, (b) in order to develop applications designed to run with an IBM product,
+ *  either for customer's own internal use or for redistribution by customer, as part of such an application, in customer's
+ *  own products.
+ *
+ ***************************************/
+.add-goal-content {
+  text-align: center;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  height: 65vh;
+
+  .add-goal-text {
+    position: relative;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    height: 40%;
+    margin-top: 10%;
+    p {
+      display: flex;
+      font-size: $body-text;
+      justify-content: center;
+      margin: 0 10%;
+    }
+  }
+}
+
+.input {
+  height: 12vh;
+  background-color: $white;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+
+  .input-item {
+    border: 0;
+    padding: 0;
+    border-radius: 0;
+    font-family: Tuffy;
+    font-size: $body-text;
+    left: 0;
+    letter-spacing: 5px;
+    position: relative;
+    display: flex;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100vw;
+    height: 100%;
+  }
+
+  .input-date {
+    height: 100%;
+    width: 100%;
+    border: 0;
+    line-height: 320%;
+    font-family: Tuffy;
+    font-size: $body-text;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+  }
+}
+
+.period-selector {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 12vh;
+
+  input {
+    display: none;
+  }
+  
+  .active + label {
+    background-color: $green-40;
+    color: $white;
+  }
+
+  label {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $white;
+    color: $cool-gray-30;
+  }
+}

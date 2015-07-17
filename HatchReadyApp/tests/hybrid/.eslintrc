@@ -1,0 +1,18 @@
+{
+  "globals": {
+        "angular": true,
+        "HybridJS": false,
+        "WL":true,
+        "englishTranslations":false
+    },
+    "env": {
+        "browser": true,
+        "jasmine": true
+    },
+    "plugins": [
+        "angular"
+    ],
+    "rules": {
+        "quotes": [1, "single"]
+    }
+}

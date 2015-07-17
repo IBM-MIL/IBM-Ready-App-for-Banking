@@ -1,0 +1,68 @@
+<!--
+  Licensed Materials - Property of IBM
+  © Copyright IBM Corporation 2015. All Rights Reserved.
+  This sample program is provided AS IS and may be used, executed, copied and modified without
+  royalty payment by customer (a) for its own instruction and study, (b) in order to develop
+  applications designed to run with an IBM product, either for customer's own internal use or for
+  redistribution by customer, as part of such an application, in customer's own products.
+-->
+
+<div class="feasibility-container">
+  <ul class="list-container">
+    <li>
+      <p class="feasibility-title" translate="YOURGOAL"></p>
+    </li>
+    <li>
+      <div class="feasibility-description">
+        <div>{{feasibility.goal.title}}</div>
+        <div class="money">
+          <div>{{ (feasibility.goal.goalAmount | currency).split(feasibility.utility.getDecimalSeperator())[0] }}</div>
+          <div class="money-cents">{{ feasibility.utility.getDecimalSeperator() + (feasibility.goal.goalAmount | currency).split(feasibility.utility.getDecimalSeperator())[1] }}</div>
+       </div>
+      </div>
+    </li>
+    <li>
+      <div class="feasibility-details">
+        <div class="feasibility-details-row">
+          <div translate="LOWSTART"></div>
+          <div translate="LOWEND"></div>
+        </div>
+        <hr>
+        <div class="feasibility-details-row">
+          <div class="date {{ feasibility.optionIsFeasible ? 'positive-color' : 'negative-color' }}">{{ feasibility.goal.start | date:'shortDate' }}</div>
+          <br>
+          <div class="date {{ feasibility.optionIsFeasible ? 'positive-color' : 'negative-color' }}">{{ feasibility.submittedGoal.end | date:'shortDate' }}</div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <div ng-if="feasibility.optionIsFeasible" class="feasibility-suggestion">
+        <div translate="CBMBU"></div>
+        <div class="money {{ (feasibility.goal.feasibility === 'feasible') ? 'positive-color' : 'negative-color' }}">
+          <div>{{ (feasibility.goal.depositAmount | currency).split(feasibility.utility.getDecimalSeperator())[0] }}</div>
+          <div class="money-cents">{{ feasibility.utility.getDecimalSeperator() + (feasibility.goal.depositAmount | currency).split(feasibility.utility.getDecimalSeperator())[1] }}</div>
+        </div>
+        <div>{{ (feasibility.goal.depositFrequency === 'month' ? 'OYMA' : 'OYWA') | translate }}</div>
+      </div>
+      <div ng-if="!feasibility.optionIsFeasible" class="feasibility-suggestion">
+        <div translate="BADTIMES"></div>
+        <div class="date {{ (feasibility.goal.feasibility === 'feasible') ? 'positive-color' : 'negative-color' }}">{{feasibility.goal.end | date: 'shortDate'}}</div>
+      </div>
+    </li>
+    <li>
+      <p class="prompt" translate="ISOK"></p>
+    </li>
+    <li>
+      <div class="feasibility-options">
+        <div class="more-options {{ (feasibility.goal.feasibility === 'feasible') ? 'positive-background-color' : 'negative-background-color' }}" ng-click="feasibility.navigation.toOptions()" translate="MOREOPTIONS"></div>
+      </div>
+    </li>
+    <li>
+      <div class="hacky-space-container"></div>
+    </li>
+  </ul>
+</div>
+<div class="edit-button-container">
+  <img class="cancel-button" src="assets/images/cancel_orange.png" width="34" height="34" ng-click="feasibility.navigation.exitPage()"/>
+  <img class="confirm-button" src="assets/images/confirm_green.png" width="34" height="34" ng-click="feasibility.confirmFeasibility()"/>
+</div>
