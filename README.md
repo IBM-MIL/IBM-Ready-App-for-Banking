@@ -2,9 +2,9 @@
 
 ##Overview
 
-IBM Ready App for Banking is the third IBM ReadyApp released.  Hatch seeks to maximize a financial institution's ability to address the mobile needs of current Small Business Owner account holders as well as attract prospects through personalized guidance to set and achieve the financial goals of the business. Hatch utilizes the MobileFirst Platform, Watson Tradeoff Analytics in Bluemix, Cloudant, and integrated iOS TouchID for security.
+IBM Ready App for Banking is the third IBM Ready App released.  This Ready App seeks to maximize a financial institution's ability to address the mobile needs of current Small Business Owner account holders as well as attract prospects through personalized guidance to set and achieve the financial goals of the business. The IBM Ready App for Banking utilizes the MobileFirst Platform, Watson Tradeoff Analytics in Bluemix, Cloudant, and integrated iOS TouchID for security.
 
-Once a user launches Hatch, a native pop up screen will prompt the user to "Start Hatch in Demo Mode"
+Once a user launches this Ready App, a native pop up screen will prompt the user to "Start Hatch in Demo Mode"
 
 Press **Yes** to launch the demo. If **No** is pressed, the user will have to enter the following credentials to login to the app environment.
 
