@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>protocol</key>
+	<string>http</string>
+	<key>host</key>
+<<<<<<< HEAD
+	<string>lexdcy040171.ecloud.edst.ibm.com</string>
+=======
+	<string>lexdcy040171.cloud.dst.ibm.com</string>
+>>>>>>> 47f7794bc19fda1766908b5a5d4f5fcd40c82a37
+	<key>port</key>
+	<string>8080</string>
+	<key>wlServerContext</key>
+	<string>/HatchReadyApp/</string>
+	<key>application id</key>
+	<string>Hatch</string>
+	<key>application version</key>
+	<string>1.0</string>
+	<key>environment</key>
+	<string>iphone</string>
+	<key>buildtime</key>
+	<string></string>
+	<key>authenticitySharedData</key>
+	<string>${authenticitySharedData}</string>
+	<key>testWebResourcesChecksum</key>
+	<string>false</string>
+	<key>ignoredFileExtensions</key>
+	<string></string>
+	<key>wlMainFile</key>
+	<string>index.html</string>
+	<key>wlUid</key>
+	<string>L2gAfA6pqZKrPrf5GblzWg==</string>
+	<key>platformVersion</key>
+	<string>6.3.0.0</string>
+	<key>wlAppFamily</key>
+	<string></string>
+	<key>wlShareCookies</key>
+	<string></string>
+	<key>wlShareUserCert</key>
+	<string>false</string>
+	<key>wlSecureDirectUpdatePublicKey</key>
+	<string></string>
+</dict>
+</plist>
