@@ -11,6 +11,6 @@
 	<key>isDevelopment</key>
 	<false/>
 	<key>mqaApplicationKey</key>
-	<string>&lt;your-mqa-application-key&gt;</string>
+	<string>your-mqa-application-key</string>
 </dict>
 </plist>
