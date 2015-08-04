@@ -1,4 +1,5 @@
-# IBM-Ready-App-for-Banking
+![](README assets/banner.png)
+# IBM Ready App for Banking
 
 ## Overview
 
@@ -8,4 +9,7 @@ IBM Ready App for Banking is the third IBM ReadyApp released.  Hatch seeks to ma
 Please visit the [Getting Started page](http://lexdcy040194.ecloud.edst.ibm.com/hatch_1_0_0/getting_started) to set up the project. The app will not run successfully until you follow the instructions on that page.
 
 ## Documentation
-For access to the full documentation, please visit http://lexdcy040194.ecloud.edst.ibm.com/hatch_1_0_0/home
+Please visit [this page](http://lexdcy040194.ecloud.edst.ibm.com/hatch_1_0_0/home) for access to the full documentation.
+
+## License
+IBM Ready App for Banking is available under the IBM Ready Apps License Agreement. See the [License file](https://github.com/IBM-MIL/IBM-Ready-App-for-Banking/blob/master/License.txt) for more details.
