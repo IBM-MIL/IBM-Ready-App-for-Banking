@@ -42,24 +42,30 @@ public class CloudantService {
 	 * service.
 	 */
 	private void connect() {
-		CloudantClient cloudantClient = new CloudantClient(
-				constants.getStringProperty(Constants.ACCOUNT_KEY),
-				constants.getStringProperty(Constants.USERNAME_KEY),
+		String username = constants.getStringProperty(Constants.USERNAME_KEY);
+		CloudantClient cloudantClient = new CloudantClient(username, username,
 				constants.getStringProperty(Constants.PASSWORD_KEY));
 		db = cloudantClient.database(
 				constants.getStringProperty(Constants.DB_KEY), true);
 	}
 
 	/**
-	 * Returns a List of objects of the provided type.  The  method will query the given view with the given filter, and 
-	 * attempt to cast any returned documents to the provided type. 
+	 * Returns a List of objects of the provided type. The method will query the
+	 * given view with the given filter, and attempt to cast any returned
+	 * documents to the provided type.
 	 * 
-	 * @param viewName The name of the view to query.
-	 * @param filter The filter to be applied to the query.
-	 * @param castClass The class of the documents you are retrieving from Cloudant. 
-	 * @param includDocs True if you want Cloudant to turn any _id fields in your View values into the full document.
-	 * @return A list of documents retrieved from the view, cast into the specified type. Or a zero sized list if no
-	 * documents were found matching the constraints.
+	 * @param viewName
+	 *            The name of the view to query.
+	 * @param filter
+	 *            The filter to be applied to the query.
+	 * @param castClass
+	 *            The class of the documents you are retrieving from Cloudant.
+	 * @param includDocs
+	 *            True if you want Cloudant to turn any _id fields in your View
+	 *            values into the full document.
+	 * @return A list of documents retrieved from the view, cast into the
+	 *         specified type. Or a zero sized list if no documents were found
+	 *         matching the constraints.
 	 */
 	public <T> List<T> getData(String viewName, Object filter,
 			Class<T> castClass, boolean includDocs) {
@@ -70,11 +76,16 @@ public class CloudantService {
 	/**
 	 * Returns a List of objects of the provided type from the given View.
 	 * 
-	 * @param viewName The name of the view to query.
-	 * @param castClass The class of the documents you are retrieving from Cloudant. 
-	 * @param includDocs True if you want Cloudant to turn any _id fields in your View values into the full document.
-	 * @return A list of documents retrieved from the view, cast into the specified type. Or a zero sized list if no
-	 * documents were found matching the constraints.
+	 * @param viewName
+	 *            The name of the view to query.
+	 * @param castClass
+	 *            The class of the documents you are retrieving from Cloudant.
+	 * @param includDocs
+	 *            True if you want Cloudant to turn any _id fields in your View
+	 *            values into the full document.
+	 * @return A list of documents retrieved from the view, cast into the
+	 *         specified type. Or a zero sized list if no documents were found
+	 *         matching the constraints.
 	 */
 	public <T> List<T> getData(String viewName, Class<T> castClass,
 			boolean includDocs) {
@@ -83,16 +94,24 @@ public class CloudantService {
 	}
 
 	/**
-	 * Returns a List of objects of the provided type from the given View. The view will return all documents it finds
-	 * that fall between the start key (inclusive) and the end key (exclusive).
+	 * Returns a List of objects of the provided type from the given View. The
+	 * view will return all documents it finds that fall between the start key
+	 * (inclusive) and the end key (exclusive).
 	 * 
-	 * @param viewName The name of the view to query.
-	 * @param startKeys The starting complex key value.
-	 * @param endKeys The ending complex key value.
-	 * @param castClass The class of the documents you are retrieving from Cloudant. 
-	 * @param includDocs True if you want Cloudant to turn any _id fields in your View values into the full document.
-	 * @return A list of documents retrieved from the view, cast into the specified type. Or a zero sized list if no
-	 * documents were found matching the constraints.
+	 * @param viewName
+	 *            The name of the view to query.
+	 * @param startKeys
+	 *            The starting complex key value.
+	 * @param endKeys
+	 *            The ending complex key value.
+	 * @param castClass
+	 *            The class of the documents you are retrieving from Cloudant.
+	 * @param includDocs
+	 *            True if you want Cloudant to turn any _id fields in your View
+	 *            values into the full document.
+	 * @return A list of documents retrieved from the view, cast into the
+	 *         specified type. Or a zero sized list if no documents were found
+	 *         matching the constraints.
 	 */
 	public <T> List<T> getDataWithComplexKey(String viewName,
 			Object[] startKeys, Object[] endKeys, Class<T> castClass,
@@ -102,25 +121,33 @@ public class CloudantService {
 	}
 
 	/**
-	 * Returns a single string value from the reduce function from the provided View. This method reduces after
-	 * filtering on a single key.
+	 * Returns a single string value from the reduce function from the provided
+	 * View. This method reduces after filtering on a single key.
 	 * 
-	 * @param viewName The name of the view whose reduce function you wish to call.
-	 * @param filter The filter to apply to the View before calling the reduce function.
-	 * @return A String value representing the value returned from the View's reduce function.
+	 * @param viewName
+	 *            The name of the view whose reduce function you wish to call.
+	 * @param filter
+	 *            The filter to apply to the View before calling the reduce
+	 *            function.
+	 * @return A String value representing the value returned from the View's
+	 *         reduce function.
 	 */
 	public String getReducedData(String viewName, Object filter) {
 		return db.view(viewName).key(filter).reduce(true).queryForString();
 	}
 
 	/**
-	 * Returns a single string value from the reduce function from the provided View. This method reduces after
-	 * filtering with complex keys.
+	 * Returns a single string value from the reduce function from the provided
+	 * View. This method reduces after filtering with complex keys.
 	 * 
-	 * @param viewName The name of the view whose reduce function you wish to call.
-	 * @param startKeys The starting complex key value.
-	 * @param endKeys The ending complex key value.
-	 * @return A String value representing the value returned from the View's reduce function.
+	 * @param viewName
+	 *            The name of the view whose reduce function you wish to call.
+	 * @param startKeys
+	 *            The starting complex key value.
+	 * @param endKeys
+	 *            The ending complex key value.
+	 * @return A String value representing the value returned from the View's
+	 *         reduce function.
 	 */
 	@SuppressWarnings("PMD.UseVarargs")
 	public String getReducedDataWithComplexKey(String viewName,
@@ -130,11 +157,13 @@ public class CloudantService {
 	}
 
 	/**
-	 * Returns a single string value from the reduce function from the provided View. There is no filtering
-	 * done before doing a reduce.
+	 * Returns a single string value from the reduce function from the provided
+	 * View. There is no filtering done before doing a reduce.
 	 * 
-	 * @param viewName The name of the view whose reduce function you wish to call.
-	 * @return A String value representing the value returned from the View's reduce function.
+	 * @param viewName
+	 *            The name of the view whose reduce function you wish to call.
+	 * @return A String value representing the value returned from the View's
+	 *         reduce function.
 	 */
 	public String getReducedData(String viewName) {
 		return db.view(viewName).reduce(true).queryForString();
@@ -143,21 +172,27 @@ public class CloudantService {
 	/**
 	 * Return group data from Cloudant using a complex key.
 	 * 
-	 * @param viewNameThe name of the view whose reduce function you wish to call.
-	 * @param startKeys The starting complex key value.
-	 * @param endKeys The ending complex key value.
-	 * @param castClass The class of the documents you are retrieving from Cloudant. 
-	 * @return A list of "group reduced records" retrieved from the view, cast into the specified type. 
-	 * Or a zero sized list if no documents were found matching the constraints.
+	 * @param viewNameThe
+	 *            name of the view whose reduce function you wish to call.
+	 * @param startKeys
+	 *            The starting complex key value.
+	 * @param endKeys
+	 *            The ending complex key value.
+	 * @param castClass
+	 *            The class of the documents you are retrieving from Cloudant.
+	 * @return A list of "group reduced records" retrieved from the view, cast
+	 *         into the specified type. Or a zero sized list if no documents
+	 *         were found matching the constraints.
 	 */
 	public <T> List<T> getGroupedDataWithComplexKey(String viewName,
 			Object[] startKeys, Object[] endKeys, Class<T> castClass) {
 		return db.view(viewName).startKey(startKeys).endKey(endKeys)
 				.group(true).includeDocs(false).query(castClass);
 	}
-	
+
 	/**
 	 * Return an array of keys required for group by function
+	 * 
 	 * @param keys
 	 * @return array of keys
 	 */
