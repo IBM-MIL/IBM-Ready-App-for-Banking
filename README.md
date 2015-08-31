@@ -2,7 +2,7 @@
 # IBM Ready App for Banking
 
 
-## Overview
+### Overview
 
 IBM Ready App for Banking is the third of the IBM Ready App Series. 
 
@@ -13,7 +13,7 @@ This app
 * **provides personalized guidance through business financial goals**
 
 
-## IBM Products
+### IBM Products
 
 IBM Ready App for Banking is made great via
 
@@ -23,18 +23,18 @@ IBM Ready App for Banking is made great via
   * **Cloudant**
 
 
-## Apple Frameworks
+### Apple Frameworks
 
 IBM Ready App for Banking is secured via **iOS Touch ID**.
 
 
-## Getting started
+### Getting started
 Please visit the [Getting Started page](http://lexdcy040194.ecloud.edst.ibm.com/hatch_1_0_0/getting_started) to set up the project.
 
 
-## Documentation
+### Documentation
 Please visit [this page](http://lexdcy040194.ecloud.edst.ibm.com/hatch_1_0_0/home) for access to full documentation.
 
 
-## License
+### License
 IBM Ready App for Banking is available under the IBM Ready Apps License Agreement. See the [License file](https://github.com/IBM-MIL/IBM-Ready-App-for-Banking/blob/master/License.txt) for more details.
