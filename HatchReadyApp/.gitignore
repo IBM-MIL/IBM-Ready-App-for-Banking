@@ -8,6 +8,7 @@
 
 bin/
 classes/
+*.backup.zip
 
 # Android resources to ignore
 apps/*/android/native/assets/www

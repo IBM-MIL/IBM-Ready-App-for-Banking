@@ -167,6 +167,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		92DB4F3A1A67293100AFA6A9 /* WLUserCertAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLUserCertAuth.h; sourceTree = "<group>"; };
+		D4F36DA41A21DDEB0007264C /* WLAuthorizationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLAuthorizationManager.h; sourceTree = "<group>"; };
+		ED530F3F1A1E0D8700FCC82C /* WLResourceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLResourceRequest.h; sourceTree = "<group>"; };
 		054428931AB737B500E94F07 /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		054428951AB73A7200E94F07 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		054EE17B1AB8CDE100219C4F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -322,7 +325,7 @@
 		49B945111AD952DC00DBE2CA /* JSONStoreOpenOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONStoreOpenOptions.h; sourceTree = "<group>"; };
 		49B945121AD952DC00DBE2CA /* JSONStoreQueryOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONStoreQueryOptions.h; sourceTree = "<group>"; };
 		49B945131AD952DC00DBE2CA /* JSONStoreQueryPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONStoreQueryPart.h; sourceTree = "<group>"; };
-		49B945141AD952DC00DBE2CA /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		49B945141AD952DC00DBE2CA /* MFPMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFPMainViewController.h; sourceTree = "<group>"; };
 		49B945151AD952DC00DBE2CA /* NativePage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativePage.h; sourceTree = "<group>"; };
 		49B945161AD952DC00DBE2CA /* OCLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLogger.h; sourceTree = "<group>"; };
 		49B945171AD952DC00DBE2CA /* OCLoggerMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLoggerMacros.h; sourceTree = "<group>"; };
@@ -854,7 +857,7 @@
 				49B945111AD952DC00DBE2CA /* JSONStoreOpenOptions.h */,
 				49B945121AD952DC00DBE2CA /* JSONStoreQueryOptions.h */,
 				49B945131AD952DC00DBE2CA /* JSONStoreQueryPart.h */,
-				49B945141AD952DC00DBE2CA /* MainViewController.h */,
+				49B945141AD952DC00DBE2CA /* MFPMainViewController.h */,
 				49B945151AD952DC00DBE2CA /* NativePage.h */,
 				49B945161AD952DC00DBE2CA /* OCLogger.h */,
 				49B945171AD952DC00DBE2CA /* OCLoggerMacros.h */,
@@ -1743,7 +1746,7 @@
 					"\"$(BUILT_PRODUCTS_DIR)/libCordova.a\"",
 					"-force_load",
 					"\"$(SRCROOT)/WorklightSDK/libWorklightStaticLibProject.a\"",
-					"-Obj-C",
+					"-ObjC",
 				);
 				SDKROOT = iphoneos;
 				VALID_ARCHS = "armv7 armv7s arm64 i386 x86_64";

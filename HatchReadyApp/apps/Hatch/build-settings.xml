@@ -2,5 +2,9 @@
 <!-- Licensed Materials - Property of IBM
 			 5725-I43 (C) Copyright IBM Corp. 2006, 2013. All Rights Reserved.
 			 US Government Users Restricted Rights - Use, duplication or
-             disclosure restricted by GSA ADP Schedule Contract with IBM Corp. -->
-<buildSettings xmlns="http://www.ibm.worklight.com/build-settings"/>
+             disclosure restricted by GSA ADP Schedule Contract with IBM Corp. --><buildSettings xmlns="http://www.ibm.worklight.com/build-settings">
+    <iphone>
+        <minification includes="**" level="none"/>
+        <concatenation includes="**"/>
+    </iphone>
+</buildSettings>
