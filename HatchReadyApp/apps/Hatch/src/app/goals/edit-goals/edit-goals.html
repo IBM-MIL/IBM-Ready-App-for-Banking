@@ -37,7 +37,7 @@
 		</li>
 		<li class="item">
 			<p class="item-title" translate="RECURRINGPAYMENT"></p>
-			<p class="item-data">{{ (editGoals.showMonthly ? editGoals.getMonthlyTotal(editGoals.goalCopy.goalAmount, editGoals.goalCopy.end) : editGoals.getWeeklyTotal(editGoals.goalCopy.goalAmount, editGoals.goalCopy.end)) | currency }}</p>
+			<p class="item-data">{{ (editGoals.showMonthly ? editGoals.getTotal(editGoals.goalCopy.goalAmount, editGoals.goalCopy.saved, editGoals.goalCopy.monthsLeft) : editGoals.getTotal(editGoals.goalCopy.goalAmount, editGoals.goalCopy.saved, editGoals.goalCopy.weeksLeft)) | currency }}</p>
 		</li>
 	</ul>
 	<div>

@@ -54,7 +54,9 @@ angular.module('hatch').controller('EditGoalsController', [ 'Goals', 'Focus', 'U
         'end': Goals.goalToEdit.end,
         'saved': Goals.goalToEdit.saved,
         'depositAmount': Goals.goalToEdit.depositAmount,
-        'ownerID': Goals.goalToEdit.ownerID
+        'ownerID': Goals.goalToEdit.ownerID,
+        'weeksLeft': Goals.goalToEdit.weeksLeft,
+        'monthsLeft': Goals.goalToEdit.monthsLeft
         };
 
         /**
@@ -103,10 +105,23 @@ angular.module('hatch').controller('EditGoalsController', [ 'Goals', 'Focus', 'U
 		vm.getMonthlyTotal = function(totalAmount, endDate) {
 			var today = new Date();
 			var daysLeft = vm.calc.daydiff(today, endDate);
-			var total = Math.ceil(totalAmount / Math.ceil(daysLeft / 52.0) * 100) / 100;
+			var total = Math.ceil(totalAmount / Math.ceil(daysLeft / (365.0/12.0)) * 100) / 100;
 			vm.goalCopy.depositAmount = total;
 			return total;
 		};
+
+		/**
+		 * @function getTotal
+		 * @description Determines the monthly or weekly payment, depending which duration is passed in.
+		 * @param  {int} totalAmount the total goal amount
+		 * @param  {int} savedAmount the total amount saved so far
+		 * @param  {int} duration    the number of weeks or months until the end of the goal
+		 * @return {int}             the estimated amount to pay per week or month
+		 */
+		vm.getTotal = function(totalAmount, savedAmount, duration) {
+			var total = Math.ceil((totalAmount - savedAmount) / duration * 100) / 100;
+			return total;
+		}
 
 		//Position: fixed doesn't work in iOS as expected, as when using an input field or the keyboard the viewport will not
 		//update until the focus blurred. Focusing and Blurring is a workaround to that

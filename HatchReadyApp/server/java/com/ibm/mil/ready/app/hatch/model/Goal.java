@@ -10,6 +10,7 @@
 package com.ibm.mil.ready.app.hatch.model;
 
 import com.google.gson.Gson;
+import com.ibm.mil.ready.app.hatch.utils.DateUtils;
 
 /**
  * Pojo that represents a Goal
@@ -33,6 +34,8 @@ public class Goal extends CloudantObject {
 	private int feasibility;
 	private int priority;
 	private String notes;
+	private int weeksLeft;
+	private int monthsLeft;
 	
 	/**
 	 * default constructor
@@ -254,6 +257,28 @@ public class Goal extends CloudantObject {
 	 */
 	public String toString() {
 		return new Gson().toJson(this);
+	}
+	/**
+	 * updates the weeksLeft and monthsLeft variables based on the duration between the current time and the goal's end date
+	 */
+	public void updateTimeLeft() {
+		Long currentTime = System.currentTimeMillis();
+		weeksLeft = DateUtils.differenceInWeeks(currentTime, end);
+		monthsLeft = DateUtils.differenceInMonths(currentTime, end);
+	}
+	/**
+	 * get weeksLeft duration
+	 * @return weeksLeft
+	 */
+	public int getWeeksLeft() {
+		return weeksLeft;
+	}
+	/**
+	 * get monthsLeft duration
+	 * @return monthsLeft
+	 */
+	public int getMonthsLeft() {
+		return monthsLeft;
 	}
 }
 

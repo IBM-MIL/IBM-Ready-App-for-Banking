@@ -146,6 +146,8 @@ angular.module('hatch').factory('Goals', ['Formatter', function() {
           formatter.convertFeasibilityToString(changedGoal);
           goal.feasibility = changedGoal.feasibility;
           goal.goalAmount = changedGoal.goalAmount;
+          goal.weeksLeft = changedGoal.weeksLeft;
+          goal.monthsLeft = changedGoal.monthsLeft;
         }
        });
     };

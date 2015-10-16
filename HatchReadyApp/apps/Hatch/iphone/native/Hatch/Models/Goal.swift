@@ -41,6 +41,10 @@ class Goal: NSObject {
     var type: String?
     /// revision id (used by cloudant database)
     var _rev: String?
+    /// weeksLeft until end date
+    var weeksLeft: Int?
+    /// monthsLeft until end date
+    var monthsLeft: Int?
     
     /**
     Initialize a goal object with a JSON Dictionary representation
@@ -66,6 +70,8 @@ class Goal: NSObject {
         _id = jsonDictionary["_id"] as? String
         type = jsonDictionary["type"] as? String
         _rev = jsonDictionary["_rev"] as? String
+        weeksLeft = jsonDictionary["weeksLeft"] as? Int
+        monthsLeft = jsonDictionary["monthsLeft"] as? Int
     }
     
     /**
@@ -92,6 +98,8 @@ class Goal: NSObject {
         goalDictionary["_id"] = _id
         goalDictionary["type"] = type
         goalDictionary["_rev"] = _rev
+        goalDictionary["weeksLeft"] = weeksLeft
+        goalDictionary["monthsLeft"] = monthsLeft
         
         return goalDictionary
     }

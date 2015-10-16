@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>0B35C188-5B62-4FF2-B036-9F2F382FE1A3</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>HatchReadyAppHatchIphone</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>5561A509C54B5A703BD081FAA8279A54251BAD57</key>
 		<string>https://github.com/IBM-MIL/IBM-Ready-App-for-Banking.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>HatchReadyApp/apps/Hatch/iphone/native/HatchReadyAppHatchIphone.xcodeproj/project.xcworkspace</string>
+	<string>HatchReadyApp/apps/Hatch/iphone/native/HatchReadyAppHatchIphone.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>5561A509C54B5A703BD081FAA8279A54251BAD57</key>

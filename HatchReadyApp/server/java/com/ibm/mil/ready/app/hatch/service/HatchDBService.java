@@ -118,6 +118,9 @@ public class HatchDBService {
 					g.setEnd(Utilities.convertTime(g.getEnd()));
 					g.setStart(Utilities.convertTime(g.getStart()));
 					g.setProgress((g.getSaved() / g.getGoalAmount()) * 100);
+					g.updateTimeLeft();
+					int duration = g.getDepositFrequency().equals("week") ? g.getWeeksLeft() : g.getMonthsLeft();
+					g.setDepositAmount(Math.ceil((g.getGoalAmount() - g.getSaved()) / duration * 100) / 100);
 				}
 			}
 		}

@@ -42,7 +42,9 @@ angular.module('hatch').controller('GoalFeasibilityController', ['$location', 'U
       'end': Goals.tempGoal.end,
       'saved': Goals.tempGoal.saved,
       'depositAmount': Goals.tempGoal.depositAmount,
-      'ownerID': Goals.tempGoal.ownerID
+      'ownerID': Goals.tempGoal.ownerID,
+      'weeksLeft': Goals.tempGoal.weeksLeft,
+      'monthsLeft': Goals.tempGoal.monthsLeft
     };
 
   vm.options = vm.goals.optionalGoals;
@@ -98,6 +100,8 @@ angular.module('hatch').controller('GoalFeasibilityController', ['$location', 'U
         vm.goals.allGoals[i].progress = vm.goal.progress;
         vm.goals.allGoals[i].end = vm.goal.end;
         vm.goals.allGoals[i].depositAmount = vm.goal.depositAmount;
+        vm.goals.allGoals[i].weeksLeft = vm.goal.weeksLeft;
+        vm.goals.allGoals[i].monthsLeft = vm.goal.monthsLeft;
         return;
       }
     }

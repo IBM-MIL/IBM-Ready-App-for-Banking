@@ -164,6 +164,7 @@ public final class SBBAdapter {
 		try {
 			Goal[] existingGoals = utils.parseObject(goals, Goal[].class);
 			Goal newGoal = utils.parseObject(goal, Goal.class);
+			newGoal.updateTimeLeft();
 			if (newGoal.getBusinessID() == null || "".equals(newGoal.getBusinessID())) {
 				newGoal.setBusinessID(businessId);
 			}
@@ -177,6 +178,12 @@ public final class SBBAdapter {
 				FeasibilityService fsbService = new FeasibilityService(
 						cashFlow, newGoal, existingGoals);
 				options = fsbService.getFeasibility();
+				for(Recommendation r: options) {
+					r.getGoal().updateTimeLeft();
+					for(Goal g: r.getNewGoals()) {
+						g.updateTimeLeft();
+					}
+				}
 			}
 		} catch (Exception e) {
 			LOGGER.info(e.getMessage());
