@@ -15,7 +15,7 @@ public class MILLoadView : UIView {
     /**
     Initializer for MILLoadView
     
-    :returns: And instance of MILLoadView
+    - returns: And instance of MILLoadView
     */
     class func instanceFromNib() -> MILLoadView {
         return UINib(nibName: "MILLoadView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! MILLoadView

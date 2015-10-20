@@ -15,21 +15,21 @@ extension UIButton{
     /**
     Create an image of a given color
     
-    :param: color  The color that the image will have
-    :param: width  Width of the returned image
-    :param: height Height of the returned image
+    - parameter color:  The color that the image will have
+    - parameter width:  Width of the returned image
+    - parameter height: Height of the returned image
     
-    :returns: An image with the color, height and width
+    - returns: An image with the color, height and width
     */
     private class func imageWithColor(color: UIColor, width: CGFloat, height: CGFloat) -> UIImage {
-        var rect = CGRect(x: 0, y: 0, width: width, height: height)
+        let rect = CGRect(x: 0, y: 0, width: width, height: height)
         UIGraphicsBeginImageContext(rect.size)
-        var context = UIGraphicsGetCurrentContext()
+        let context = UIGraphicsGetCurrentContext()
         
         CGContextSetFillColorWithColor(context, color.CGColor)
         CGContextFillRect(context, rect)
         
-        var image = UIGraphicsGetImageFromCurrentImageContext()
+        let image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         
         return image

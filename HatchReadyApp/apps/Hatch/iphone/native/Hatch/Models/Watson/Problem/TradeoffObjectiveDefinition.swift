@@ -63,12 +63,12 @@ class TradeoffObjectiveDefinition {
     /**
     Initializes TradeoffObjectiveDefinition with TradeoffGoal, key, TradeoffType, and objective value (whether it is objective or not)
     
-    :param: goal      TradeoffGoal object
-    :param: key       key string
-    :param: type      TradeoffType object
-    :param: objective whether goal is objective or not (true or false)
+    - parameter goal:      TradeoffGoal object
+    - parameter key:       key string
+    - parameter type:      TradeoffType object
+    - parameter objective: whether goal is objective or not (true or false)
     
-    :returns: <#return value description#>
+    - returns: <#return value description#>
     */
     init(goal : TradeoffGoal, key : String, type : TradeoffType, objective : Bool) {
         self.goal = goal
@@ -81,7 +81,7 @@ class TradeoffObjectiveDefinition {
     /**
     This method will return a dictionary object of a TradeoffObjectiveDefinition
     
-    :returns: Dictionary object
+    - returns: Dictionary object
     */
     func convertToDictionary() -> [NSObject : AnyObject] {
         return ["goal" : self.goal.rawValue as String, "key" : self.key, "type" : self.type.rawValue as String, "is_objective" : self.objective]

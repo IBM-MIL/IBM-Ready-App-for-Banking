@@ -41,7 +41,7 @@ public class ConfigManager: NSObject {
     override init(){
         super.init()
         // Read configurations from the Config.plist.
-        var configurationPath = NSBundle.mainBundle().pathForResource("Config", ofType: "plist")
+        let configurationPath = NSBundle.mainBundle().pathForResource("Config", ofType: "plist")
         
         var hasValidConfiguration = true
         var errorMessage = ""
@@ -89,7 +89,7 @@ public class ConfigManager: NSObject {
     /**
     This method determines if TouchID should be used by examining the Keychain and touchID value in NSUserDefaults.
     
-    :returns:
+    - returns:
     */
     func useTouchID()->Bool{
         
@@ -112,18 +112,18 @@ public class ConfigManager: NSObject {
     /**
     This method returns true if a device has TouchID ability.
     
-    :returns:
+    - returns:
     */
     func deviceHasTouchIDAbility()->Bool{
         
         // Get the local authentication context:
-        var context = LAContext()
-        var error : NSError?
+        let context = LAContext()
         
         // Test if TouchID fingerprint authentication is available on the device and a fingerprint has been enrolled.
-        if context.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error:&error) {
+        if context.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error: NSErrorPointer()) {
             return true
-        } else {
+        }
+        else {
             return false
         }
     }

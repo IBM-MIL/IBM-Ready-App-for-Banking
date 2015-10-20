@@ -24,7 +24,7 @@ public class ReadyAppsChallengeHandler : ChallengeHandler {
     
     /**
     Callback method for MobileFirst platform authenticator which determines if the user has been timed out.
-    :param: response
+    - parameter response:
     */
     override public func isCustomResponse(response: WLResponse!) -> Bool {
         MQALogger.log("--------- isCustomResponse in readyapps------")
@@ -41,7 +41,7 @@ public class ReadyAppsChallengeHandler : ChallengeHandler {
     
     /**
     Callback method for MobileFirst platform which handles the success scenario
-    :param: response
+    - parameter response:
     */
     override public func onSuccess(response: WLResponse!) {
         MQALogger.log("challenge handler on onSuccess")
@@ -58,7 +58,7 @@ public class ReadyAppsChallengeHandler : ChallengeHandler {
     
     /**
     Callback method for MobileFirst platform which handles the failure scenario
-    :param: response
+    - parameter response:
     */
     override public func onFailure(response: WLFailResponse!) {
         MQALogger.log("on ReadyAppsChallengeHandler onFailure");
@@ -76,7 +76,7 @@ public class ReadyAppsChallengeHandler : ChallengeHandler {
     /**
     Callback method for MobileFirst platform which handles challenge presented by the server, It shows the login view controllers, so the user
     can re-authenticate.
-    :param: response
+    - parameter response:
     */
     override public func handleChallenge(response: WLResponse!) {
         if loginViewController == nil {

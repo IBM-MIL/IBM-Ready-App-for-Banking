@@ -13,10 +13,10 @@ class ProblemJSONHelper {
     /**
     This class method assembles the TradeoffObjectiveDefinition array and the TradeoffOption array to create a TradeoffProblem object. This returns a problem object in dictionary form so it is ready to be sent back again.
     
-    :param: offers   Desired offers to be in the problem
-    :param: response User's response for the 3 questions. ie [0,1,0] for answer 0, answer 1, and answer 0 on each page
+    - parameter offers:   Desired offers to be in the problem
+    - parameter response: User's response for the 3 questions. ie [0,1,0] for answer 0, answer 1, and answer 0 on each page
     
-    :returns: Dictionary of the problem object
+    - returns: Dictionary of the problem object
     */
     class func formatProblemJSON(offers : [Offer], response : [Int]) -> [NSObject: AnyObject] {
         let objectives : [TradeoffObjectiveDefinition] = ProblemJSONHelper.createObjectives(response)
@@ -28,9 +28,9 @@ class ProblemJSONHelper {
     /**
     This method assembles an array of TradeoffObjectiveDefinition objects based on the user's response on the 3 Watson questions. This represents the objective of the problem.
     
-    :param: response User's response for the 3 questions. ie [0,1,0] for answer 0, answer 1, and answer 0 on each page
+    - parameter response: User's response for the 3 questions. ie [0,1,0] for answer 0, answer 1, and answer 0 on each page
     
-    :returns: array of TradeoffObjectiveDefinition objects
+    - returns: array of TradeoffObjectiveDefinition objects
     */
     class func createObjectives(response : [Int]) -> [TradeoffObjectiveDefinition] {
         var withdrawalsObjective : TradeoffObjectiveDefinition?
@@ -103,10 +103,10 @@ class ProblemJSONHelper {
     /**
     This method assembles an array of TradeoffOption objects given the desired offers and user's response. This represents the options associated with each offer in the problem.
     
-    :param: offers   Array of offer objects
-    :param: response User's response for the 3 questions. ie [0,1,0] for answer 0, answer 1, and answer 0 on each page
+    - parameter offers:   Array of offer objects
+    - parameter response: User's response for the 3 questions. ie [0,1,0] for answer 0, answer 1, and answer 0 on each page
     
-    :returns: Array of TradeoffOption objects
+    - returns: Array of TradeoffOption objects
     */
     class func createOptions(offers : [Offer], response : [Int]) -> [TradeoffOption] {
         var options : [TradeoffOption] = []

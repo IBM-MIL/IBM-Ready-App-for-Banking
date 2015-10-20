@@ -21,14 +21,14 @@ class HybridViewController: CDVViewController {
     /**
     This init method is called when the hybridViewController is first initialized in the app delegate
     
-    :param: aDecoder <#aDecoder description#>
+    - parameter aDecoder: <#aDecoder description#>
     
-    :returns: <#return value description#>
+    - returns: <#return value description#>
     */
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.startPage = WL.sharedInstance().mainHtmlFilePath()
-        println("Start Page: \(self.startPage)")
+        print("Start Page: \(self.startPage)")
     }
     
     /**

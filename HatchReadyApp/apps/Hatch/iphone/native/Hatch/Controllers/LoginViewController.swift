@@ -13,7 +13,7 @@ import QuartzCore
 */
 public class LoginViewController: UIViewController, UITextFieldDelegate{
     
-    required public init(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -73,7 +73,7 @@ public class LoginViewController: UIViewController, UITextFieldDelegate{
     /**
     Method sets up keyboard observers and presents touchID if it is viable.
     
-    :param: animated
+    - parameter animated:
     */
     override public func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -96,7 +96,7 @@ public class LoginViewController: UIViewController, UITextFieldDelegate{
     /**
     Method removes all NSNotificationCenter observers before view disappears.
     
-    :param: animated
+    - parameter animated:
     */
     override public func viewWillDisappear(animated: Bool) {
         
@@ -108,13 +108,13 @@ public class LoginViewController: UIViewController, UITextFieldDelegate{
     /**
     This function adjusts the view when the keyboard is shown to allow the user to view the entire bottom of the screen whilst typing. This is called when the keyboard is shown.
     
-    :param: notification NSNotification sent when keyboard is shown, has information about the keyboard's size.
+    - parameter notification: NSNotification sent when keyboard is shown, has information about the keyboard's size.
     */
     func keyboardWillShow(notification: NSNotification){
 
         // Get size of keyboard, through the notification
         let keyboardInfo: AnyObject? = notification.userInfo![UIKeyboardFrameEndUserInfoKey]
-        let keyboardFrame = keyboardInfo?.CGRectValue()
+        let keyboardFrame = keyboardInfo?.CGRectValue
         
         // Set the size of the keyboard so when it dismisses so the view can go to the appropriate location
         self.keyboardHeight = keyboardFrame!.height
@@ -131,7 +131,7 @@ public class LoginViewController: UIViewController, UITextFieldDelegate{
     /**
     This function adjusts the view back to its initial position, when the keyboard is dismissed. This is triggered when the keyboard is dismissed.
     
-    :param: notification NSNotification sent when keyboard is shown, has information about the keyboard's size.
+    - parameter notification: NSNotification sent when keyboard is shown, has information about the keyboard's size.
     */
     func keyboardWillHide(notification: NSNotification){
         
@@ -145,13 +145,13 @@ public class LoginViewController: UIViewController, UITextFieldDelegate{
     /**
     Dismisses keyboard on touch outside of text fields.
     
-    :param: touches
-    :param: event
+    - parameter touches:
+    - parameter event:
     */
-    public override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        let touch = event.allTouches()?.first as! UITouch
+    public override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        let touch = event!.allTouches()?.first
         
-        if !(touch.view is UITextField){
+        if !(touch?.view is UITextField){
             view.endEditing(true)
         }
         super.touchesBegan(touches, withEvent: event)
@@ -160,9 +160,9 @@ public class LoginViewController: UIViewController, UITextFieldDelegate{
     /**
     Handles the return key being pressed when the username or password UITextFields are active.
     
-    :param: textField The current text UITextField
+    - parameter textField: The current text UITextField
     
-    :returns: bool that indicates the UITextField should return
+    - returns: bool that indicates the UITextField should return
     */
     public func textFieldShouldReturn(textField: UITextField) -> Bool {
         if textField == usernameTextField {
@@ -180,10 +180,10 @@ public class LoginViewController: UIViewController, UITextFieldDelegate{
     /**
     Enables login upon validation of username and password text fields. Disables if doesn't pass check.
     
-    :param: sender
+    - parameter sender:
     */
     func textFieldDidChange(sender: UITextField) {
-        if (!usernameTextField.text.isEmpty && !passwordTextField.text.isEmpty){
+        if (!usernameTextField.text!.isEmpty && !passwordTextField.text!.isEmpty){
             logInButton.enabled = true
         } else {
             logInButton.enabled = false
@@ -193,7 +193,7 @@ public class LoginViewController: UIViewController, UITextFieldDelegate{
     /**
     Enables quick login for demonstrations.
     
-    :param: sender
+    - parameter sender:
     */
     func showDemoPopup(){
         
@@ -229,7 +229,7 @@ public class LoginViewController: UIViewController, UITextFieldDelegate{
     /**
     Submits authentication to login manager.
     
-    :param: sender
+    - parameter sender:
     */
     @IBAction private func logInButtonPressed(sender: AnyObject!) {
         
@@ -252,8 +252,8 @@ public class LoginViewController: UIViewController, UITextFieldDelegate{
     */
     func setKeychainCredentials(){
         
-        let usernameString = usernameTextField.text
-        let passwordString = passwordTextField.text
+        let usernameString = usernameTextField.text!
+        let passwordString = passwordTextField.text!
 
         // Turn off Touch ID if username or password are not the same in keychain. Use case: Every time a new user logs in, they must elect to use Touch ID.
         if let keychainUsername: String? = KeychainWrapper.stringForKey(self.configManager.UsernameKey){
@@ -274,11 +274,11 @@ public class LoginViewController: UIViewController, UITextFieldDelegate{
     /**
     Animates loginErrorView in and out of view, depending on visibility setting.
     
-    :param: isVisible bool that determines if loginErrorView should or should not be visible
+    - parameter isVisible: bool that determines if loginErrorView should or should not be visible
     */
     func errorViewSetVisible(isVisible: Bool){
         
-        var directionMultiplier: CGFloat = isVisible ? -1.0 : 1.0 // Determines direction of animation
+        let directionMultiplier: CGFloat = isVisible ? -1.0 : 1.0 // Determines direction of animation
         
         UIView.animateWithDuration(0.5,
             delay: 0.0,
@@ -299,7 +299,7 @@ public class LoginViewController: UIViewController, UITextFieldDelegate{
     /**
     Skeleton function for forgotPasswordButtonPressed. This functionality ended up being out of scope for our project, but exists for future use.
     
-    :param: sender
+    - parameter sender:
     */
     @IBAction private func forgotPasswordButtonPressed(sender: AnyObject) {
          MQALogger.log("Forgot Password Fired")
@@ -308,7 +308,7 @@ public class LoginViewController: UIViewController, UITextFieldDelegate{
     /**
     Displays a login error message to the user
     
-    :param: errorMessage error message to be displayed to user
+    - parameter errorMessage: error message to be displayed to user
     */
     func displayLoginError(errorMessage: String){
         
@@ -345,14 +345,14 @@ public class LoginViewController: UIViewController, UITextFieldDelegate{
     */
     func touchID(){
         // Get the local authentication context:
-        var context = LAContext()
-        var error : NSError?
+        let context = LAContext()
+        var error: NSError?
         
         // Test if TouchID fingerprint authentication is available on the device and a fingerprint has been enrolled.
-        if context.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error:&error) {
+        if context.canEvaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, error: &error) {
         
             // evaluate
-            var reason = NSLocalizedString("Authenticate to login", comment: "Touch ID authentication message")
+            let reason = NSLocalizedString("Authenticate to login", comment: "Touch ID authentication message")
             
             context.localizedFallbackTitle = ""
             context.evaluatePolicy(LAPolicy.DeviceOwnerAuthenticationWithBiometrics, localizedReason: reason, reply: {

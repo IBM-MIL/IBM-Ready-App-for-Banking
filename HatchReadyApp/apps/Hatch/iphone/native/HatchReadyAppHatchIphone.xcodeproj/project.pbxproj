@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		054428941AB737B500E94F07 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054428931AB737B500E94F07 /* KeychainWrapper.swift */; };
-		054428961AB73A7200E94F07 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 054428951AB73A7200E94F07 /* LocalAuthentication.framework */; };
 		054EE17C1AB8CDE100219C4F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054EE17B1AB8CDE100219C4F /* MenuViewController.swift */; };
 		0557348F1AC4AEB600ED894C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0557348E1AC4AEB600ED894C /* DashboardViewController.swift */; };
 		055734911AC4AED200ED894C /* ContainerDashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 055734901AC4AED200ED894C /* ContainerDashboardViewController.swift */; };
@@ -73,7 +72,6 @@
 		05DFF8BE1AD422CA00EEA9D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DFF8BD1AD422CA00EEA9D7 /* AppDelegate.swift */; };
 		05DFF8C31AD4528400EEA9D7 /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05DFF8C21AD4528400EEA9D7 /* TransactionsViewController.swift */; };
 		130E37661AD723CF004B8F79 /* Goal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 130E37651AD723CF004B8F79 /* Goal.swift */; };
-		1314E6471AC35AEC001A822D /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1314E6461AC35AEC001A822D /* SwiftyJSON.swift */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; };
 		2710065116A09DEF0072351B /* Localizations.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 2710065016A09DEF0072351B /* Localizations.bundle */; };
@@ -140,6 +138,8 @@
 		9C5B6E5D1535A43C00AF1336 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5B6E5A1535A43200AF1336 /* Security.framework */; };
 		9C8D139015EA405B00392D18 /* VERSION in Resources */ = {isa = PBXBuildFile; fileRef = 9C8D138F15EA405B00392D18 /* VERSION */; };
 		9C8D139315EA409900392D18 /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8D138A15EA404F00392D18 /* libCordova.a */; };
+		A260AFBB1BD6B7CC004C70B9 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = A260AFBA1BD6B7CC004C70B9 /* SwiftyJSON.swift */; settings = {ASSET_TAGS = (); }; };
+		A260AFBC1BD6BD0E004C70B9 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 054428951AB73A7200E94F07 /* LocalAuthentication.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -167,9 +167,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		92DB4F3A1A67293100AFA6A9 /* WLUserCertAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLUserCertAuth.h; sourceTree = "<group>"; };
-		D4F36DA41A21DDEB0007264C /* WLAuthorizationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLAuthorizationManager.h; sourceTree = "<group>"; };
-		ED530F3F1A1E0D8700FCC82C /* WLResourceRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLResourceRequest.h; sourceTree = "<group>"; };
 		054428931AB737B500E94F07 /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		054428951AB73A7200E94F07 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		054EE17B1AB8CDE100219C4F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -242,7 +239,6 @@
 		05DFF8BD1AD422CA00EEA9D7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		05DFF8C21AD4528400EEA9D7 /* TransactionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 		130E37651AD723CF004B8F79 /* Goal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Goal.swift; sourceTree = "<group>"; };
-		1314E6461AC35AEC001A822D /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D6058910D05DD3D006BFB54 /* Hatch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Hatch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF5F4DF0D08C38300B7A737 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -417,6 +413,7 @@
 		9C5B6E5A1535A43200AF1336 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		9C8D137F15EA404F00392D18 /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
 		9C8D138F15EA405B00392D18 /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
+		A260AFBA1BD6B7CC004C70B9 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -431,8 +428,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A260AFBC1BD6BD0E004C70B9 /* LocalAuthentication.framework in Frameworks */,
 				7EE4E0DC1B0A56C800EBBBC9 /* Q4M.framework in Frameworks */,
-				054428961AB73A7200E94F07 /* LocalAuthentication.framework in Frameworks */,
 				05D143EB1AB203170012009D /* CoreText.framework in Frameworks */,
 				056A620D1AB222B10047E8A6 /* libWorklightStaticLibProject.a in Frameworks */,
 				71B9C74F170B3D2D008197AE /* CoreTelephony.framework in Frameworks */,
@@ -578,7 +575,7 @@
 		05D142EA1AB0CE630012009D /* ExternalLibraries */ = {
 			isa = PBXGroup;
 			children = (
-				1314E6461AC35AEC001A822D /* SwiftyJSON.swift */,
+				A260AFBA1BD6B7CC004C70B9 /* SwiftyJSON.swift */,
 				054428921AB737B500E94F07 /* KeychainWrapper */,
 			);
 			path = ExternalLibraries;
@@ -1013,6 +1010,8 @@
 		29B97313FDCFA39411CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0620;
 				TargetAttributes = {
 					05B7D6B11AC1C07C00A9A255 = {
@@ -1166,6 +1165,7 @@
 				324E65211AB71DE200BDF7FD /* LoginViewController.swift in Sources */,
 				0578DAAD1AC9D40800033465 /* HatchPageControl.swift in Sources */,
 				347198FB1ACC8BAD00E9B0D9 /* WatsonViewController.swift in Sources */,
+				A260AFBB1BD6B7CC004C70B9 /* SwiftyJSON.swift in Sources */,
 				34E087691ADDE459009E888C /* TradeoffOption.swift in Sources */,
 				057FD75A1AD46F98004C4EE3 /* Transaction.swift in Sources */,
 				05D142F51AB0CE630012009D /* DoubleExtension.swift in Sources */,
@@ -1175,7 +1175,6 @@
 				340040A71ADE04C600D1A716 /* Resolution.swift in Sources */,
 				05D143C41AB1E9930012009D /* ConfigManager.swift in Sources */,
 				347198F61ACC8BAD00E9B0D9 /* WatsonBestPlanViewController.swift in Sources */,
-				1314E6471AC35AEC001A822D /* SwiftyJSON.swift in Sources */,
 				347198F71ACC8BAD00E9B0D9 /* WatsonFinishViewController.swift in Sources */,
 				05DFF8BE1AD422CA00EEA9D7 /* AppDelegate.swift in Sources */,
 				05DFF8BC1AD4228000EEA9D7 /* MQALogger+MQASwiftSupport.m in Sources */,

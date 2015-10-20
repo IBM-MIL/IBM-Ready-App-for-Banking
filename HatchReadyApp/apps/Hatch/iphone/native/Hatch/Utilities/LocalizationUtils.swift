@@ -13,12 +13,12 @@ class LocalizationUtils: NSObject {
     /**
     Takes a float value and returns a string representing the value using the user account locale.
     
-    :param: amount A Float amount for a currency
+    - parameter amount: A Float amount for a currency
     
-    :returns: The value using the user's locale
+    - returns: The value using the user's locale
     */
     class func localizeCurrency(amount: Double) -> String {
-        var currencyFormatter = NSNumberFormatter()
+        let currencyFormatter = NSNumberFormatter()
         
         // Based off locale of user account pulled from MobileFirst Platform instance
         let userLocale = NSLocale(localeIdentifier: LoginDataManager.sharedInstance.currentUser.locale)

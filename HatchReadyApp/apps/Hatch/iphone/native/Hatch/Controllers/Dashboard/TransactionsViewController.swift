@@ -43,7 +43,7 @@ class TransactionsViewController: UIViewController {
     /**
     Callback method from MobileFirst Platform
     
-    :param: success If the call succeeded or not
+    - parameter success: If the call succeeded or not
     */
     func transactionCallback(success: Bool, transactionDays: [TransactionDay]!){
         if (success){
@@ -66,10 +66,10 @@ extension TransactionsViewController: UITableViewDataSource {
     /**
     Delegate method to set the number of rows for the UITableView.
     
-    :param: tableView
-    :param: section
+    - parameter tableView:
+    - parameter section:
     
-    :returns:
+    - returns:
     */
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -80,13 +80,13 @@ extension TransactionsViewController: UITableViewDataSource {
     /**
     Delegate method to create the cell for the UITableView.
     
-    :param: tableView
-    :param: indexPath
+    - parameter tableView:
+    - parameter indexPath:
     
-    :returns: <#return value description#>
+    - returns: <#return value description#>
     */
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("transactionCell") as! TransactionViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("transactionCell") as! TransactionViewCell
         var overallIndex = indexPath.row
         
         for var i = indexPath.section - 1; i >= 0; i-- {
@@ -120,9 +120,9 @@ extension TransactionsViewController: UITableViewDataSource {
     /**
     Delegate method to set the number of sections in the UITableView (The number of groups of transaction days)
     
-    :param: tableView
+    - parameter tableView:
     
-    :returns: The number of sections in the UITableView
+    - returns: The number of sections in the UITableView
     */
     func numberOfSectionsInTableView(tableView: UITableView) -> Int{
         return transactionDays.count
@@ -135,10 +135,10 @@ extension TransactionsViewController: UITableViewDelegate {
     /**
     Delegate method to override the view for the table header
     
-    :param: tableView
-    :param: section
+    - parameter tableView:
+    - parameter section:
     
-    :returns: The custom view
+    - returns: The custom view
     */
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let  headerCell = tableView.dequeueReusableCellWithIdentifier("transactionHeaderCell") as! TransactionHeaderViewCell
@@ -151,10 +151,10 @@ extension TransactionsViewController: UITableViewDelegate {
     /**
     Delegate method to override the size of the header of the table
     
-    :param: tableView
-    :param: section
+    - parameter tableView:
+    - parameter section:
     
-    :returns: Height of the header
+    - returns: Height of the header
     */
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         let  headerCell = tableView.dequeueReusableCellWithIdentifier("transactionHeaderCell") as! TransactionHeaderViewCell

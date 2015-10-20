@@ -41,7 +41,7 @@ class SettingsDisclosureIndicatorCell : UITableViewCell{
     /**
     Method changes the color of the title label. Used in conjunction with the animateLabelColorChange as its selector.
     
-    :param: sender SettingsDisclosureIndicatorCell
+    - parameter sender: SettingsDisclosureIndicatorCell
     */
     @IBAction func changeLabelColor(sender: SettingsDisclosureIndicatorCell){
         

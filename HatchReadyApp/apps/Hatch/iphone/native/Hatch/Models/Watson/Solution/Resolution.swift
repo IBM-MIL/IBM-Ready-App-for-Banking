@@ -17,8 +17,7 @@ class Resolution {
         var data: NSData = resultString.dataUsingEncoding(NSUTF8StringEncoding)!
         
         // convert NSData to 'AnyObject'
-        let resultDict = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0),
-            error: nil) as! [NSObject: AnyObject]
+        let resultDict = (try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))) as! [NSObject: AnyObject]
         
         let resolutionDict = resultDict["resolution"] as! [NSObject: AnyObject]
         let solutionsArray = resolutionDict["solutions"] as! [[NSObject: AnyObject]]

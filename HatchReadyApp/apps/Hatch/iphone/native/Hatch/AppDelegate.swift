@@ -88,7 +88,7 @@ class AppDelegate: WLAppDelegate {
     /**
     Sets the specified WLActionReceiver to receive actions from the hybrid component. Any WLActionReceivers that were passed to addActionReceiver() previously will be removed before adding the new one. This method should always be called in favor of calling WL.sharedInstance().addActionReceiver() directly.
     
-    :param: wlActionReceiver The action receiver that will receive actions from the hybrid component.
+    - parameter wlActionReceiver: The action receiver that will receive actions from the hybrid component.
     */
     func addActionReceiver(wlActionReceiver: WLActionReceiver) {
         if actionReceiver != nil {
@@ -101,7 +101,7 @@ class AppDelegate: WLAppDelegate {
 
 extension AppDelegate : WLInitWebFrameworkDelegate {
     func wlInitWebFrameworkDidCompleteWithResult(result: WLWebFrameworkInitResult) {
-        if result.statusCode.value == WLWebFrameworkInitResultSuccess.value {
+        if result.statusCode.rawValue == WLWebFrameworkInitResultSuccess.rawValue {
             self.wlInitDidCompleteSuccessfully()
         } else {
             self.wlInitDidFail(result)
@@ -114,7 +114,7 @@ extension AppDelegate : WLInitWebFrameworkDelegate {
         
         // proceed to initial storyboard
         let storyboard = UIStoryboard(name: "Dashboard", bundle: nil)
-        self.window?.rootViewController = storyboard.instantiateInitialViewController() as? UIViewController
+        self.window?.rootViewController = storyboard.instantiateInitialViewController()
         self.window?.makeKeyAndVisible()
     }
     

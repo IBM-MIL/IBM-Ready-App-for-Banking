@@ -26,10 +26,10 @@ class WatsonStartViewController: UIViewController {
     
 
     @IBAction func tappedConfirm(sender: AnyObject) {
-        var vc : WatsonViewController = self.parentViewController?.parentViewController as! WatsonViewController
+        let vc : WatsonViewController = self.parentViewController?.parentViewController as! WatsonViewController
         vc.touchEnabled = true //tell WatsonViewController that swipe to touch is enabled
         //transition to next view
-        var viewControllers : [UIViewController] = [vc.viewControllerAtIndex(self.view.tag+1)!]
+        let viewControllers : [UIViewController] = [vc.viewControllerAtIndex(self.view.tag+1)!]
         vc.setOutletAttributes(self.view.tag+1)
         vc.pageViewController.setViewControllers(viewControllers, direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
         

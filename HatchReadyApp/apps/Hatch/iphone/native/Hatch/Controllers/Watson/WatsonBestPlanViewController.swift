@@ -46,19 +46,19 @@ class WatsonBestPlanViewController: UIViewController {
     /**
     This method will push to the next view controller in the UIPageViewController
     
-    :param: sender
+    - parameter sender:
     */
     @IBAction func tappedYes(sender: AnyObject) {
         //transition to next view
-        var viewControllerDestination = self.storyboard?.instantiateViewControllerWithIdentifier("finish") as! UIViewController
-        self.navigationController?.pushViewController(viewControllerDestination, animated: true)
+        let viewControllerDestination = self.storyboard?.instantiateViewControllerWithIdentifier("finish")
+        self.navigationController?.pushViewController(viewControllerDestination!, animated: true)
     
     }
     
     /**
     This method will push to the next view controller in the UIPageViewController
     
-    :param: sender
+    - parameter sender:
     */
     @IBAction func tappedNo(sender: AnyObject) {
         MenuViewController.goToDashboard()
@@ -67,7 +67,7 @@ class WatsonBestPlanViewController: UIViewController {
     /**
     This method will display the all offers page
     
-    :param: sender
+    - parameter sender:
     */
     @IBAction func tappedAccountOptions(sender: AnyObject) {
         let storyboard = UIStoryboard(name: "Watson", bundle: nil)
@@ -91,7 +91,7 @@ class WatsonBestPlanViewController: UIViewController {
     /**
     This method is called when the list of offers is returned from MobileFirst Platform. A Watson problem is then created and sent to watson in order to receive a Watson Tradeoff Solution.
     
-    :param: offers Offers dictionary received from MobileFirst Platform
+    - parameter offers: Offers dictionary received from MobileFirst Platform
     */
     func gotOffers(offers : [NSObject: AnyObject]) {
         let offerArray : [Offer] = Offer.parseJsonArray(offers) //make all offers into an array of Offer objects
@@ -108,7 +108,7 @@ class WatsonBestPlanViewController: UIViewController {
     /**
     This method is called when the Watson Tradeoff Solution has been received. The resolution is parsed and the recommended bank account (offer) is displayed to the user.
     
-    :param: solution The solution dictionary returned from MobileFirst Platform
+    - parameter solution: The solution dictionary returned from MobileFirst Platform
     */
     func gotWatsonSolution (solution : [NSObject : AnyObject]) {
         let resolution = Resolution(jsonDict: solution)
@@ -144,7 +144,7 @@ class WatsonBestPlanViewController: UIViewController {
         
         Utils.setUpViewKern(self.view)
         self.coverView.removeFromSuperview()
-        MILLoadViewManager.sharedInstance.hide(callback: self.startAnimation)
+        MILLoadViewManager.sharedInstance.hide(self.startAnimation)
     }
     
     
@@ -154,7 +154,7 @@ class WatsonBestPlanViewController: UIViewController {
     func startAnimation () {
         self.accountLabel.hidden = false
         self.animationImage.hidden = false
-        var timer = NSTimer.scheduledTimerWithTimeInterval(0.35, target: self, selector: Selector("beginAnimation"), userInfo: nil, repeats: false)
+        NSTimer.scheduledTimerWithTimeInterval(0.35, target: self, selector: Selector("beginAnimation"), userInfo: nil, repeats: false)
     }
     
     /**

@@ -26,10 +26,10 @@ class WLProcedureCaller: NSObject {
     /**
     Constructor to initialize the procedure caller with both the adapter name and procedure name.
     
-    :param: adapterName
-    :param: procedureName
+    - parameter adapterName:
+    - parameter procedureName:
     
-    :returns: WLProcedureCaller
+    - returns: WLProcedureCaller
     */
     init(adapterName : String, procedureName: String){
         self.adapterName = adapterName
@@ -40,8 +40,8 @@ class WLProcedureCaller: NSObject {
     This function will execute the adapter procedure and invoke the appropriate functions of the
     WLDataDelegate that is passed in.
     
-    :param: dataDelegate
-    :param: params   Procedure parameters
+    - parameter dataDelegate:
+    - parameter params:   Procedure parameters
     */
     func invokeWithResponse(dataDelegate: WLDataDelegate, params: Array<AnyObject>?){
         self.dataDelegate = dataDelegate

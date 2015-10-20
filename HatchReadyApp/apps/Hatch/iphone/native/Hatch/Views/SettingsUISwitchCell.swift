@@ -18,10 +18,10 @@ class SettingsUISwitchCell: UITableViewCell {
     /**
     Method that configures the SettingsUISwitchCell.
     
-    :param: indexPathRow
-    :param: title
+    - parameter indexPathRow:
+    - parameter title:
     
-    :returns:
+    - returns:
     */
     func configCell(indexPathRow: Int, title: String)->SettingsUISwitchCell {
 
@@ -52,7 +52,7 @@ class SettingsUISwitchCell: UITableViewCell {
     /**
     Method that handles the ValueChanged event from the UISwitch in SettingsUISwitchCell.
     
-    :param: sender UISwitch that triggered the event.
+    - parameter sender: UISwitch that triggered the event.
     */
     func settingsSwitchFlipped(sender: UISwitch){
         

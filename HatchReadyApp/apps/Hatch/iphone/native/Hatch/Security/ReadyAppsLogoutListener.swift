@@ -31,7 +31,7 @@ class ReadyAppsLogoutListener : NSObject, WLDelegate {
         // Changing storyboard to dashboard to get back to the "root" of the application
         // The backend call in the DashboardVC will trigger the login page
         let dashboardStoryboard = UIStoryboard(name: "Dashboard", bundle: nil)
-        let viewController = dashboardStoryboard.instantiateInitialViewController() as! UIViewController
+        let viewController = dashboardStoryboard.instantiateInitialViewController()
         UIApplication.sharedApplication().keyWindow?.rootViewController = viewController
         
         // Hide loading screen

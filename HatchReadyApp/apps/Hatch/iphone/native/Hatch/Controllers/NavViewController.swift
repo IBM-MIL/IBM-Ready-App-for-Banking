@@ -27,7 +27,7 @@ class NavViewController: UINavigationController, WLActionReceiver {
     /**
     Called when the menu button is tapped. Shows the menu from the top via a custom animation.
     
-    :param: sender The button calling this function
+    - parameter sender: The button calling this function
     */
     @IBAction func menuButtonTapped(sender: AnyObject!){
         let menuViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("MenuViewController") as! MenuViewController
@@ -40,7 +40,7 @@ class NavViewController: UINavigationController, WLActionReceiver {
     /**
     Called when the back button is tapped in the header (returns to initial goals screen)
     
-    :param: sender the back button itself
+    - parameter sender: the back button itself
     */
     @IBAction func backButtonTapped(sender: UIButton) {
         // self.popToRootViewControllerAnimated(true)
@@ -60,8 +60,8 @@ class NavViewController: UINavigationController, WLActionReceiver {
     /**
     Callback that is triggered when an action is receieved from the hybrid component. Acts as a direct line of communication from the hybrid component to the native component.
     
-    :param: action the native action to perform
-    :param: data   any data that is associated with the specified actionsd
+    - parameter action: the native action to perform
+    - parameter data:   any data that is associated with the specified actionsd
     */
     func onActionReceived(action: String!, withData data: [NSObject : AnyObject]!) {
         MQALogger.log("onActionReceived invoked!")

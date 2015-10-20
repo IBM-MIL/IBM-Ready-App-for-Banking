@@ -30,7 +30,7 @@ public class DashboardDataManager: NSObject{
     /**
     Calls the MobileFirst Platform service
     
-    :param: callback  Callback to determine success
+    - parameter callback:  Callback to determine success
     */
     func getDashboardData(callback: ((Bool, [Business]!)->())!){
         self.callback = callback
@@ -59,26 +59,26 @@ public class DashboardDataManager: NSObject{
     /**
     Parses MobileFirst Platform's response and returns an array of account objects.
     
-    :param: worklightResponseJson JSON response from MobileFirst Platform with Dashboard data.
+    - parameter worklightResponseJson: JSON response from MobileFirst Platform with Dashboard data.
     
-    :returns: Array of account objects.
+    - returns: Array of account objects.
     */
     func parseDashboardResponse(worklightResponseJson: NSDictionary) -> [Business]{
         
         let businessesJsonString = worklightResponseJson["result"] as! String
         let data = businessesJsonString.dataUsingEncoding(NSUTF8StringEncoding)
-        let businessJsonArray = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(0), error: nil)  as! [AnyObject]
+        let businessJsonArray = (try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue: 0)))  as! [AnyObject]
         
         var businesses: [Business] = []
         
         for businessJson in businessJsonArray as! [[String: AnyObject]]  {
-            var business = Business()
+            let business = Business()
             business.name = (businessJson["businessName"] as! String).uppercaseString
             business.imageName = businessJson["imageFile"] as! String
             
             var accounts : [Account] = []
             for accountJson in businessJson["accounts"] as! [[String: AnyObject]] {
-                var account = Account()
+                let account = Account()
                 account.id = accountJson["_id"] as! String
                 account.accountName = (accountJson["name"] as! String).uppercaseString
                 account.accountType = AccountType.Account
@@ -92,7 +92,7 @@ public class DashboardDataManager: NSObject{
             var spendings : [Account] = []
             
             for spendingJson in businessJson["spending"] as! [[String: AnyObject]] {
-                var spending = Account()
+                let spending = Account()
                 spending.id = spendingJson["_id"] as! String
                 spending.accountName = (spendingJson["name"] as! String).uppercaseString
                 spending.accountType = AccountType.Spending
@@ -115,7 +115,7 @@ extension DashboardDataManager: WLDataDelegate{
     /**
     Delegate method for MobileFirst Platform. Called when connection and return is successful
     
-    :param: response Response from MobileFirst Platform
+    - parameter response: Response from MobileFirst Platform
     */
     public func onSuccess(response: WLResponse!) {
         let responseJson = response.getResponseJson() as NSDictionary
@@ -132,12 +132,12 @@ extension DashboardDataManager: WLDataDelegate{
     /**
     Delegate method for MobileFirst Platform. Called when connection or return is unsuccessful
     
-    :param: response Response from MobileFirst Platform
+    - parameter response: Response from MobileFirst Platform
     */
     public func onFailure(response: WLFailResponse!) {
         MQALogger.log("Response: \(response.responseText)")
 
-        if (response.errorCode.value == 0) {
+        if (response.errorCode.rawValue == 0) {
             MILAlertViewManager.sharedInstance.show("Can not connect to the server, click to refresh", callback: retryGetDashboardData)
         }
         

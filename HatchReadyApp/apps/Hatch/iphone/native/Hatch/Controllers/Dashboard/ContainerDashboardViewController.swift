@@ -26,7 +26,7 @@ class ContainerDashboardViewController: UIViewController {
     /**
     Sets the height for the UIScrollView that holds the DashboadViewController. Called by the DashboadViewController.
     
-    :param: height The hieght of the DashboadViewController content
+    - parameter height: The hieght of the DashboadViewController content
     */
     func setHeight(height: CGFloat){
         containerHeightConstraint.constant = height

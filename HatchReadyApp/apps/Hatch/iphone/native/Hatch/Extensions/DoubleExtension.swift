@@ -12,11 +12,11 @@ extension Double{
     func roundToDecimalDigits(decimals:Int) -> Double
     {
         let a : Double = self
-        var format : NSNumberFormatter = NSNumberFormatter()
+        let format : NSNumberFormatter = NSNumberFormatter()
         format.numberStyle = NSNumberFormatterStyle.DecimalStyle
         format.roundingMode = NSNumberFormatterRoundingMode.RoundHalfUp
         format.maximumFractionDigits = 2
-        var string: NSString = format.stringFromNumber(NSNumber(double: a))!
+        let string: NSString = format.stringFromNumber(NSNumber(double: a))!
         return string.doubleValue
     }
 }

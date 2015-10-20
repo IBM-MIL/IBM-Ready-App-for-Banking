@@ -20,7 +20,7 @@ class MenuViewController: UIViewController {
     /**
     When any menu button is tapped, this function fires. The button's tag is checked to determin which button was tapped and then an appropriate action takes place.
     
-    :param: sender The button that is tapped
+    - parameter sender: The button that is tapped
     */
     @IBAction func menuButtonTapped(sender: UIButton) {
         var storyboard : UIStoryboard!
@@ -110,7 +110,7 @@ class MenuViewController: UIViewController {
     }
     
     class func transition(storyboard: UIStoryboard){
-        let viewController = storyboard.instantiateInitialViewController() as! UIViewController
+        let viewController = storyboard.instantiateInitialViewController()
         let window = UIApplication.sharedApplication().keyWindow!
         let previousRootViewController = window.rootViewController
         
@@ -119,7 +119,7 @@ class MenuViewController: UIViewController {
         // Nasty hack to fix http://stackoverflow.com/questions/26763020/leaking-views-when-changing-rootviewcontroller-inside-transitionwithview
         // The presenting view controllers view doesn't get removed from the window as its currently transistioning and presenting a view controller
         let transitionViewClass: AnyClass! = NSClassFromString("UITransitionView")
-        for subview in window.subviews as! [UIView] {
+        for subview in window.subviews {
             if subview.isKindOfClass(transitionViewClass) {
                 subview.removeFromSuperview()
             }
@@ -142,7 +142,7 @@ extension MenuViewController: UICollectionViewDataSource {
     
     // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        var cell = collectionView.dequeueReusableCellWithReuseIdentifier("MenuLogoCollectionViewCell", forIndexPath: indexPath) as! MenuLogoCollectionViewCell
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("MenuLogoCollectionViewCell", forIndexPath: indexPath) as! MenuLogoCollectionViewCell
         let business = DashboardDataManager.sharedInstance.businesses[indexPath.row]
         
         cell.logoImageView.image = UIImage(named: business.imageName)
@@ -154,14 +154,13 @@ extension MenuViewController: UICollectionViewDataSource {
 
 extension MenuViewController: UICollectionViewDelegate {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        MenuViewController.goToDashboard(businessIndex: indexPath.row)
+        MenuViewController.goToDashboard(indexPath.row)
     }
 }
 
 extension MenuViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
         let numberOfCells: CGFloat = DashboardDataManager.sharedInstance.businesses.count.toFloat.toCGFloat
-        let flow = collectionView.collectionViewLayout
         let edgeInsets = (self.view.width - (numberOfCells * 50) - ((numberOfCells-1) * 25)) / 2
         
         return UIEdgeInsetsMake(0, edgeInsets, 0, edgeInsets);

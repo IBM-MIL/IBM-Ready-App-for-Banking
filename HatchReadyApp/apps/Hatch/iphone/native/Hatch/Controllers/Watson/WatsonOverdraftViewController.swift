@@ -33,7 +33,7 @@ class WatsonOverdraftViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         
-        var vc : WatsonViewController = self.parentViewController?.parentViewController as! WatsonViewController
+        let vc : WatsonViewController = self.parentViewController?.parentViewController as! WatsonViewController
         vc.touchEnabled = false //tell WatsonViewController that swipe to touch is enabled
     }
     
@@ -46,7 +46,7 @@ class WatsonOverdraftViewController: UIViewController {
     /**
     This method is called when any button/option is tapped on this view controller to push to the next view controller in the UIPageViewController. Buttons' tags have been set to determine which button has been pressed
     
-    :param: sender
+    - parameter sender:
     */
     @IBAction func tappedOption(sender: AnyObject) {
         self.confirmButton.enabled = true //allow user to continue now
@@ -73,9 +73,9 @@ class WatsonOverdraftViewController: UIViewController {
     }
     
     @IBAction func tappedConfirm(sender: AnyObject) {
-        var vc : WatsonViewController = self.parentViewController?.parentViewController as! WatsonViewController
+        let vc : WatsonViewController = self.parentViewController?.parentViewController as! WatsonViewController
         //transition to next view
-        var viewControllerDestination = self.storyboard?.instantiateViewControllerWithIdentifier("bestplan") as! WatsonBestPlanViewController
+        let viewControllerDestination = self.storyboard?.instantiateViewControllerWithIdentifier("bestplan") as! WatsonBestPlanViewController
         viewControllerDestination.watsonChoice = vc.watsonChoice
         vc.navigationController?.pushViewController(viewControllerDestination, animated: false)
     }

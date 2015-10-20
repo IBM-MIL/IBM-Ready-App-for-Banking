@@ -43,10 +43,10 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate{
     /**
     Delegate method to create individual settings cells
     
-    :param: tableView
-    :param: indexPath
+    - parameter tableView:
+    - parameter indexPath:
     
-    :returns:
+    - returns:
     */
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -79,10 +79,10 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate{
     /**
     Delegate method that returns the height for rows in the tableview.
     
-    :param: tableView
-    :param: indexPath
+    - parameter tableView:
+    - parameter indexPath:
     
-    :returns: Height for specified row.
+    - returns: Height for specified row.
     */
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 65
@@ -91,10 +91,10 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate{
     /**
     Delegate method that returns the number of rows in a specified section
     
-    :param: tableView
-    :param: section
+    - parameter tableView:
+    - parameter section:
     
-    :returns:
+    - returns:
     */
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -104,15 +104,15 @@ extension SettingsViewController: UITableViewDataSource, UITableViewDelegate{
     /**
     Delegate method to handle event of cell being tapped
     
-    :param: tableView
-    :param: indexPath
+    - parameter tableView:
+    - parameter indexPath:
     */
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         if (indexPath.row == 0 || indexPath.row == 3){
             
             // Animates title label as if it were button to give user feedback
-            var disclosureCell = self.tableView.cellForRowAtIndexPath(indexPath) as! SettingsDisclosureIndicatorCell
+            let disclosureCell = self.tableView.cellForRowAtIndexPath(indexPath) as! SettingsDisclosureIndicatorCell
             disclosureCell.animateLabelColorChange()
             
         }

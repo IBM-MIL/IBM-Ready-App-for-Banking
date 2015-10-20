@@ -26,8 +26,8 @@ public class TransactionsDataManager: NSObject {
     /**
     Calls the MobileFirst Platform server and passes the accountID
     
-    :param: accountID ID of the account to get the transactions for
-    :param: callback  Callback to determine success
+    - parameter accountID: ID of the account to get the transactions for
+    - parameter callback:  Callback to determine success
     */
     func getTransactions(accountID: String, callback: ((Bool, [TransactionDay]!)->())!){
         self.callback = callback
@@ -49,15 +49,15 @@ public class TransactionsDataManager: NSObject {
     /**
     Parses MobileFirst Platform's response and returns an array of transaction objects.
     
-    :param: worklightResponseJson JSON response from MobileFirst Platform with Dashboard data.
+    - parameter worklightResponseJson: JSON response from MobileFirst Platform with Dashboard data.
     
-    :returns: Array of account objects.
+    - returns: Array of account objects.
     */
     func parseTransactionsResponse(worklightResponseJson: NSDictionary) -> [TransactionDay]{
         
         let transactionJsonString = worklightResponseJson["result"] as! String
         let data = transactionJsonString.dataUsingEncoding(NSUTF8StringEncoding)
-        let transactionJsonArray = NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(0), error: nil)  as! [AnyObject]
+        let transactionJsonArray = (try! NSJSONSerialization.JSONObjectWithData(data!, options: NSJSONReadingOptions(rawValue: 0)))  as! [AnyObject]
         
         var transactionDays: [TransactionDay] = []
         var transactions: [Transaction] = []
@@ -77,7 +77,7 @@ public class TransactionsDataManager: NSObject {
             transactions.append(transaction)
         }
         
-        transactions.sort(sorterForTransactionsDESC)
+        transactions.sortInPlace(sorterForTransactionsDESC)
         
         for transaction in transactions {
             let dayTimePeriodFormatter = NSDateFormatter()
@@ -105,10 +105,10 @@ public class TransactionsDataManager: NSObject {
     /**
     Sorter for the transactions to insure they are in decending order by date
     
-    :param: transaction1 First transaction
-    :param: transaction2 Second transaction
+    - parameter transaction1: First transaction
+    - parameter transaction2: Second transaction
     
-    :returns: <#return value description#>
+    - returns: <#return value description#>
     */
     func sorterForTransactionsDESC(transaction1:Transaction, transaction2:Transaction) -> Bool {
         return transaction1.date.isLaterThanDate(transaction2.date)
@@ -120,7 +120,7 @@ extension TransactionsDataManager: WLDataDelegate {
     /**
     Delegate method for MobileFirst Platform. Called when connection and return is successful
     
-    :param: response Response from MobileFirst Platform
+    - parameter response: Response from MobileFirst Platform
     */
     public func onSuccess(response: WLResponse!) {
         let responseJson = response.getResponseJson() as NSDictionary
@@ -135,12 +135,12 @@ extension TransactionsDataManager: WLDataDelegate {
     /**
     Delegate method for MobileFirst Platform. Called when connection or return is unsuccessful
     
-    :param: response Response from MobileFirst Platform
+    - parameter response: Response from MobileFirst Platform
     */
     public func onFailure(response: WLFailResponse!) {
         MQALogger.log("Response: \(response.responseText)")
         
-        if (response.errorCode.value == 0) {
+        if (response.errorCode.rawValue == 0) {
             MILAlertViewManager.sharedInstance.show("Can not connect to the server, click to refresh", callback: retryGetTransactions)
         }
         

@@ -19,11 +19,11 @@ class TradeoffProblem{
     /**
     Initializes a TradeoffProblem object with TradeoffObjectiveDefinitions, a subject, and TradeoffOptions
     
-    :param: columns TradeoffObjectiveDefinitions passed in
-    :param: subject subject string
-    :param: options TradeoffOptions passed in
+    - parameter columns: TradeoffObjectiveDefinitions passed in
+    - parameter subject: subject string
+    - parameter options: TradeoffOptions passed in
     
-    :returns: TradeoffProblem object
+    - returns: TradeoffProblem object
     */
     init(columns : [TradeoffObjectiveDefinition], subject : String, options : [TradeoffOption]) {
         self.columns = columns
@@ -34,7 +34,7 @@ class TradeoffProblem{
     /**
     This method will return a dictionary object of a TradeoffProblem
     
-    :returns: Dictionary object
+    - returns: Dictionary object
     */
     func convertToDictionary() -> [NSObject : AnyObject] {
         var columnsDictArr : [[NSObject : AnyObject]] = []

@@ -13,7 +13,7 @@ class Utils: NSObject {
     /**
     Recursively searches a view for labels and buttons to set the kern attributes on them
     
-    :param: view The view to set kern levels on
+    - parameter view: The view to set kern levels on
     */
     class func setUpViewKern(view: UIView, kernValue: CGFloat! = nil){
         let kern : CGFloat! = (kernValue != nil) ? kernValue : ConfigManager.sharedInstance.KernValue
@@ -29,7 +29,7 @@ class Utils: NSObject {
             }
             
             if subview.isKindOfClass(UIView){
-                self.setUpViewKern(subview as! UIView, kernValue: kernValue)
+                self.setUpViewKern(subview , kernValue: kernValue)
             }
         }
     }
@@ -37,14 +37,14 @@ class Utils: NSObject {
     /**
     Builds an attributed string for a dollar representation that has two different sizes for the dollar portion and the cents portion
     
-    :param: amount     The string of the dollar amount
-    :param: dollarSize Size of the font for the dollar portion
-    :param: centSize   Size of the font for the cent portion
-    :param: color       Color of the string
-    :returns: The appropriate attributed string
+    - parameter amount:     The string of the dollar amount
+    - parameter dollarSize: Size of the font for the dollar portion
+    - parameter centSize:   Size of the font for the cent portion
+    - parameter color:       Color of the string
+    - returns: The appropriate attributed string
     */
     class func getPriceAttributedString(amount: NSString, dollarSize: CGFloat, centSize: CGFloat, color: UIColor)->NSAttributedString{
-        var attrString = NSMutableAttributedString()
+        let attrString = NSMutableAttributedString()
         
         let index = amount.length-3
         
@@ -65,9 +65,9 @@ class Utils: NSObject {
     /**
     Takes a UIView and adds bars across the width of the UIView with an individual width that represents an accounts portion of a total value
     
-    :param: barView    UIView to modify
-    :param: accounts   An array of Accounts
-    :param: isAccounts True if the array is of accounts. False if the array is of spendings
+    - parameter barView:    UIView to modify
+    - parameter accounts:   An array of Accounts
+    - parameter isAccounts: True if the array is of accounts. False if the array is of spendings
     */
     class func generateAccountsBar(barView: UIView, accounts: [Account], isAccounts: Bool) {
         let accountTotal = Utils.getAccountsTotal(accounts)
@@ -84,7 +84,7 @@ class Utils: NSObject {
         
         var xOffset: CGFloat = 0.0
         
-        for (index, account) in enumerate(accounts) {
+        for (index, account) in accounts.enumerate() {
             let percent = account.balance.toDouble / accountTotal
             let colorIndex = index % colors.count
             let color = colors[colorIndex]
@@ -101,9 +101,9 @@ class Utils: NSObject {
     /**
     Adds the value of all the account balances in an array and returns the total
     
-    :param: accounts An array of Accounts
+    - parameter accounts: An array of Accounts
     
-    :returns: Total amount of the account balances
+    - returns: Total amount of the account balances
     */
     class func getAccountsTotal(accounts: [Account]) -> Double {
         var accountTotal : Double = 0.0
@@ -118,7 +118,7 @@ class Utils: NSObject {
     /**
     Uses the time of day to determine which random greeting is presented to the user
     
-    :returns: A greeting
+    - returns: A greeting
     */
     class func getRandomGreeting() -> String {
         let anytimeGreetings = [NSLocalizedString("HEY", comment: ""), NSLocalizedString("YO", comment: ""), NSLocalizedString("HOWDY", comment: ""), NSLocalizedString("WHAT'S UP", comment: ""), NSLocalizedString("HI THERE", comment: ""), NSLocalizedString("HAPPY TO SEE YOU", comment: "")]
@@ -128,7 +128,7 @@ class Utils: NSObject {
         
         var greetings : [String]
         
-        var hour : Int = NSDate().hour()
+        let hour : Int = NSDate().hour()
         
         switch hour {
         case 5...11:
@@ -149,13 +149,13 @@ class Utils: NSObject {
     /**
     Gets a UIImage of a view aka a screenshot
     
-    :param: view UIView to capture
+    - parameter view: UIView to capture
     
-    :returns: UIImage of the view
+    - returns: UIImage of the view
     */
     class func imageWithView(view: UIView) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(view.bounds.size, view.opaque, 0.0)
-        view.layer.renderInContext(UIGraphicsGetCurrentContext())
+        view.layer.renderInContext(UIGraphicsGetCurrentContext()!)
         let img = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
         return img;

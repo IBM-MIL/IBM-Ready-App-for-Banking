@@ -20,9 +20,9 @@ extension NSDate {
     private class func yearInSeconds() -> Double { return 31556926 }
     
     // MARK: Components
-    private class func componentFlags() -> NSCalendarUnit { return .CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitDay | .CalendarUnitWeekOfYear | .CalendarUnitHour | .CalendarUnitMinute | .CalendarUnitSecond | .CalendarUnitWeekday | .CalendarUnitWeekdayOrdinal }
+    private class func componentFlags() -> NSCalendarUnit { return NSCalendarUnit.Year.union(.Month).union(.Day).union(.WeekOfYear).union(.Hour).union(.Minute).union(.Second).union(.Weekday).union(.WeekdayOrdinal) }
     
-    private class func components(#fromDate: NSDate) -> NSDateComponents! {
+    private class func components(fromDate fromDate: NSDate) -> NSDateComponents! {
         return NSCalendar.currentCalendar().components(NSDate.componentFlags(), fromDate: fromDate)
     }
     
@@ -243,7 +243,7 @@ extension NSDate {
     
     func dateAtStartOfDay() -> NSDate
     {
-        var components = self.components()
+        let components = self.components()
         components.hour = 0
         components.minute = 0
         components.second = 0
@@ -252,7 +252,7 @@ extension NSDate {
     
     func dateAtEndOfDay() -> NSDate
     {
-        var components = self.components()
+        let components = self.components()
         components.hour = 23
         components.minute = 59
         components.second = 59
@@ -261,8 +261,8 @@ extension NSDate {
     
     func dateAtStartOfWeek() -> NSDate
     {
-        let flags :NSCalendarUnit = .CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitWeekOfYear | .CalendarUnitWeekday
-        var components = NSCalendar.currentCalendar().components(flags, fromDate: self)
+        let flags :NSCalendarUnit = [.Year, .Month, .WeekOfYear, .Weekday]
+        let components = NSCalendar.currentCalendar().components(flags, fromDate: self)
         components.weekday = 1 // Sunday
         components.hour = 0
         components.minute = 0
@@ -272,8 +272,8 @@ extension NSDate {
     
     func dateAtEndOfWeek() -> NSDate
     {
-        let flags :NSCalendarUnit = .CalendarUnitYear | .CalendarUnitMonth | .CalendarUnitWeekOfYear | .CalendarUnitWeekday
-        var components = NSCalendar.currentCalendar().components(flags, fromDate: self)
+        let flags :NSCalendarUnit = [.Year, .Month, .WeekOfYear, .Weekday]
+        let components = NSCalendar.currentCalendar().components(flags, fromDate: self)
         components.weekday = 7 // Sunday
         components.hour = 0
         components.minute = 0
@@ -344,7 +344,7 @@ extension NSDate {
     func seconds () -> Int { return self.components().second }
     func weekday () -> Int { return self.components().weekday }
     func nthWeekday () -> Int { return self.components().weekdayOrdinal } //// e.g. 2nd Tuesday of the month is 2
-    func monthDays () -> Int { return NSCalendar.currentCalendar().rangeOfUnit(.CalendarUnitDay, inUnit: .CalendarUnitMonth, forDate: self).length }
+    func monthDays () -> Int { return NSCalendar.currentCalendar().rangeOfUnit(.Day, inUnit: .Month, forDate: self).length }
     func firstDayOfWeek () -> Int {
         let distanceToStartOfWeek = NSDate.dayInSeconds() * Double(self.components().weekday - 1)
         let interval: NSTimeInterval = self.timeIntervalSinceReferenceDate - distanceToStartOfWeek
@@ -360,7 +360,7 @@ extension NSDate {
         return !self.isWeekend()
     }
     func isWeekend() -> Bool {
-        let range = NSCalendar.currentCalendar().maximumRangeOfUnit(NSCalendarUnit.CalendarUnitWeekday)
+        let range = NSCalendar.currentCalendar().maximumRangeOfUnit(NSCalendarUnit.Weekday)
         return (self.weekday() == range.location || self.weekday() == range.length)
     }
     
@@ -371,7 +371,7 @@ extension NSDate {
         return self.toString(dateStyle: .ShortStyle, timeStyle: .ShortStyle, doesRelativeDateFormatting: false)
     }
     
-    func toString(#format: DateFormat) -> String
+    func toString(format format: DateFormat) -> String
     {
         var dateFormat: String
         switch format {
@@ -393,7 +393,7 @@ extension NSDate {
         return formatter.stringFromDate(self)
     }
     
-    func toString(#dateStyle: NSDateFormatterStyle, timeStyle: NSDateFormatterStyle, doesRelativeDateFormatting: Bool = false) -> String
+    func toString(dateStyle dateStyle: NSDateFormatterStyle, timeStyle: NSDateFormatterStyle, doesRelativeDateFormatting: Bool = false) -> String
     {
         let formatter = NSDateFormatter()
         formatter.dateStyle = dateStyle
@@ -448,32 +448,32 @@ extension NSDate {
     
     func weekdayToString() -> String {
         let formatter = NSDateFormatter()
-        return formatter.weekdaySymbols[self.weekday()-1] as! String
+        return formatter.weekdaySymbols[self.weekday()-1] 
     }
     
     func shortWeekdayToString() -> String {
         let formatter = NSDateFormatter()
-        return formatter.shortWeekdaySymbols[self.weekday()-1] as! String
+        return formatter.shortWeekdaySymbols[self.weekday()-1] 
     }
     
     func veryShortWeekdayToString() -> String {
         let formatter = NSDateFormatter()
-        return formatter.veryShortWeekdaySymbols[self.weekday()-1] as! String
+        return formatter.veryShortWeekdaySymbols[self.weekday()-1] 
     }
     
     func monthToString() -> String {
         let formatter = NSDateFormatter()
-        return formatter.monthSymbols[self.month()-1] as! String
+        return formatter.monthSymbols[self.month()-1] 
     }
     
     func shortMonthToString() -> String {
         let formatter = NSDateFormatter()
-        return formatter.shortMonthSymbols[self.month()-1] as! String
+        return formatter.shortMonthSymbols[self.month()-1] 
     }
     
     func veryShortMonthToString() -> String {
         let formatter = NSDateFormatter()
-        return formatter.veryShortMonthSymbols[self.month()-1] as! String
+        return formatter.veryShortMonthSymbols[self.month()-1] 
     }
     
     

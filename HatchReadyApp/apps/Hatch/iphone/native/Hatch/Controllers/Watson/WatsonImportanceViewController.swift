@@ -43,7 +43,7 @@ class WatsonImportanceViewController: UIViewController {
     /**
     This method is called when any button/option is tapped on this view controller to push to the next view controller in the UIPageViewController. Buttons' tags have been set to determine which button has been pressed
     
-    :param: sender
+    - parameter sender:
     */
     @IBAction func tappedOption(sender: AnyObject) {
         var vc : WatsonViewController = self.parentViewController?.parentViewController as! WatsonViewController

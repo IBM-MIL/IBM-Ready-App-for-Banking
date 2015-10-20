@@ -30,7 +30,7 @@ class WatsonFinishViewController: UIViewController {
     /**
     This method will transition back to the dashboard after tapping the confirm button
     
-    :param: sender
+    - parameter sender:
     */
     @IBAction func tappedConfirm(sender: AnyObject) {
         MenuViewController.goToDashboard()

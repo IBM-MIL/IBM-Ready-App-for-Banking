@@ -22,7 +22,7 @@ public class MILAlertView : UIView {
     /**
     Initializer for MILAlertView
     
-    :returns: And instance of MILAlertView
+    - returns: And instance of MILAlertView
     */
     class func instanceFromNib() -> MILAlertView {
         return UINib(nibName: "MILAlertView", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! MILAlertView
@@ -31,7 +31,7 @@ public class MILAlertView : UIView {
     /**
     Sets the text on the MILAlertView's label
     
-    :param: text The text to be displayed
+    - parameter text: The text to be displayed
     */
     func setLabel(text: String!) {
         if text != nil {
@@ -43,7 +43,7 @@ public class MILAlertView : UIView {
     /**
     Sets the callback for the reload button
     
-    :param: callback The callback function that is to be executed when the reload button is tapped
+    - parameter callback: The callback function that is to be executed when the reload button is tapped
     */
     func setCallbackFunc(callback:(()->())!){
         if callback != nil {

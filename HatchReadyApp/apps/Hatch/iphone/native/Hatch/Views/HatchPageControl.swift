@@ -14,7 +14,7 @@ class HatchPageControl: UIPageControl {
     /// The inactive image that indicates the inactive index(es)
     var inactiveImage: UIImage!
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         activeImage = UIImage.activePageDot()
         inactiveImage = UIImage.inactivePageDot()
@@ -33,8 +33,8 @@ class HatchPageControl: UIPageControl {
     Replaces the default dots with images
     */
     func updateDots() {
-        for (index, subview) in enumerate(self.subviews) {
-            var dot = self.imageViewForSubview(subview as! UIView)
+        for (index, subview) in self.subviews.enumerate() {
+            let dot = self.imageViewForSubview(subview )
             if (index == self.currentPage){
                 dot.image = activeImage
             }else{
@@ -46,9 +46,9 @@ class HatchPageControl: UIPageControl {
     /**
     Gets the UIImageView of a dot if one is present and generates on if there is not
     
-    :param: view The subview of the UIPageControl that is either an UIImageView or not
+    - parameter view: The subview of the UIPageControl that is either an UIImageView or not
     
-    :returns: A UIImageView to set the dot as
+    - returns: A UIImageView to set the dot as
     */
     func imageViewForSubview(view: UIView) -> UIImageView {
         var dot : UIImageView!

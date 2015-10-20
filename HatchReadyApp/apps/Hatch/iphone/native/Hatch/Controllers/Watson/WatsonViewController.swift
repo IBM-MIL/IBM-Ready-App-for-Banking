@@ -8,7 +8,7 @@ import UIKit
 /**
 *  This view controller controls logic for the UIPageViewController that is inside of a container view. This will begin the Watson questionnaire.
 */
-class WatsonViewController: UIViewController, UIPageViewControllerDataSource {
+class WatsonViewController: UIViewController {
     
     /// menu button
     @IBOutlet weak var menuBar: UIButton!
@@ -50,21 +50,21 @@ class WatsonViewController: UIViewController, UIPageViewControllerDataSource {
     /**
     This method takes in a view controller, and based on its type will set the check mark associated with the option the user has previously selected in watsonChoice
     
-    :param: startingViewController the view controller whose checkmark will be updated
+    - parameter startingViewController: the view controller whose checkmark will be updated
     */
     func updateChecks(startingViewController : UIViewController){
         if (startingViewController.isKindOfClass(WatsonFrequencyViewController)) {
-            var vc = startingViewController as! WatsonFrequencyViewController
+            let vc = startingViewController as! WatsonFrequencyViewController
             vc.watsonChoice = watsonChoice
         }
         
         if (startingViewController.isKindOfClass(WatsonImportanceViewController)) {
-            var vc = startingViewController as! WatsonImportanceViewController
+            let vc = startingViewController as! WatsonImportanceViewController
             vc.watsonChoice = watsonChoice
         }
         
         if (startingViewController.isKindOfClass(WatsonOverdraftViewController)) {
-            var vc = startingViewController as! WatsonOverdraftViewController
+            let vc = startingViewController as! WatsonOverdraftViewController
             vc.watsonChoice = watsonChoice
         }
     }
@@ -73,7 +73,7 @@ class WatsonViewController: UIViewController, UIPageViewControllerDataSource {
     /**
     This method will either set the back button as hidden or not based on the index.
     
-    :param: index index of view controller
+    - parameter index: index of view controller
     */
     func setBackButtonHidden(index: Int){
         switch index {
@@ -87,7 +87,7 @@ class WatsonViewController: UIViewController, UIPageViewControllerDataSource {
     /**
     This method will either set the hatch page control as hidden or not based on the index.
     
-    :param: index index of the view controller
+    - parameter index: index of the view controller
     */
     func setHatchPageControlHidden(index: Int){
         switch index {
@@ -101,7 +101,7 @@ class WatsonViewController: UIViewController, UIPageViewControllerDataSource {
     /**
     This method will either hide or unhide both the back button and the hatch page control based on the index. Also, the hatch page control is updated to the correct page.
     
-    :param: index index of the view controller
+    - parameter index: index of the view controller
     */
     func setOutletAttributes(index: Int){
         self.hatchPage.setCurrentPageIndex(index-1)
@@ -112,15 +112,15 @@ class WatsonViewController: UIViewController, UIPageViewControllerDataSource {
     /**
     This method is called when the back button is tapped. The hatchPageControl is updated to the correct state and the correct view controller is displayed with animation
     
-    :param: sender
+    - parameter sender:
     */
     @IBAction func backButtonTapped(sender: AnyObject) {
-        var vc : UIViewController = pageViewController.viewControllers.last as! UIViewController
+        let vc : UIViewController = pageViewController.viewControllers!.last!
         
         //set next view controller to be presented
-        var startingViewController : UIViewController = self.viewControllerAtIndex(vc.view.tag-1)!
+        let startingViewController : UIViewController = self.viewControllerAtIndex(vc.view.tag-1)!
         self.setOutletAttributes(vc.view.tag-1)
-        var viewControllers : [UIViewController] = [startingViewController]
+        let viewControllers : [UIViewController] = [startingViewController]
         pageViewController.setViewControllers(viewControllers, direction: UIPageViewControllerNavigationDirection.Reverse, animated: true, completion: nil)
     }
     
@@ -128,8 +128,8 @@ class WatsonViewController: UIViewController, UIPageViewControllerDataSource {
     /**
     This method is called initially to connect the navigation view controller + WatsonViewController to the pageViewController + the controllers it will show
     
-    :param: segue
-    :param: sender
+    - parameter segue:
+    - parameter sender:
     */
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "watsonPageSegue"{
@@ -138,10 +138,10 @@ class WatsonViewController: UIViewController, UIPageViewControllerDataSource {
             pageViewController.dataSource = self
             pageViewController.delegate = self
             
-            var startingViewController : UIViewController = self.viewControllerAtIndex(0)!
+            let startingViewController : UIViewController = self.viewControllerAtIndex(0)!
             
             self.setOutletAttributes(startingViewController.view.tag)
-            var viewControllers : [UIViewController] = [startingViewController]
+            let viewControllers : [UIViewController] = [startingViewController]
             pageViewController.setViewControllers(viewControllers, direction: UIPageViewControllerNavigationDirection.Forward, animated: false, completion: nil)
         }
     }
@@ -150,9 +150,9 @@ class WatsonViewController: UIViewController, UIPageViewControllerDataSource {
     /**
     This method returns the view controller at a particular index passed in
     
-    :param: index desired index of view controller to return
+    - parameter index: desired index of view controller to return
     
-    :returns: a UIViewController
+    - returns: a UIViewController
     */
     func viewControllerAtIndex(index : NSInteger) -> UIViewController? {
         if (index > 3 || index < 0) {
@@ -193,10 +193,10 @@ extension WatsonViewController: UIPageViewControllerDataSource {
     This method must be implemented since WatsonViewController uses UIPageViewControllerDataSource. It will return the viewcontroller to be shown before whichever viewcontroller is currently being shown
     Note: This method is only used if pageViewController.dataSource is set (not set for Watson flow to disable touch to slide)
     
-    :param: pageViewController
-    :param: viewController
+    - parameter pageViewController:
+    - parameter viewController:
     
-    :returns:
+    - returns:
     */
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController? {
         
@@ -218,10 +218,10 @@ extension WatsonViewController: UIPageViewControllerDataSource {
     This method must be implemented since WatsonViewController uses UIPageViewControllerDataSource. It will return the viewcontroller to be shown after whichever viewcontroller is currently being shown
     Note: This method is only used if pageViewController.dataSource is set (not set for Watson flow to disable touch to slide)
     
-    :param: pageViewController
-    :param: viewController
+    - parameter pageViewController:
+    - parameter viewController:
     
-    :returns:
+    - returns:
     */
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController? {
         
@@ -280,17 +280,17 @@ extension WatsonViewController: UIPageViewControllerDelegate {
     This method should update the hatchPageControl's current page (shows correct dot based on page being shown) and hide or show the back button
     Note: This method is only used if pageViewController.dataSource is set (not set for Watson flow to disable touch to slide)
     
-    :param: pageViewController
-    :param: finished
-    :param: previousViewControllers
-    :param: completed
+    - parameter pageViewController:
+    - parameter finished:
+    - parameter previousViewControllers:
+    - parameter completed:
     */
-    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [AnyObject], transitionCompleted completed: Bool) {
+    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if !completed {
             return
         }
         
-        var vc : UIViewController = pageViewController.viewControllers.last as! UIViewController
+        let vc = pageViewController.viewControllers!.last!
         
         MQALogger.log("PAGEINDEX HERE : \(vc.view.tag)")
         self.setOutletAttributes(vc.view.tag)

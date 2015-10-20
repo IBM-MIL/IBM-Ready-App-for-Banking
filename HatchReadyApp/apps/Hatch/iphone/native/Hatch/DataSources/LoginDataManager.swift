@@ -34,8 +34,8 @@ public class LoginDataManager: NSObject{
     /**
     Submits authentication to MobileFirst Platform service with provided username and password.
     
-    :param: username
-    :param: password
+    - parameter username:
+    - parameter password:
     */
     public func submitAuthentication(username: String!, password: String!){
 
@@ -52,16 +52,14 @@ public class LoginDataManager: NSObject{
     /**
     Parses MobileFirst Platform's login response and creates and fills out a current user.
     
-    :param: worklightResponseJson JSON Response from MobileFirst Platform
+    - parameter worklightResponseJson: JSON Response from MobileFirst Platform
     */
     func parseLoginResponse(worklightResponseJson: NSDictionary){
         
         MQALogger.log("---------parseLoginResponse-------------")
         MQALogger.log("MobileFirst Platform response json:\(worklightResponseJson)")
         
-        var error: NSError?
-        
-        var jsonResult = worklightResponseJson["result"] as! NSDictionary
+        let jsonResult = worklightResponseJson["result"] as! NSDictionary
         currentUser = CurrentUser()
         
         currentUser.id          = jsonResult["_id"] as! String!

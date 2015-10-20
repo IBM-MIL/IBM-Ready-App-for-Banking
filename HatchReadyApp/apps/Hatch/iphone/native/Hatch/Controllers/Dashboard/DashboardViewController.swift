@@ -58,7 +58,7 @@ class DashboardViewController: UIViewController {
     /**
     Updates the accounts and spendings when a user selects a new business
     
-    :param: index The index of the array of businesses that the user has moved to
+    - parameter index: The index of the array of businesses that the user has moved to
     */
     func updateAccounts(index: Int) {
         business = businesses[index]
@@ -77,8 +77,8 @@ class DashboardViewController: UIViewController {
         availableAmountLabel.attributedText = Utils.getPriceAttributedString(LocalizationUtils.localizeCurrency(availableAmount), dollarSize: 38, centSize: 23, color: availableAmountLabel.textColor)
         estimatedSpendingAmountLabel.attributedText = Utils.getPriceAttributedString(LocalizationUtils.localizeCurrency(spendingTotal), dollarSize: 38, centSize: 23, color: estimatedSpendingAmountLabel.textColor)
         
-        var accountsTableHeight = business.accounts.count.toFloat.toCGFloat * accountCellHeight
-        var spendingsTableHeight =  business.spendings.count.toFloat.toCGFloat * accountCellHeight
+        let accountsTableHeight = business.accounts.count.toFloat.toCGFloat * accountCellHeight
+        let spendingsTableHeight =  business.spendings.count.toFloat.toCGFloat * accountCellHeight
         accountsTableViewHeightConstraint.constant = accountsTableHeight
         spendingTableViewHeightConstraint.constant = spendingsTableHeight
         
@@ -106,7 +106,7 @@ class DashboardViewController: UIViewController {
     /**
     This is the callback method that is passed to the DashboardDataManager that is triggered on success/failure of the getDashboardData method.
     
-    :param: success True if data retrieval was successful
+    - parameter success: True if data retrieval was successful
     */
     func dashboardDataReturned(success: Bool, businesses: [Business]!){
         
@@ -139,10 +139,10 @@ extension DashboardViewController: UITableViewDataSource {
     /**
     Delegate method to set the number of rows for the accounts or spending table.
     
-    :param: tableView
-    :param: section
+    - parameter tableView:
+    - parameter section:
     
-    :returns:
+    - returns:
     */
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView.tag == 0 {
@@ -155,13 +155,13 @@ extension DashboardViewController: UITableViewDataSource {
     /**
     Delegate method to create the cell for the accounts or spending table.
     
-    :param: tableView <#tableView description#>
-    :param: indexPath <#indexPath description#>
+    - parameter tableView: <#tableView description#>
+    - parameter indexPath: <#indexPath description#>
     
-    :returns: <#return value description#>
+    - returns: <#return value description#>
     */
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("accountCell") as! AccountViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("accountCell") as! AccountViewCell
 
         var account : Account
         
@@ -185,8 +185,8 @@ extension DashboardViewController: UITableViewDelegate {
     /**
     Delegate method to show a account transactions when an account is tapped
     
-    :param: tableView
-    :param: indexPath
+    - parameter tableView:
+    - parameter indexPath:
     */
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         var segueAccount : Account!
@@ -224,10 +224,10 @@ extension DashboardViewController: UIPageViewControllerDataSource {
     /**
     This method must be implemented since DashboardViewController uses UIPageViewControllerDataSource. It will return the viewcontroller to be shown before whichever viewcontroller is currently being shown
     
-    :param: pageViewController
-    :param: viewController
+    - parameter pageViewController:
+    - parameter viewController:
     
-    :returns:
+    - returns:
     */
     func pageViewController(pageViewController: UIPageViewController, viewControllerBeforeViewController viewController: UIViewController) -> UIViewController?{
         var index = (viewController as! BusinessViewController).pageIndex as Int
@@ -243,10 +243,10 @@ extension DashboardViewController: UIPageViewControllerDataSource {
     /**
     This method must be implemented since DashboardViewController uses UIPageViewControllerDataSource. It will return the viewcontroller to be shown after whichever viewcontroller is currently being shown
     
-    :param: pageViewController
-    :param: viewController
+    - parameter pageViewController:
+    - parameter viewController:
     
-    :returns:
+    - returns:
     */
     func pageViewController(pageViewController: UIPageViewController, viewControllerAfterViewController viewController: UIViewController) -> UIViewController?{
         var index = (viewController as! BusinessViewController).pageIndex as Int
@@ -264,7 +264,7 @@ extension DashboardViewController: UIPageViewControllerDataSource {
         
         let dashboardStoryboard = UIStoryboard(name: "Dashboard", bundle: nil)
         
-        businessViewController = dashboardStoryboard.instantiateViewControllerWithIdentifier("BusinessViewController") as! BusinessViewController!
+        businessViewController = dashboardStoryboard.instantiateViewControllerWithIdentifier("BusinessViewController") as! BusinessViewController
         
         if ((self.businesses.count != 0) && (index < self.businesses.count)) {
             let business = businesses[index]
@@ -285,19 +285,19 @@ extension DashboardViewController: UIPageViewControllerDelegate {
     /**
     This method should update the hatchPageControl's current page (shows correct dot based on page being shown). This also signals when to update the accounts and spendings.
     
-    :param: pageViewController
-    :param: finished
-    :param: previousViewControllers
-    :param: completed
+    - parameter pageViewController:
+    - parameter finished:
+    - parameter previousViewControllers:
+    - parameter completed:
     */
-    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [AnyObject], transitionCompleted completed: Bool) {
+    func pageViewController(pageViewController: UIPageViewController, didFinishAnimating finished: Bool, previousViewControllers: [UIViewController], transitionCompleted completed: Bool) {
         if !completed {
             return
         }
         
-        self.hatchPageControl.setCurrentPageIndex((pageViewController.viewControllers.last as! BusinessViewController).pageIndex)
+        self.hatchPageControl.setCurrentPageIndex((pageViewController.viewControllers!.last as! BusinessViewController).pageIndex)
         
-        self.updateAccounts((pageViewController.viewControllers.last as! BusinessViewController).pageIndex)
+        self.updateAccounts((pageViewController.viewControllers!.last as! BusinessViewController).pageIndex)
     }
     
 }

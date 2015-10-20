@@ -34,9 +34,9 @@ class Offer: NSObject {
     /**
     Initializes Offer object given a JSON dictionary
     
-    :param: json json dictionary passed in
+    - parameter json: json dictionary passed in
     
-    :returns: Offer object
+    - returns: Offer object
     */
     init(json: NSDictionary) {
         name = json["name"] as! NSString
@@ -52,14 +52,14 @@ class Offer: NSObject {
     /**
     This method will parse the JSON Dictionary provided and return an array of native Offer objects
     
-    :param: responseJson JSON to be parsed
+    - parameter responseJson: JSON to be parsed
     
-    :returns: Array of Offer objects
+    - returns: Array of Offer objects
     */
     class func parseJsonArray(responseJson: NSDictionary) -> [Offer] {
         let resultString = responseJson["result"] as! NSString
         let resultData = resultString.dataUsingEncoding(NSUTF8StringEncoding)
-        let jsonArray = NSJSONSerialization.JSONObjectWithData(resultData!, options: NSJSONReadingOptions(0), error: nil) as! NSArray
+        let jsonArray = (try! NSJSONSerialization.JSONObjectWithData(resultData!, options: NSJSONReadingOptions(rawValue: 0))) as! NSArray
         
         var offers: [Offer] = []
         

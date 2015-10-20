@@ -49,9 +49,9 @@ class Goal: NSObject {
     /**
     Initialize a goal object with a JSON Dictionary representation
     
-    :param: jsonDictionary the JSON representation
+    - parameter jsonDictionary: the JSON representation
     
-    :returns: Goal object
+    - returns: Goal object
     */
     init(jsonDictionary: [String : AnyObject]) {
         ownerId = jsonDictionary["ownerID"] as? String
@@ -77,7 +77,7 @@ class Goal: NSObject {
     /**
     Converts the Goal object to a corresponding JSON Dictionary (serialization)
     
-    :returns: A serialized JSON Dictionary of the Goal object
+    - returns: A serialized JSON Dictionary of the Goal object
     */
     func convertToDictionary() -> [NSObject : AnyObject] {
         var goalDictionary: [NSObject : AnyObject] = [:]
@@ -107,14 +107,14 @@ class Goal: NSObject {
     /**
     Utility method that takes a Dictionary which represents an Array of JSON Goal objects and converts it to an Array of Goal objects
     
-    :param: responseJson The JSON response as a Dictionary
+    - parameter responseJson: The JSON response as a Dictionary
     
-    :returns: deserialized array of Goal objects
+    - returns: deserialized array of Goal objects
     */
     class func parseJsonArray(responseJson: NSDictionary) -> [Goal] {
         let resultString = responseJson["result"] as! NSString
         let resultData = resultString.dataUsingEncoding(NSUTF8StringEncoding)
-        let jsonArray = NSJSONSerialization.JSONObjectWithData(resultData!, options: NSJSONReadingOptions(0), error: nil) as! NSArray
+        let jsonArray = (try! NSJSONSerialization.JSONObjectWithData(resultData!, options: NSJSONReadingOptions(rawValue: 0))) as! NSArray
         
         var goals: [Goal] = []
         
@@ -129,9 +129,9 @@ class Goal: NSObject {
     /**
     Utility method for converting (serializing) an array of Goals to a serialized JSON dictionary
     
-    :param: goals array of Goal objects
+    - parameter goals: array of Goal objects
     
-    :returns: serialized JSON dictionary representation of the Goal array
+    - returns: serialized JSON dictionary representation of the Goal array
     */
     class func convertGoalsArrayToDictionary(goals: [Goal]) -> [NSObject: AnyObject] {
         var goalsDictArr: [[NSObject : AnyObject]] = []

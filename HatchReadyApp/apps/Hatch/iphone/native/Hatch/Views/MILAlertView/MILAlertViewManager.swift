@@ -27,8 +27,8 @@ public class MILAlertViewManager: NSObject {
     /**
     Function that builds and displays a MILAlertView
     
-    :param: text     Text to display on the MILAlertView
-    :param: callback Callback function to execute when the MILAlertView or its reload button is tapped
+    - parameter text:     Text to display on the MILAlertView
+    - parameter callback: Callback function to execute when the MILAlertView or its reload button is tapped
     */
     func show(text: String!, callback: (()->())!) {
         
@@ -58,13 +58,13 @@ public class MILAlertViewManager: NSObject {
     /**
     Builds a MILAlertView that is initialized with the appropriate data
     
-    :param: text     Text to display on the MILAlertView
-    :param: callback Callback function to execute when the MILAlertView reload button is tapped
+    - parameter text:     Text to display on the MILAlertView
+    - parameter callback: Callback function to execute when the MILAlertView reload button is tapped
     
-    :returns: An initialized MILAlertView
+    - returns: An initialized MILAlertView
     */
     private func buildAlert(text: String!, callback: (()->())!)-> MILAlertView{
-        var milAlertView : MILAlertView = MILAlertView.instanceFromNib() as MILAlertView
+        let milAlertView : MILAlertView = MILAlertView.instanceFromNib() as MILAlertView
         milAlertView.setOriginX(0)
         milAlertView.setWidth(UIScreen.mainScreen().bounds.width)
         milAlertView.setBottom(0)

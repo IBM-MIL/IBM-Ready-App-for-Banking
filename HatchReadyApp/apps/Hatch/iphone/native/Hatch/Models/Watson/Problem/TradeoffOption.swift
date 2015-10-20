@@ -26,11 +26,11 @@ class TradeoffOption{
     /**
     Initializes a TradeoffOption from a key, name, and dictionary of values
     
-    :param: key    key string
-    :param: name   name string
-    :param: values values dictionary
+    - parameter key:    key string
+    - parameter name:   name string
+    - parameter values: values dictionary
     
-    :returns: <#return value description#>
+    - returns: <#return value description#>
     */
     init(key : String, name : String, values : [String : Double]) {
         self.key = key
@@ -41,7 +41,7 @@ class TradeoffOption{
     /**
     This method will return a dictionary object of a TradeoffOption
     
-    :returns: Dictionary object
+    - returns: Dictionary object
     */
     func convertToDictionary() -> [NSObject : AnyObject] {
         return ["name" : self.name, "key" : self.key, "values" : self.values]

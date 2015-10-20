@@ -45,14 +45,14 @@ class WatsonFrequencyViewController: UIViewController {
     /**
     This method is called when any button/option is tapped on this view controller to push to the next view controller in the UIPageViewController. Buttons' tags have been set to determine which button has been pressed
     
-    :param: sender
+    - parameter sender:
     */
     @IBAction func tappedOption(sender: AnyObject) {
-        var vc : WatsonViewController = self.parentViewController?.parentViewController as! WatsonViewController
+        let vc : WatsonViewController = self.parentViewController?.parentViewController as! WatsonViewController
         vc.touchEnabled = true //tell WatsonViewController that swipe to touch is enabled
         
         //transition to next view
-        var viewControllers : [UIViewController] = [vc.viewControllerAtIndex(self.view.tag+1)!]
+        let viewControllers : [UIViewController] = [vc.viewControllerAtIndex(self.view.tag+1)!]
         vc.setOutletAttributes(self.view.tag+1)
         vc.pageViewController.setViewControllers(viewControllers, direction: UIPageViewControllerNavigationDirection.Forward, animated: true, completion: nil)
         

@@ -12,12 +12,12 @@ class ReverseCoverVertical: NSObject, UIViewControllerAnimatedTransitioning {
    
     let duration    = 0.5
     var presenting  = true
-    var originFrame = CGRect.zeroRect
+    var originFrame = CGRect.zero
     
     /**
     Sets the duration for the custom transition
     */
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning)-> NSTimeInterval {
+    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?)-> NSTimeInterval {
         return duration
     }
     
@@ -27,7 +27,6 @@ class ReverseCoverVertical: NSObject, UIViewControllerAnimatedTransitioning {
     */
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
         
-        let containerView = transitionContext.containerView()
         let toViewController = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey)!
         let fromViewController = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey)!
         
@@ -35,8 +34,8 @@ class ReverseCoverVertical: NSObject, UIViewControllerAnimatedTransitioning {
         
         if presenting {
             fromViewController.view.userInteractionEnabled = false
-            transitionContext.containerView().addSubview(fromViewController.view)
-            transitionContext.containerView().addSubview(toViewController.view)
+            transitionContext.containerView()!.addSubview(fromViewController.view)
+            transitionContext.containerView()!.addSubview(toViewController.view)
             
             var startFrame = endFrame
             
@@ -52,8 +51,8 @@ class ReverseCoverVertical: NSObject, UIViewControllerAnimatedTransitioning {
         }else{
             toViewController.view.userInteractionEnabled = true
             
-            transitionContext.containerView().addSubview(toViewController.view)
-            transitionContext.containerView().addSubview(fromViewController.view)
+            transitionContext.containerView()!.addSubview(toViewController.view)
+            transitionContext.containerView()!.addSubview(fromViewController.view)
             
             endFrame.origin.y -= endFrame.height
             
