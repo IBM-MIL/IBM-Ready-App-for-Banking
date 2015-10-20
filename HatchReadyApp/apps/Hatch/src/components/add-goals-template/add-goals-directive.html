@@ -16,7 +16,7 @@
       <input type="text" maxlength="17" class="input-item" placeholder="{{page.placeholder | translate}}" ng-model="emptyGoal[goalKey]" required>
     </div>
     <div ng-if="page.placeholder === 'MONEY_PLACEHOLDER'" class="input">
-      <input type="tel" class="input-item" placeholder="{{0 | currency : undefined : 0}}" max-length="19" ng-model="emptyGoal[goalKey]" currency-input zero period required>
+      <input type="tel" class="input-item" placeholder="{{0 | currency : undefined : 0}}" ng-model="emptyGoal[goalKey]" currency-input zero period required>
     </div>
     <div ng-if="getIndex(page) === 2" class="input">
       <input type="date" class="input-date" ng-model="emptyGoal[goalKey]" required>

@@ -203,9 +203,6 @@ function getFeasibility(userId, businessId, newGoal, existingGoals) {
 
 	var locale = getUserLocale().toString();
 	locale = !locale ? defaultLocale : locale;
-	
-	WL.Logger.error('newGoal: ' + newGoal);
-	WL.Logger.error('existingGoals: ' + existingGoals);
 
 	var recommendations = javaAdapter.getFeasibility(userId, businessId, newGoal, 
 			existingGoals, locale);

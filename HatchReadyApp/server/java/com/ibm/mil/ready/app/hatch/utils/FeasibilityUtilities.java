@@ -330,9 +330,11 @@ public class FeasibilityUtilities {
 		for (Goal g : existingGoals) {
 			Goal goalNewDuration = getChangedGoalBasedOnExtraDuration(g,
 					additionalDurationInMonths);
-			tmp.put(getMonthlyFrequency(goalNewDuration)
-					+ Constants.KEY_SEPARATOR + goalNewDuration.getId(),
-					goalNewDuration);
+			if (goalNewDuration.getFeasibility() == Constants.FEASIBLE) {
+				tmp.put(getMonthlyFrequency(goalNewDuration)
+						+ Constants.KEY_SEPARATOR + goalNewDuration.getId(),
+						goalNewDuration);
+			}	
 		}
 		return tmp;
 	}

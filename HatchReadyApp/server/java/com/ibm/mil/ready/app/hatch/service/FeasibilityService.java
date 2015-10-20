@@ -18,6 +18,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.SortedMap;
+
 import com.ibm.mil.ready.app.hatch.model.Goal;
 import com.ibm.mil.ready.app.hatch.model.Recommendation;
 import com.ibm.mil.ready.app.hatch.utils.CashFlow;
@@ -112,6 +113,13 @@ public class FeasibilityService {
 			//2. Within sets of Recommendations that have the same number of goals changed, the Recommendations should
 			//   be sorted such that Recommendations with higher priority goals are listed first.
 			Collections.sort(recommendations, new RecommendationComparer());
+		}
+		if (recommendations.isEmpty()) {
+			Goal infeasible = new Goal(newGoal);
+			infeasible.setFeasibility(Constants.INFEASIBLE);
+			Recommendation completelyInfeasibleRecommendation = utils.getRecommendation(false, infeasible, null);
+			completelyInfeasibleRecommendation.getGoal().setFeasibility(Constants.INFEASIBLE);
+			recommendations.add(completelyInfeasibleRecommendation);
 		}
 		return recommendations;
 	}
