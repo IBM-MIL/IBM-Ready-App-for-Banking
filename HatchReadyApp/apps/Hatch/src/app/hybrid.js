@@ -226,6 +226,8 @@ var HybridJS = (function() {
         if(indexOfNew > -1) {
             $goals.allGoals.splice(indexOfNew, 1);
         }
+
+        goalF.depositAmount = 0;
         
         WL.App.sendActionToNative('checkFeasibility', {newGoal: goalF, goalList: $goals.allGoals});
         
