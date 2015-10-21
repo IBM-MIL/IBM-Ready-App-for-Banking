@@ -209,14 +209,27 @@ var HybridJS = (function() {
         var $formatter = $inj.get('Formatter');
         var oldStart = goalF.start;
         var oldEnd = goalF.end;
-        var oldList = $goals.allGoals;
+        var oldList = $goals.allGoals.slice();
+        var indexOfNew = -1;
+        var count = 0;
+
         $formatter.convertFeasibilityToInt(goalF);
         $formatter.convertDates(goalF);
         $goals.allGoals.forEach(function(goal) {
           $formatter.convertDates(goal);
           $formatter.convertFeasibilityToInt(goal);
+          if(goalF._id === goal._id) {
+            indexOfNew = count;
+          }
+          count++;
         });
+        if(indexOfNew > -1) {
+            $goals.allGoals.splice(indexOfNew, 1);
+        }
+        
         WL.App.sendActionToNative('checkFeasibility', {newGoal: goalF, goalList: $goals.allGoals});
+        
+        $goals.allGoals = oldList;
         $goals.allGoals.forEach(function(goal) {
           $formatter.convertFeasibilityToString(goal);
           $formatter.milToDate(goal);
@@ -224,7 +237,6 @@ var HybridJS = (function() {
         $formatter.convertFeasibilityToString(goalF);
         goalF.start = oldStart;
         goalF.end = oldEnd;
-        $goals.allGoals = oldList;
     }
 
     /**
@@ -251,6 +263,8 @@ var HybridJS = (function() {
                     setupLocale(received.data.userData.language);
                 },
                 'receiveFeasibility': function() {
+                    console.log('RECEIVING FEASIBILITY!!!!!!!!!!!!');
+                    console.log(JSON.parse(received.data.result));
                     setFeasibility(JSON.parse(received.data.result)[0].goal);
                     populateOptions(JSON.parse(received.data.result));
                     callback(getPage(), JSON.parse(received.data.result)[0].isFeasible);
