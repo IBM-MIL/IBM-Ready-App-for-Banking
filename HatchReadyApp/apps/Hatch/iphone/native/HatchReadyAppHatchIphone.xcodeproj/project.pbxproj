@@ -138,7 +138,6 @@
 		9C5B6E5D1535A43C00AF1336 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C5B6E5A1535A43200AF1336 /* Security.framework */; };
 		9C8D139015EA405B00392D18 /* VERSION in Resources */ = {isa = PBXBuildFile; fileRef = 9C8D138F15EA405B00392D18 /* VERSION */; };
 		9C8D139315EA409900392D18 /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8D138A15EA404F00392D18 /* libCordova.a */; };
-		A260AFBB1BD6B7CC004C70B9 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = A260AFBA1BD6B7CC004C70B9 /* SwiftyJSON.swift */; settings = {ASSET_TAGS = (); }; };
 		A260AFBC1BD6BD0E004C70B9 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 054428951AB73A7200E94F07 /* LocalAuthentication.framework */; };
 /* End PBXBuildFile section */
 
@@ -413,7 +412,6 @@
 		9C5B6E5A1535A43200AF1336 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		9C8D137F15EA404F00392D18 /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
 		9C8D138F15EA405B00392D18 /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
-		A260AFBA1BD6B7CC004C70B9 /* SwiftyJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -575,7 +573,6 @@
 		05D142EA1AB0CE630012009D /* ExternalLibraries */ = {
 			isa = PBXGroup;
 			children = (
-				A260AFBA1BD6B7CC004C70B9 /* SwiftyJSON.swift */,
 				054428921AB737B500E94F07 /* KeychainWrapper */,
 			);
 			path = ExternalLibraries;
@@ -1165,7 +1162,6 @@
 				324E65211AB71DE200BDF7FD /* LoginViewController.swift in Sources */,
 				0578DAAD1AC9D40800033465 /* HatchPageControl.swift in Sources */,
 				347198FB1ACC8BAD00E9B0D9 /* WatsonViewController.swift in Sources */,
-				A260AFBB1BD6B7CC004C70B9 /* SwiftyJSON.swift in Sources */,
 				34E087691ADDE459009E888C /* TradeoffOption.swift in Sources */,
 				057FD75A1AD46F98004C4EE3 /* Transaction.swift in Sources */,
 				05D142F51AB0CE630012009D /* DoubleExtension.swift in Sources */,
