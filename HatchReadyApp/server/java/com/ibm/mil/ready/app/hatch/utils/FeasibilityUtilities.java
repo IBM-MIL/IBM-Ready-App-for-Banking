@@ -77,9 +77,10 @@ public class FeasibilityUtilities {
 	 * @return
 	 */
 	public int getDuration(Goal g) {
-		int duration = DateUtils.differenceInWeeks(g.getStart(), g.getEnd()).intValue();
+		Long currentTime = System.currentTimeMillis();
+		int duration = DateUtils.differenceInWeeks(currentTime, g.getEnd()).intValue();
 		if (isGoalMonthly(g)) {
-			duration = DateUtils.differenceInMonths(g.getStart(), g.getEnd()).intValue();
+			duration = DateUtils.differenceInMonths(currentTime, g.getEnd()).intValue();
 		} 
 		return duration;
 	}
@@ -96,8 +97,8 @@ public class FeasibilityUtilities {
 	 */
 	public double getNewDepositAmountBasedOnDuration(Goal g) {
 		int duration = getDuration(g);
-		double depAmt = Double.parseDouble(new DecimalFormat("#.00").format(g.getGoalAmount() / duration));
-		if (depAmt * duration < g.getGoalAmount()) {
+		double depAmt = Double.parseDouble(new DecimalFormat("#.00").format((g.getGoalAmount() - g.getSaved()) / duration));
+		if (depAmt * duration < g.getGoalAmount() - g.getSaved()) {
 			depAmt += .01d;
 		}
 		return depAmt;
@@ -129,7 +130,7 @@ public class FeasibilityUtilities {
 	public boolean isFeasibleBasedOnGoalAndDepositAcrossTime(Goal newGoal) {
 		double goalLength = getDuration(newGoal);
 		double frequency = newGoal.getDepositAmount();
-		double totalCashBasedOnFrequency = goalLength * frequency;
+		double totalCashBasedOnFrequency = goalLength * frequency + newGoal.getSaved();
 		return totalCashBasedOnFrequency >= newGoal.getGoalAmount();
 	}
 
