@@ -14,3 +14,4 @@
 #import "../Frameworks/Q4M.framework/Headers/MQALogger.h"
 #import "../Utilities/MQAExceptionHandler/MQAExceptionHandler.h"
 #import "../Utilities/MQALoggerSwiftHelper/MQALogger+MQASwiftSupport.h"
+#import "Analytics.h"

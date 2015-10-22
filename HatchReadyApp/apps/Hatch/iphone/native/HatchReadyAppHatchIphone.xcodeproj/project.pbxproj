@@ -139,6 +139,11 @@
 		9C8D139015EA405B00392D18 /* VERSION in Resources */ = {isa = PBXBuildFile; fileRef = 9C8D138F15EA405B00392D18 /* VERSION */; };
 		9C8D139315EA409900392D18 /* libCordova.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C8D138A15EA404F00392D18 /* libCordova.a */; };
 		A260AFBC1BD6BD0E004C70B9 /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 054428951AB73A7200E94F07 /* LocalAuthentication.framework */; };
+		A260AFD31BD94A6B004C70B9 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A260AFD21BD94A6B004C70B9 /* GoogleService-Info.plist */; settings = {ASSET_TAGS = (); }; };
+		A260B0561BD96877004C70B9 /* libGGLAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A260B0451BD96877004C70B9 /* libGGLAnalytics.a */; settings = {ASSET_TAGS = (); }; };
+		A260B0571BD96877004C70B9 /* libGGLCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A260B0461BD96877004C70B9 /* libGGLCore.a */; settings = {ASSET_TAGS = (); }; };
+		A260B0581BD96877004C70B9 /* libGoogleAnalytics.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A260B0551BD96877004C70B9 /* libGoogleAnalytics.a */; settings = {ASSET_TAGS = (); }; };
+		A260B05A1BD977DF004C70B9 /* HatchUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A260B0591BD977DF004C70B9 /* HatchUIViewController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -412,6 +417,27 @@
 		9C5B6E5A1535A43200AF1336 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		9C8D137F15EA404F00392D18 /* CordovaLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CordovaLib.xcodeproj; path = CordovaLib/CordovaLib.xcodeproj; sourceTree = "<group>"; };
 		9C8D138F15EA405B00392D18 /* VERSION */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = VERSION; sourceTree = "<group>"; };
+		A260AFD21BD94A6B004C70B9 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A260B03C1BD96877004C70B9 /* Analytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Analytics.h; sourceTree = "<group>"; };
+		A260B03D1BD96877004C70B9 /* GGLContext+Analytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GGLContext+Analytics.h"; sourceTree = "<group>"; };
+		A260B0401BD96877004C70B9 /* Core.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Core.h; sourceTree = "<group>"; };
+		A260B0411BD96877004C70B9 /* GGLConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGLConfiguration.h; sourceTree = "<group>"; };
+		A260B0421BD96877004C70B9 /* GGLContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGLContext.h; sourceTree = "<group>"; };
+		A260B0431BD96877004C70B9 /* GGLErrorCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GGLErrorCode.h; sourceTree = "<group>"; };
+		A260B0451BD96877004C70B9 /* libGGLAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGGLAnalytics.a; sourceTree = "<group>"; };
+		A260B0461BD96877004C70B9 /* libGGLCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGGLCore.a; sourceTree = "<group>"; };
+		A260B04A1BD96877004C70B9 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		A260B04B1BD96877004C70B9 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		A260B04C1BD96877004C70B9 /* GAIEcommerceFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceFields.h; sourceTree = "<group>"; };
+		A260B04D1BD96877004C70B9 /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProduct.h; sourceTree = "<group>"; };
+		A260B04E1BD96877004C70B9 /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProductAction.h; sourceTree = "<group>"; };
+		A260B04F1BD96877004C70B9 /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommercePromotion.h; sourceTree = "<group>"; };
+		A260B0501BD96877004C70B9 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		A260B0511BD96877004C70B9 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		A260B0521BD96877004C70B9 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		A260B0531BD96877004C70B9 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
+		A260B0551BD96877004C70B9 /* libGoogleAnalytics.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libGoogleAnalytics.a; sourceTree = "<group>"; };
+		A260B0591BD977DF004C70B9 /* HatchUIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HatchUIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -427,6 +453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A260AFBC1BD6BD0E004C70B9 /* LocalAuthentication.framework in Frameworks */,
+				A260B0561BD96877004C70B9 /* libGGLAnalytics.a in Frameworks */,
 				7EE4E0DC1B0A56C800EBBBC9 /* Q4M.framework in Frameworks */,
 				05D143EB1AB203170012009D /* CoreText.framework in Frameworks */,
 				056A620D1AB222B10047E8A6 /* libWorklightStaticLibProject.a in Frameworks */,
@@ -434,8 +461,10 @@
 				9C5B6E5D1535A43C00AF1336 /* Security.framework in Frameworks */,
 				5E144E0A180EEBA700A01719 /* libstdc++.6.dylib in Frameworks */,
 				9C0ED53A17FE946B00C8B73C /* ImageIO.framework in Frameworks */,
+				A260B0571BD96877004C70B9 /* libGGLCore.a in Frameworks */,
 				920D631B1619F5B4007B7418 /* sqlcipher.framework in Frameworks */,
 				9C8D139315EA409900392D18 /* libCordova.a in Frameworks */,
+				A260B0581BD96877004C70B9 /* libGoogleAnalytics.a in Frameworks */,
 				42DB65D6141F483300EA8B09 /* CoreMedia.framework in Frameworks */,
 				846D17A6145DC8F9008C9E10 /* libz.dylib in Frameworks */,
 				1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */,
@@ -543,6 +572,7 @@
 				054EE17B1AB8CDE100219C4F /* MenuViewController.swift */,
 				059CBBFF1AB9EC1800844FF4 /* NavViewController.swift */,
 				329E73AA1AD45EF7008CC252 /* SettingsViewController.swift */,
+				A260B0591BD977DF004C70B9 /* HatchUIViewController.swift */,
 				347198EF1ACC8BAD00E9B0D9 /* Watson */,
 			);
 			path = Controllers;
@@ -573,6 +603,7 @@
 		05D142EA1AB0CE630012009D /* ExternalLibraries */ = {
 			isa = PBXGroup;
 			children = (
+				A260B0371BD96877004C70B9 /* GoogleAnalyticsServices */,
 				054428921AB737B500E94F07 /* KeychainWrapper */,
 			);
 			path = ExternalLibraries;
@@ -595,6 +626,7 @@
 		05D143801AB1E96B0012009D /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				A260AFD21BD94A6B004C70B9 /* GoogleService-Info.plist */,
 				05D143C31AB1E9930012009D /* ConfigManager.swift */,
 				05D1437A1AB1E8610012009D /* Config.plist */,
 			);
@@ -960,6 +992,120 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		A260B0371BD96877004C70B9 /* GoogleAnalyticsServices */ = {
+			isa = PBXGroup;
+			children = (
+				A260B0381BD96877004C70B9 /* Google */,
+				A260B0471BD96877004C70B9 /* GoogleAnalytics */,
+			);
+			path = GoogleAnalyticsServices;
+			sourceTree = "<group>";
+		};
+		A260B0381BD96877004C70B9 /* Google */ = {
+			isa = PBXGroup;
+			children = (
+				A260B0391BD96877004C70B9 /* Headers */,
+				A260B0441BD96877004C70B9 /* Libraries */,
+			);
+			path = Google;
+			sourceTree = "<group>";
+		};
+		A260B0391BD96877004C70B9 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				A260B03A1BD96877004C70B9 /* GGLAnalytics */,
+				A260B03E1BD96877004C70B9 /* GGLCore */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		A260B03A1BD96877004C70B9 /* GGLAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				A260B03B1BD96877004C70B9 /* Public */,
+			);
+			path = GGLAnalytics;
+			sourceTree = "<group>";
+		};
+		A260B03B1BD96877004C70B9 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				A260B03C1BD96877004C70B9 /* Analytics.h */,
+				A260B03D1BD96877004C70B9 /* GGLContext+Analytics.h */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		A260B03E1BD96877004C70B9 /* GGLCore */ = {
+			isa = PBXGroup;
+			children = (
+				A260B03F1BD96877004C70B9 /* Public */,
+			);
+			path = GGLCore;
+			sourceTree = "<group>";
+		};
+		A260B03F1BD96877004C70B9 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				A260B0401BD96877004C70B9 /* Core.h */,
+				A260B0411BD96877004C70B9 /* GGLConfiguration.h */,
+				A260B0421BD96877004C70B9 /* GGLContext.h */,
+				A260B0431BD96877004C70B9 /* GGLErrorCode.h */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		A260B0441BD96877004C70B9 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				A260B0451BD96877004C70B9 /* libGGLAnalytics.a */,
+				A260B0461BD96877004C70B9 /* libGGLCore.a */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		A260B0471BD96877004C70B9 /* GoogleAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				A260B0481BD96877004C70B9 /* Headers */,
+				A260B0541BD96877004C70B9 /* Libraries */,
+			);
+			path = GoogleAnalytics;
+			sourceTree = "<group>";
+		};
+		A260B0481BD96877004C70B9 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				A260B0491BD96877004C70B9 /* Public */,
+			);
+			path = Headers;
+			sourceTree = "<group>";
+		};
+		A260B0491BD96877004C70B9 /* Public */ = {
+			isa = PBXGroup;
+			children = (
+				A260B04A1BD96877004C70B9 /* GAI.h */,
+				A260B04B1BD96877004C70B9 /* GAIDictionaryBuilder.h */,
+				A260B04C1BD96877004C70B9 /* GAIEcommerceFields.h */,
+				A260B04D1BD96877004C70B9 /* GAIEcommerceProduct.h */,
+				A260B04E1BD96877004C70B9 /* GAIEcommerceProductAction.h */,
+				A260B04F1BD96877004C70B9 /* GAIEcommercePromotion.h */,
+				A260B0501BD96877004C70B9 /* GAIFields.h */,
+				A260B0511BD96877004C70B9 /* GAILogger.h */,
+				A260B0521BD96877004C70B9 /* GAITrackedViewController.h */,
+				A260B0531BD96877004C70B9 /* GAITracker.h */,
+			);
+			path = Public;
+			sourceTree = "<group>";
+		};
+		A260B0541BD96877004C70B9 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				A260B0551BD96877004C70B9 /* libGoogleAnalytics.a */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1083,6 +1229,7 @@
 				2710065116A09DEF0072351B /* Localizations.bundle in Resources */,
 				499DFAA61AB9D2B9007B46DB /* Entitlements-Distribution.plist in Resources */,
 				2710067116A09DEF0072351B /* CDVCapture.bundle in Resources */,
+				A260AFD31BD94A6B004C70B9 /* GoogleService-Info.plist in Resources */,
 				05D143E81AB201420012009D /* buildtime.sh in Resources */,
 				056A62091AB222B10047E8A6 /* Entitlements-Debug.plist in Resources */,
 				2710069116A09DEF0072351B /* CDVNotification.bundle in Resources */,
@@ -1207,6 +1354,7 @@
 				05D142F81AB0CE630012009D /* NSCoderExtension.swift in Sources */,
 				05D142FA1AB0CE630012009D /* StringExtension.swift in Sources */,
 				7EC31B461AF2842A0075A633 /* TransactionsDataManager.swift in Sources */,
+				A260B05A1BD977DF004C70B9 /* HatchUIViewController.swift in Sources */,
 				0558524E1ADC262000267B5D /* MenuLogoCollectionViewCell.swift in Sources */,
 				059CBC001AB9EC1800844FF4 /* NavViewController.swift in Sources */,
 				05D142FF1AB0CE630012009D /* UIImageViewExtension.swift in Sources */,
@@ -1548,6 +1696,10 @@
 					"$(SRCROOT)",
 					"\"$(SRCROOT)/WorklightSDK\"",
 					"$(PROJECT_DIR)/WorklightSDK",
+					"$(PROJECT_DIR)/Hatch/ExternalLibraries",
+					"$(PROJECT_DIR)/Hatch/ExternalLibraries/GoogleAnalytics",
+					"$(PROJECT_DIR)/Hatch/ExternalLibraries/GoogleAnalyticsServices/Google/Libraries",
+					"$(PROJECT_DIR)/Hatch/ExternalLibraries/GoogleAnalyticsServices/GoogleAnalytics/Libraries",
 				);
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_NAME = Hatch;
@@ -1611,6 +1763,10 @@
 					"$(SRCROOT)",
 					"\"$(SRCROOT)/WorklightSDK\"",
 					"$(PROJECT_DIR)/WorklightSDK",
+					"$(PROJECT_DIR)/Hatch/ExternalLibraries",
+					"$(PROJECT_DIR)/Hatch/ExternalLibraries/GoogleAnalytics",
+					"$(PROJECT_DIR)/Hatch/ExternalLibraries/GoogleAnalyticsServices/Google/Libraries",
+					"$(PROJECT_DIR)/Hatch/ExternalLibraries/GoogleAnalyticsServices/GoogleAnalytics/Libraries",
 				);
 				OTHER_SWIFT_FLAGS = "";
 				PRODUCT_NAME = Hatch;
@@ -1697,6 +1853,10 @@
 					"$(SRCROOT)",
 					"\"$(SRCROOT)/WorklightSDK\"",
 					"$(PROJECT_DIR)/WorklightSDK",
+					"$(PROJECT_DIR)/Hatch/ExternalLibraries",
+					"$(PROJECT_DIR)/Hatch/ExternalLibraries/GoogleAnalytics",
+					"$(PROJECT_DIR)/Hatch/ExternalLibraries/GoogleAnalyticsServices/Google/Libraries",
+					"$(PROJECT_DIR)/Hatch/ExternalLibraries/GoogleAnalyticsServices/GoogleAnalytics/Libraries",
 				);
 				PRODUCT_NAME = Hatch;
 				PROVISIONING_PROFILE = "";
@@ -1827,6 +1987,10 @@
 					"$(SRCROOT)",
 					"\"$(SRCROOT)/WorklightSDK\"",
 					"$(PROJECT_DIR)/WorklightSDK",
+					"$(PROJECT_DIR)/Hatch/ExternalLibraries",
+					"$(PROJECT_DIR)/Hatch/ExternalLibraries/GoogleAnalytics",
+					"$(PROJECT_DIR)/Hatch/ExternalLibraries/GoogleAnalyticsServices/Google/Libraries",
+					"$(PROJECT_DIR)/Hatch/ExternalLibraries/GoogleAnalyticsServices/GoogleAnalytics/Libraries",
 				);
 				PRODUCT_NAME = Hatch;
 				PROVISIONING_PROFILE = "";

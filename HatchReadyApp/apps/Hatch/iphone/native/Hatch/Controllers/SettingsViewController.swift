@@ -9,7 +9,7 @@ import UIKit
 /**
 *  Custom UIViewController for Settings page.
 */
-class SettingsViewController: UIViewController{
+class SettingsViewController: HatchUIViewController{
     
     /// Table view that contains all cells for Settings page
     @IBOutlet weak var tableView: UITableView!

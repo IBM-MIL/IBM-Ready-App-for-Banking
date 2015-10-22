@@ -8,7 +8,7 @@ import UIKit
 /**
 *  This view controller controls logic for the UIPageViewController that is inside of a container view. This will begin the Watson questionnaire.
 */
-class WatsonViewController: UIViewController {
+class WatsonViewController: HatchUIViewController {
     
     /// menu button
     @IBOutlet weak var menuBar: UIButton!

@@ -8,7 +8,7 @@ import UIKit
 /**
 *  Displays the transactions for a select account
 */
-class TransactionsViewController: UIViewController {
+class TransactionsViewController: HatchUIViewController {
     
     /// Transaction UITableView
     @IBOutlet weak var transactionTableView: UITableView!

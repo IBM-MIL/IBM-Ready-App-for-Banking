@@ -8,7 +8,7 @@ import UIKit
 /**
 *  A custom UIViewController used to display a user's account and business information
 */
-class DashboardViewController: UIViewController {
+class DashboardViewController: HatchUIViewController {
     /// Label showing the estimated spending amount
     @IBOutlet weak var estimatedSpendingAmountLabel: UILabel!
     /// Container for the estimated available green view

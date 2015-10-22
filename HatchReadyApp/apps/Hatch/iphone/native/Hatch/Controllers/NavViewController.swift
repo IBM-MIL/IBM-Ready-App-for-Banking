@@ -95,6 +95,12 @@ class NavViewController: UINavigationController, WLActionReceiver {
         let showBackButton = data["showBackButton"] as! Bool!
         let headerColor = data["headerColor"] as! String!
         
+        let tracker = GAI.sharedInstance().defaultTracker
+        tracker.set(kGAIScreenName, value: title)
+        
+        let builder = GAIDictionaryBuilder.createScreenView()
+        tracker.send(builder.build() as [NSObject : AnyObject])
+        
         var routeDictionary : [NSObject : AnyObject]! = [:]
         routeDictionary["route"] = route
         
