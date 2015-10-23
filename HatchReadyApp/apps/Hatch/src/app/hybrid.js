@@ -105,6 +105,21 @@ var HybridJS = (function() {
     }
 
     /**
+     * @function returnNative
+     * @decription Tells the native app to go to the native home screen
+    */
+    function exitHybrid() {
+        try {
+            WL.App.sendActionToNative('exitHybrid', {
+
+            });
+        } catch (e) {
+            console.log('Worklight is not running properly');
+            console.log(e.message);
+        }
+    }
+
+    /**
      * @function changePage
      * @description Changes the page to the new route, callback is needed so native can perform the push animation
      * @param  {Object} route The route to go to
@@ -316,6 +331,7 @@ var HybridJS = (function() {
         updatePage: updatePage,
         sendGoalsToNative: sendGoalsToNative,
         pressBackButton: pressBackButton,
-        getFeasibility: getFeasibility
+        getFeasibility: getFeasibility,
+        exitHybrid: exitHybrid
     };
 }());

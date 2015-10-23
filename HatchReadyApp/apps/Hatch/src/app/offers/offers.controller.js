@@ -13,9 +13,10 @@
  * Controller that displays the various offers a bank has
  * @param  {Offers} Offers) The Offers service
  */
-angular.module('hatch').controller('OffersController', ['Offers', function(Offers) {
+angular.module('hatch').controller('OffersController', ['Offers', 'Navigation', function(Offers, Navigation) {
 	var vm = this;
 	vm.offers = Offers;
+	vm.navigation = Navigation;
 	vm.showFlyover = false;
 	/**
 	 * @function
@@ -23,5 +24,9 @@ angular.module('hatch').controller('OffersController', ['Offers', function(Offer
 	 */
     vm.toggleFlyover = function(){
         vm.showFlyover = !vm.showFlyover;
+    };
+
+    vm.exitFlow = function(){
+    	vm.navigation.exitHybrid();
     };
  }]);

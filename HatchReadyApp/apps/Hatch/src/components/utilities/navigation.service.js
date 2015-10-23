@@ -71,6 +71,17 @@ angular.module('hatch').factory('Navigation', ['$location', 'Goals', '$timeout',
 
     /**
     * @function exitPage
+    * @description Exits the current page and goes to the native home screen
+    */
+    var exitHybrid = function() {
+        $timeout(function() {
+        $location.path('');
+        }, delayTime);
+        HybridJS.exitHybrid();
+    };
+
+    /**
+    * @function exitPage
     * @description Exits the current page and goes back to the view goals screen
     */
     var exitPage = function() {
@@ -85,6 +96,7 @@ angular.module('hatch').factory('Navigation', ['$location', 'Goals', '$timeout',
         toView: toView,
         toAddGoal: toAddGoal,
         toOptions: toOptions,
-        exitPage: exitPage
+        exitPage: exitPage,
+        exitHybrid: exitHybrid
     };
 }]);

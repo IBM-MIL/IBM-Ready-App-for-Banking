@@ -81,12 +81,18 @@ class NavViewController: UINavigationController, WLActionReceiver {
             selector = { self.updatedPriorities(data) }
         case "pressBackButton":
             selector = { self.backButtonTapped(UIButton()) }
+        case "exitHybrid":
+            selector = { self.navigateToDashboard() }
         default:
             selector = { MQALogger.log("invalid action") }
         }
         
         dispatch_async(dispatch_get_main_queue(), selector)
         
+    }
+    
+    private func navigateToDashboard() {
+        MenuViewController.goToDashboard()
     }
     
     private func updatePage(data: [NSObject : AnyObject]!){
