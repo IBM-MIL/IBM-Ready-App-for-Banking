@@ -35,10 +35,6 @@
 			<p class="item-title" translate="ENDDATE"></p>
 			<input id="endDateField" type="date" ng-model="editGoals.goalCopy.end" class="item-date" ng-required="true" ng-focus="editGoals.focusing()" ng-blur="editGoals.blurring()" past num-date></input>
 		</li>
-		<li class="item">
-			<p class="item-title" translate="RECURRINGPAYMENT"></p>
-			<p class="item-data">{{ (editGoals.showMonthly ? editGoals.getTotal(editGoals.goalCopy.goalAmount, editGoals.goalCopy.saved, editGoals.goalCopy.monthsLeft) : editGoals.getTotal(editGoals.goalCopy.goalAmount, editGoals.goalCopy.saved, editGoals.goalCopy.weeksLeft)) | currency }}</p>
-		</li>
 	</ul>
 	<div>
 		<ul class="period-container">

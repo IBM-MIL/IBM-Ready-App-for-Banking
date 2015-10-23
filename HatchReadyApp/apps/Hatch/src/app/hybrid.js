@@ -224,6 +224,7 @@ var HybridJS = (function() {
         var $formatter = $inj.get('Formatter');
         var oldStart = goalF.start;
         var oldEnd = goalF.end;
+        var oldDepositAmount = goalF.depositAmount;
         var oldList = $goals.allGoals.slice();
         var indexOfNew = -1;
         var count = 0;
@@ -254,6 +255,7 @@ var HybridJS = (function() {
         $formatter.convertFeasibilityToString(goalF);
         goalF.start = oldStart;
         goalF.end = oldEnd;
+        goalF.depositAmount = oldDepositAmount;
     }
 
     /**
