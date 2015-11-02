@@ -19,8 +19,8 @@ IBM Ready App for Banking is made great via
 
 * [**IBM MobileFirst Platform**](http://www-03.ibm.com/software/products/en/mobilefirstplatform)
 * [**IBM Bluemix**](https://console.ng.bluemix.net/)
-  * **Watson Tradeoff Analytics**
-  * **Cloudant**
+  * [**Watson Tradeoff Analytics**] (http://www.ibm.com/smarterplanet/us/en/ibmwatson/developercloud/tradeoff-analytics.html)
+  * [**Cloudant**] (https://cloudant.com/)
 
 
 ### Apple Frameworks
