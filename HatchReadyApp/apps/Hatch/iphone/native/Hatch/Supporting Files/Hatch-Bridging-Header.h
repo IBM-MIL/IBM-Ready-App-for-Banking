@@ -5,12 +5,12 @@
 
 #import "WLSwiftBridgingHeader.h"
 #import "Cordova/CDV.h"
-#import "WL.h"
-#import "WLAppDelegate.h"
-#import "WLWebFrameworkInitResult.h"
+#import <IBMMobileFirstPlatformFoundationHybrid/IBMMobileFirstPlatformFoundationHybrid.h>
+
+
 #import "Cordova/CDVViewController.h"
-#import "WLDelegate.h"
-#import "WLClient.h"
+
+
 #import "../Frameworks/Q4M.framework/Headers/MQALogger.h"
 #import "../Utilities/MQAExceptionHandler/MQAExceptionHandler.h"
 #import "../Utilities/MQALoggerSwiftHelper/MQALogger+MQASwiftSupport.h"

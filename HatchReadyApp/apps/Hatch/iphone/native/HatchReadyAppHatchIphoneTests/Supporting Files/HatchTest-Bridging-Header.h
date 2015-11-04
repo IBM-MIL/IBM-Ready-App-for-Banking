@@ -5,4 +5,4 @@
 
 #import "WLSwiftBridgingHeader.h"
 #import "Cordova/CDV.h"
-#import "WL.h"
+#import <IBMMobileFirstPlatformFoundationHybrid/IBMMobileFirstPlatformFoundationHybrid.h>
