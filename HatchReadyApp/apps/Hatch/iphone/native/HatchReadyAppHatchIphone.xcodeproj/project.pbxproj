@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		79F093001AC42DCA003B6C24 /* IBMMobileFirstPlatformFoundationHybrid.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79F092FF1AC42DCA003B6C24 /* IBMMobileFirstPlatformFoundationHybrid.framework */; };
+		79DD822A1AC1A7EB00795253 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 79DD82291AC1A7EB00795253 /* libc++.dylib */; };
+		00CE811D1B201DE100E532A7 /* certificates in Resources */ = {isa = PBXBuildFile; fileRef = 00CE811C1B201DE100E532A7 /* certificates */; };
 		054428941AB737B500E94F07 /* KeychainWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054428931AB737B500E94F07 /* KeychainWrapper.swift */; };
 		054EE17C1AB8CDE100219C4F /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054EE17B1AB8CDE100219C4F /* MenuViewController.swift */; };
 		0557348F1AC4AEB600ED894C /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0557348E1AC4AEB600ED894C /* DashboardViewController.swift */; };
@@ -20,7 +23,6 @@
 		056A62091AB222B10047E8A6 /* Entitlements-Debug.plist in Resources */ = {isa = PBXBuildFile; fileRef = 056A61A21AB222B10047E8A6 /* Entitlements-Debug.plist */; };
 		056A620A1AB222B10047E8A6 /* Entitlements-Release.plist in Resources */ = {isa = PBXBuildFile; fileRef = 056A61A31AB222B10047E8A6 /* Entitlements-Release.plist */; };
 		056A620C1AB222B10047E8A6 /* worklight.plist in Resources */ = {isa = PBXBuildFile; fileRef = 056A61A51AB222B10047E8A6 /* worklight.plist */; };
-		056A620D1AB222B10047E8A6 /* libWorklightStaticLibProject.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 056A61A71AB222B10047E8A6 /* libWorklightStaticLibProject.a */; };
 		0575217F1AC5E1480052EB3F /* AccountViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0575217E1AC5E1480052EB3F /* AccountViewCell.swift */; };
 		0578DAA91AC9A76A00033465 /* BusinessViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578DAA81AC9A76A00033465 /* BusinessViewController.swift */; };
 		0578DAAD1AC9D40800033465 /* HatchPageControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0578DAAC1AC9D40800033465 /* HatchPageControl.swift */; };
@@ -171,6 +173,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		79F092FF1AC42DCA003B6C24 /* IBMMobileFirstPlatformFoundationHybrid.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = IBMMobileFirstPlatformFoundationHybrid.framework; path = Frameworks/IBMMobileFirstPlatformFoundationHybrid.framework; sourceTree = "<group>"; };
+		79DD82291AC1A7EB00795253 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = compiled.mach-o.dylib; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		00CE811C1B201DE100E532A7 /* certificates */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "certificates"; path = "Resources/certificates"; sourceTree = "<group>"; };
 		054428931AB737B500E94F07 /* KeychainWrapper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainWrapper.swift; sourceTree = "<group>"; };
 		054428951AB73A7200E94F07 /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		054EE17B1AB8CDE100219C4F /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -186,7 +191,6 @@
 		056A61A31AB222B10047E8A6 /* Entitlements-Release.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Entitlements-Release.plist"; sourceTree = "<group>"; };
 		056A61A41AB222B10047E8A6 /* HatchReadyAppHatchIphone-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "HatchReadyAppHatchIphone-Info.plist"; sourceTree = "<group>"; };
 		056A61A51AB222B10047E8A6 /* worklight.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = worklight.plist; sourceTree = "<group>"; };
-		056A61A71AB222B10047E8A6 /* libWorklightStaticLibProject.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWorklightStaticLibProject.a; sourceTree = "<group>"; };
 		0575217E1AC5E1480052EB3F /* AccountViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountViewCell.swift; sourceTree = "<group>"; };
 		0578DAA81AC9A76A00033465 /* BusinessViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessViewController.swift; sourceTree = "<group>"; };
 		0578DAAC1AC9D40800033465 /* HatchPageControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HatchPageControl.swift; sourceTree = "<group>"; };
@@ -304,101 +308,14 @@
 		42DB65D5141F483300EA8B09 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		47F3D1F31723E20B004534C9 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		499DFAA51AB9D2B9007B46DB /* Entitlements-Distribution.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Entitlements-Distribution.plist"; sourceTree = "<group>"; };
-		49B944FF1AD952DC00DBE2CA /* AbstractAcquisitionError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractAcquisitionError.h; sourceTree = "<group>"; };
-		49B945001AD952DC00DBE2CA /* AbstractGeoAreaTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractGeoAreaTrigger.h; sourceTree = "<group>"; };
-		49B945011AD952DC00DBE2CA /* AbstractGeoDwellTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractGeoDwellTrigger.h; sourceTree = "<group>"; };
-		49B945021AD952DC00DBE2CA /* AbstractPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractPosition.h; sourceTree = "<group>"; };
-		49B945031AD952DC00DBE2CA /* AbstractTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractTrigger.h; sourceTree = "<group>"; };
-		49B945041AD952DC00DBE2CA /* AbstractWifiAreaTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractWifiAreaTrigger.h; sourceTree = "<group>"; };
-		49B945051AD952DC00DBE2CA /* AbstractWifiDwellTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractWifiDwellTrigger.h; sourceTree = "<group>"; };
-		49B945061AD952DC00DBE2CA /* AbstractWifiFilterTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractWifiFilterTrigger.h; sourceTree = "<group>"; };
-		49B945071AD952DC00DBE2CA /* AcquisitionCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AcquisitionCallback.h; sourceTree = "<group>"; };
-		49B945081AD952DC00DBE2CA /* AcquisitionFailureCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AcquisitionFailureCallback.h; sourceTree = "<group>"; };
-		49B945091AD952DC00DBE2CA /* BaseChallengeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseChallengeHandler.h; sourceTree = "<group>"; };
-		49B9450A1AD952DC00DBE2CA /* BaseDeviceAuthChallengeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDeviceAuthChallengeHandler.h; sourceTree = "<group>"; };
 		49B9450B1AD952DC00DBE2CA /* BaseProvisioningChallengeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseProvisioningChallengeHandler.h; sourceTree = "<group>"; };
-		49B9450C1AD952DC00DBE2CA /* CDVAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDVAppDelegate.h; sourceTree = "<group>"; };
-		49B9450D1AD952DC00DBE2CA /* ChallengeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChallengeHandler.h; sourceTree = "<group>"; };
-		49B9450E1AD952DC00DBE2CA /* JSONStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONStore.h; sourceTree = "<group>"; };
-		49B9450F1AD952DC00DBE2CA /* JSONStoreAddOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONStoreAddOptions.h; sourceTree = "<group>"; };
-		49B945101AD952DC00DBE2CA /* JSONStoreCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONStoreCollection.h; sourceTree = "<group>"; };
-		49B945111AD952DC00DBE2CA /* JSONStoreOpenOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONStoreOpenOptions.h; sourceTree = "<group>"; };
-		49B945121AD952DC00DBE2CA /* JSONStoreQueryOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONStoreQueryOptions.h; sourceTree = "<group>"; };
-		49B945131AD952DC00DBE2CA /* JSONStoreQueryPart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONStoreQueryPart.h; sourceTree = "<group>"; };
 		49B945141AD952DC00DBE2CA /* MFPMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MFPMainViewController.h; sourceTree = "<group>"; };
-		49B945151AD952DC00DBE2CA /* NativePage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NativePage.h; sourceTree = "<group>"; };
-		49B945161AD952DC00DBE2CA /* OCLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLogger.h; sourceTree = "<group>"; };
-		49B945171AD952DC00DBE2CA /* OCLoggerMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCLoggerMacros.h; sourceTree = "<group>"; };
-		49B945181AD952DC00DBE2CA /* WL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WL.h; sourceTree = "<group>"; };
-		49B945191AD952DC00DBE2CA /* WLAcquisitionFailureCallbacksConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLAcquisitionFailureCallbacksConfiguration.h; sourceTree = "<group>"; };
-		49B9451A1AD952DC00DBE2CA /* WLAcquisitionPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLAcquisitionPolicy.h; sourceTree = "<group>"; };
-		49B9451B1AD952DC00DBE2CA /* WLActionReceiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLActionReceiver.h; sourceTree = "<group>"; };
-		49B9451C1AD952DC00DBE2CA /* WLAnalytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLAnalytics.h; sourceTree = "<group>"; };
-		49B9451D1AD952DC00DBE2CA /* WLAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLAppDelegate.h; sourceTree = "<group>"; };
-		49B9451E1AD952DC00DBE2CA /* WLArea.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLArea.h; sourceTree = "<group>"; };
-		49B9451F1AD952DC00DBE2CA /* WLCallbackFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCallbackFactory.h; sourceTree = "<group>"; };
-		49B945201AD952DC00DBE2CA /* WLChallengeHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLChallengeHandler.h; sourceTree = "<group>"; };
-		49B945211AD952DC00DBE2CA /* WLCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCircle.h; sourceTree = "<group>"; };
-		49B945221AD952DC00DBE2CA /* WLClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLClient.h; sourceTree = "<group>"; };
-		49B945231AD952DC00DBE2CA /* WLConfidenceLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLConfidenceLevel.h; sourceTree = "<group>"; };
-		49B945241AD952DC00DBE2CA /* WLCookieExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCookieExtractor.h; sourceTree = "<group>"; };
-		49B945251AD952DC00DBE2CA /* WLCoordinate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCoordinate.h; sourceTree = "<group>"; };
-		49B945261AD952DC00DBE2CA /* WLCordovaAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLCordovaAppDelegate.h; sourceTree = "<group>"; };
-		49B945271AD952DC00DBE2CA /* WLDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLDelegate.h; sourceTree = "<group>"; };
-		49B945281AD952DC00DBE2CA /* WLDevice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLDevice.h; sourceTree = "<group>"; };
-		49B945291AD952DC00DBE2CA /* WLDeviceAuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLDeviceAuthManager.h; sourceTree = "<group>"; };
-		49B9452A1AD952DC00DBE2CA /* WLDeviceContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLDeviceContext.h; sourceTree = "<group>"; };
 		49B9452B1AD952DC00DBE2CA /* WLDirectUpdatePlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLDirectUpdatePlugin.h; sourceTree = "<group>"; };
-		49B9452C1AD952DC00DBE2CA /* WLEventSourceListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLEventSourceListener.h; sourceTree = "<group>"; };
-		49B9452D1AD952DC00DBE2CA /* WLEventTransmissionPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLEventTransmissionPolicy.h; sourceTree = "<group>"; };
-		49B9452E1AD952DC00DBE2CA /* WLFailResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLFailResponse.h; sourceTree = "<group>"; };
-		49B9452F1AD952DC00DBE2CA /* WLGeoAcquisitionPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLGeoAcquisitionPolicy.h; sourceTree = "<group>"; };
-		49B945301AD952DC00DBE2CA /* WLGeoCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLGeoCallback.h; sourceTree = "<group>"; };
-		49B945311AD952DC00DBE2CA /* WLGeoDwellInsideTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLGeoDwellInsideTrigger.h; sourceTree = "<group>"; };
-		49B945321AD952DC00DBE2CA /* WLGeoDwellOutsideTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLGeoDwellOutsideTrigger.h; sourceTree = "<group>"; };
-		49B945331AD952DC00DBE2CA /* WLGeoEnterTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLGeoEnterTrigger.h; sourceTree = "<group>"; };
-		49B945341AD952DC00DBE2CA /* WLGeoError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLGeoError.h; sourceTree = "<group>"; };
-		49B945351AD952DC00DBE2CA /* WLGeoExitTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLGeoExitTrigger.h; sourceTree = "<group>"; };
-		49B945361AD952DC00DBE2CA /* WLGeoFailureCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLGeoFailureCallback.h; sourceTree = "<group>"; };
-		49B945371AD952DC00DBE2CA /* WLGeoPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLGeoPosition.h; sourceTree = "<group>"; };
-		49B945381AD952DC00DBE2CA /* WLGeoPositionChangeTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLGeoPositionChangeTrigger.h; sourceTree = "<group>"; };
-		49B945391AD952DC00DBE2CA /* WLGeoTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLGeoTrigger.h; sourceTree = "<group>"; };
-		49B9453A1AD952DC00DBE2CA /* WLGeoUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLGeoUtils.h; sourceTree = "<group>"; };
-		49B9453B1AD952DC00DBE2CA /* WLLocationServicesConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLLocationServicesConfiguration.h; sourceTree = "<group>"; };
-		49B9453C1AD952DC00DBE2CA /* WLOnReadyToSubscribeListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLOnReadyToSubscribeListener.h; sourceTree = "<group>"; };
 		49B9453D1AD952DC00DBE2CA /* WLPersistentCookieManager+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WLPersistentCookieManager+Private.h"; sourceTree = "<group>"; };
-		49B9453E1AD952DC00DBE2CA /* WLPolygon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLPolygon.h; sourceTree = "<group>"; };
-		49B9453F1AD952DC00DBE2CA /* WLProcedureInvocationData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLProcedureInvocationData.h; sourceTree = "<group>"; };
-		49B945401AD952DC00DBE2CA /* WLProcedureInvocationResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLProcedureInvocationResult.h; sourceTree = "<group>"; };
 		49B945411AD952DC00DBE2CA /* WLProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLProgressView.h; sourceTree = "<group>"; };
-		49B945421AD952DC00DBE2CA /* WLPush.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLPush.h; sourceTree = "<group>"; };
-		49B945431AD952DC00DBE2CA /* WLPushOptions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLPushOptions.h; sourceTree = "<group>"; };
-		49B945441AD952DC00DBE2CA /* WLResponse.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLResponse.h; sourceTree = "<group>"; };
-		49B945451AD952DC00DBE2CA /* WLResponseListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLResponseListener.h; sourceTree = "<group>"; };
 		49B945461AD952DC00DBE2CA /* WLSecurityUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLSecurityUtils.h; sourceTree = "<group>"; };
 		49B945471AD952DC00DBE2CA /* WLSimpleDataSharing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLSimpleDataSharing.h; sourceTree = "<group>"; };
 		49B945481AD952DC00DBE2CA /* WLSwiftBridgingHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLSwiftBridgingHeader.h; sourceTree = "<group>"; };
-		49B945491AD952DC00DBE2CA /* WLTriggerCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLTriggerCallback.h; sourceTree = "<group>"; };
-		49B9454A1AD952DC00DBE2CA /* WLTriggersConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLTriggersConfiguration.h; sourceTree = "<group>"; };
-		49B9454B1AD952DC00DBE2CA /* WLTrusteer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLTrusteer.h; sourceTree = "<group>"; };
-		49B9454C1AD952DC00DBE2CA /* WLUserAuthManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLUserAuthManager.h; sourceTree = "<group>"; };
-		49B9454D1AD952DC00DBE2CA /* WLWebFrameworkInitResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLWebFrameworkInitResult.h; sourceTree = "<group>"; };
-		49B9454E1AD952DC00DBE2CA /* WLWifiAccessPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLWifiAccessPoint.h; sourceTree = "<group>"; };
-		49B9454F1AD952DD00DBE2CA /* WLWifiAccessPointFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLWifiAccessPointFilter.h; sourceTree = "<group>"; };
-		49B945501AD952DD00DBE2CA /* WLWifiAcquisitionCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLWifiAcquisitionCallback.h; sourceTree = "<group>"; };
-		49B945511AD952DD00DBE2CA /* WLWifiAcquisitionPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLWifiAcquisitionPolicy.h; sourceTree = "<group>"; };
-		49B945521AD952DD00DBE2CA /* WLWifiConnectedCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLWifiConnectedCallback.h; sourceTree = "<group>"; };
-		49B945531AD952DD00DBE2CA /* WLWifiConnectTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLWifiConnectTrigger.h; sourceTree = "<group>"; };
-		49B945541AD952DD00DBE2CA /* WLWifiDisconnectTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLWifiDisconnectTrigger.h; sourceTree = "<group>"; };
-		49B945551AD952DD00DBE2CA /* WLWifiDwellInsideTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLWifiDwellInsideTrigger.h; sourceTree = "<group>"; };
-		49B945561AD952DD00DBE2CA /* WLWifiDwellOutsideTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLWifiDwellOutsideTrigger.h; sourceTree = "<group>"; };
-		49B945571AD952DD00DBE2CA /* WLWifiEnterTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLWifiEnterTrigger.h; sourceTree = "<group>"; };
-		49B945581AD952DD00DBE2CA /* WLWifiError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLWifiError.h; sourceTree = "<group>"; };
-		49B945591AD952DD00DBE2CA /* WLWifiExitTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLWifiExitTrigger.h; sourceTree = "<group>"; };
-		49B9455A1AD952DD00DBE2CA /* WLWifiFailureCallback.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLWifiFailureCallback.h; sourceTree = "<group>"; };
-		49B9455B1AD952DD00DBE2CA /* WLWifiLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLWifiLocation.h; sourceTree = "<group>"; };
-		49B9455C1AD952DD00DBE2CA /* WLWifiTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLWifiTrigger.h; sourceTree = "<group>"; };
-		49B9455D1AD952DD00DBE2CA /* WLWifiVisibleAccessPointsChangeTrigger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLWifiVisibleAccessPointsChangeTrigger.h; sourceTree = "<group>"; };
 		5E144E09180EEBA700A01719 /* libstdc++.6.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.6.dylib"; path = "usr/lib/libstdc++.6.dylib"; sourceTree = SDKROOT; };
 		71B9C74E170B3D2D008197AE /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
 		7E77A1D21AB7428F00B9F34E /* ReadyAppsChallengeHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReadyAppsChallengeHandler.swift; sourceTree = "<group>"; };
@@ -445,6 +362,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				79F093001AC42DCA003B6C24 /* IBMMobileFirstPlatformFoundationHybrid.framework in Frameworks */,
+				79DD822A1AC1A7EB00795253 /* libc++.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,7 +375,6 @@
 				A260B0561BD96877004C70B9 /* libGGLAnalytics.a in Frameworks */,
 				7EE4E0DC1B0A56C800EBBBC9 /* Q4M.framework in Frameworks */,
 				05D143EB1AB203170012009D /* CoreText.framework in Frameworks */,
-				056A620D1AB222B10047E8A6 /* libWorklightStaticLibProject.a in Frameworks */,
 				71B9C74F170B3D2D008197AE /* CoreTelephony.framework in Frameworks */,
 				9C5B6E5D1535A43C00AF1336 /* Security.framework in Frameworks */,
 				5E144E0A180EEBA700A01719 /* libstdc++.6.dylib in Frameworks */,
@@ -534,15 +452,7 @@
 			path = MILLoadView;
 			sourceTree = "<group>";
 		};
-		056A61A61AB222B10047E8A6 /* WorklightSDK */ = {
-			isa = PBXGroup;
-			children = (
-				056A61A71AB222B10047E8A6 /* libWorklightStaticLibProject.a */,
-				49B944FE1AD952DC00DBE2CA /* include */,
-			);
-			path = WorklightSDK;
-			sourceTree = "<group>";
-		};
+
 		05B7D6B31AC1C07C00A9A255 /* HatchReadyAppHatchIphoneTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -744,7 +654,6 @@
 				05D143E11AB1FBBA0012009D /* Hatch */,
 				05B7D6B31AC1C07C00A9A255 /* HatchReadyAppHatchIphoneTests */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
-				056A61A61AB222B10047E8A6 /* WorklightSDK */,
 				301BF56E109A69640062928A /* www */,
 			);
 			name = CustomTemplate;
@@ -753,6 +662,8 @@
 		29B97323FDCFA39411CA2CEA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				79F092FF1AC42DCA003B6C24 /* IBMMobileFirstPlatformFoundationHybrid.framework */,
+				79DD82291AC1A7EB00795253 /* libc++.dylib */,
 				7EE4E0DB1B0A56C800EBBBC9 /* Q4M.framework */,
 				054428951AB73A7200E94F07 /* LocalAuthentication.framework */,
 				05D143EA1AB203170012009D /* CoreText.framework */,
@@ -862,101 +773,14 @@
 		49B944FE1AD952DC00DBE2CA /* include */ = {
 			isa = PBXGroup;
 			children = (
-				49B944FF1AD952DC00DBE2CA /* AbstractAcquisitionError.h */,
-				49B945001AD952DC00DBE2CA /* AbstractGeoAreaTrigger.h */,
-				49B945011AD952DC00DBE2CA /* AbstractGeoDwellTrigger.h */,
-				49B945021AD952DC00DBE2CA /* AbstractPosition.h */,
-				49B945031AD952DC00DBE2CA /* AbstractTrigger.h */,
-				49B945041AD952DC00DBE2CA /* AbstractWifiAreaTrigger.h */,
-				49B945051AD952DC00DBE2CA /* AbstractWifiDwellTrigger.h */,
-				49B945061AD952DC00DBE2CA /* AbstractWifiFilterTrigger.h */,
-				49B945071AD952DC00DBE2CA /* AcquisitionCallback.h */,
-				49B945081AD952DC00DBE2CA /* AcquisitionFailureCallback.h */,
-				49B945091AD952DC00DBE2CA /* BaseChallengeHandler.h */,
-				49B9450A1AD952DC00DBE2CA /* BaseDeviceAuthChallengeHandler.h */,
 				49B9450B1AD952DC00DBE2CA /* BaseProvisioningChallengeHandler.h */,
-				49B9450C1AD952DC00DBE2CA /* CDVAppDelegate.h */,
-				49B9450D1AD952DC00DBE2CA /* ChallengeHandler.h */,
-				49B9450E1AD952DC00DBE2CA /* JSONStore.h */,
-				49B9450F1AD952DC00DBE2CA /* JSONStoreAddOptions.h */,
-				49B945101AD952DC00DBE2CA /* JSONStoreCollection.h */,
-				49B945111AD952DC00DBE2CA /* JSONStoreOpenOptions.h */,
-				49B945121AD952DC00DBE2CA /* JSONStoreQueryOptions.h */,
-				49B945131AD952DC00DBE2CA /* JSONStoreQueryPart.h */,
 				49B945141AD952DC00DBE2CA /* MFPMainViewController.h */,
-				49B945151AD952DC00DBE2CA /* NativePage.h */,
-				49B945161AD952DC00DBE2CA /* OCLogger.h */,
-				49B945171AD952DC00DBE2CA /* OCLoggerMacros.h */,
-				49B945181AD952DC00DBE2CA /* WL.h */,
-				49B945191AD952DC00DBE2CA /* WLAcquisitionFailureCallbacksConfiguration.h */,
-				49B9451A1AD952DC00DBE2CA /* WLAcquisitionPolicy.h */,
-				49B9451B1AD952DC00DBE2CA /* WLActionReceiver.h */,
-				49B9451C1AD952DC00DBE2CA /* WLAnalytics.h */,
-				49B9451D1AD952DC00DBE2CA /* WLAppDelegate.h */,
-				49B9451E1AD952DC00DBE2CA /* WLArea.h */,
-				49B9451F1AD952DC00DBE2CA /* WLCallbackFactory.h */,
-				49B945201AD952DC00DBE2CA /* WLChallengeHandler.h */,
-				49B945211AD952DC00DBE2CA /* WLCircle.h */,
-				49B945221AD952DC00DBE2CA /* WLClient.h */,
-				49B945231AD952DC00DBE2CA /* WLConfidenceLevel.h */,
-				49B945241AD952DC00DBE2CA /* WLCookieExtractor.h */,
-				49B945251AD952DC00DBE2CA /* WLCoordinate.h */,
-				49B945261AD952DC00DBE2CA /* WLCordovaAppDelegate.h */,
-				49B945271AD952DC00DBE2CA /* WLDelegate.h */,
-				49B945281AD952DC00DBE2CA /* WLDevice.h */,
-				49B945291AD952DC00DBE2CA /* WLDeviceAuthManager.h */,
-				49B9452A1AD952DC00DBE2CA /* WLDeviceContext.h */,
 				49B9452B1AD952DC00DBE2CA /* WLDirectUpdatePlugin.h */,
-				49B9452C1AD952DC00DBE2CA /* WLEventSourceListener.h */,
-				49B9452D1AD952DC00DBE2CA /* WLEventTransmissionPolicy.h */,
-				49B9452E1AD952DC00DBE2CA /* WLFailResponse.h */,
-				49B9452F1AD952DC00DBE2CA /* WLGeoAcquisitionPolicy.h */,
-				49B945301AD952DC00DBE2CA /* WLGeoCallback.h */,
-				49B945311AD952DC00DBE2CA /* WLGeoDwellInsideTrigger.h */,
-				49B945321AD952DC00DBE2CA /* WLGeoDwellOutsideTrigger.h */,
-				49B945331AD952DC00DBE2CA /* WLGeoEnterTrigger.h */,
-				49B945341AD952DC00DBE2CA /* WLGeoError.h */,
-				49B945351AD952DC00DBE2CA /* WLGeoExitTrigger.h */,
-				49B945361AD952DC00DBE2CA /* WLGeoFailureCallback.h */,
-				49B945371AD952DC00DBE2CA /* WLGeoPosition.h */,
-				49B945381AD952DC00DBE2CA /* WLGeoPositionChangeTrigger.h */,
-				49B945391AD952DC00DBE2CA /* WLGeoTrigger.h */,
-				49B9453A1AD952DC00DBE2CA /* WLGeoUtils.h */,
-				49B9453B1AD952DC00DBE2CA /* WLLocationServicesConfiguration.h */,
-				49B9453C1AD952DC00DBE2CA /* WLOnReadyToSubscribeListener.h */,
 				49B9453D1AD952DC00DBE2CA /* WLPersistentCookieManager+Private.h */,
-				49B9453E1AD952DC00DBE2CA /* WLPolygon.h */,
-				49B9453F1AD952DC00DBE2CA /* WLProcedureInvocationData.h */,
-				49B945401AD952DC00DBE2CA /* WLProcedureInvocationResult.h */,
 				49B945411AD952DC00DBE2CA /* WLProgressView.h */,
-				49B945421AD952DC00DBE2CA /* WLPush.h */,
-				49B945431AD952DC00DBE2CA /* WLPushOptions.h */,
-				49B945441AD952DC00DBE2CA /* WLResponse.h */,
-				49B945451AD952DC00DBE2CA /* WLResponseListener.h */,
 				49B945461AD952DC00DBE2CA /* WLSecurityUtils.h */,
 				49B945471AD952DC00DBE2CA /* WLSimpleDataSharing.h */,
 				49B945481AD952DC00DBE2CA /* WLSwiftBridgingHeader.h */,
-				49B945491AD952DC00DBE2CA /* WLTriggerCallback.h */,
-				49B9454A1AD952DC00DBE2CA /* WLTriggersConfiguration.h */,
-				49B9454B1AD952DC00DBE2CA /* WLTrusteer.h */,
-				49B9454C1AD952DC00DBE2CA /* WLUserAuthManager.h */,
-				49B9454D1AD952DC00DBE2CA /* WLWebFrameworkInitResult.h */,
-				49B9454E1AD952DC00DBE2CA /* WLWifiAccessPoint.h */,
-				49B9454F1AD952DD00DBE2CA /* WLWifiAccessPointFilter.h */,
-				49B945501AD952DD00DBE2CA /* WLWifiAcquisitionCallback.h */,
-				49B945511AD952DD00DBE2CA /* WLWifiAcquisitionPolicy.h */,
-				49B945521AD952DD00DBE2CA /* WLWifiConnectedCallback.h */,
-				49B945531AD952DD00DBE2CA /* WLWifiConnectTrigger.h */,
-				49B945541AD952DD00DBE2CA /* WLWifiDisconnectTrigger.h */,
-				49B945551AD952DD00DBE2CA /* WLWifiDwellInsideTrigger.h */,
-				49B945561AD952DD00DBE2CA /* WLWifiDwellOutsideTrigger.h */,
-				49B945571AD952DD00DBE2CA /* WLWifiEnterTrigger.h */,
-				49B945581AD952DD00DBE2CA /* WLWifiError.h */,
-				49B945591AD952DD00DBE2CA /* WLWifiExitTrigger.h */,
-				49B9455A1AD952DD00DBE2CA /* WLWifiFailureCallback.h */,
-				49B9455B1AD952DD00DBE2CA /* WLWifiLocation.h */,
-				49B9455C1AD952DD00DBE2CA /* WLWifiTrigger.h */,
-				49B9455D1AD952DD00DBE2CA /* WLWifiVisibleAccessPointsChangeTrigger.h */,
 			);
 			path = include;
 			sourceTree = "<group>";
@@ -1206,6 +1030,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00CE811D1B201DE100E532A7 /* certificates in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1477,12 +1302,10 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRCROOT)/WorklightSDK/include",
 				);
 				"HEADER_SEARCH_PATHS[arch=*]" = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRCROOT)/WorklightSDK/include",
 				);
 				INFOPLIST_FILE = "HatchReadyAppHatchIphoneTests/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
@@ -1492,7 +1315,6 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/HatchReadyAppHatchIphoneTests/Supporting Files/HatchTest-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hatch.app/Hatch";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/WorklightSDK/include $(SRCROOT)/Hatch/AppDelegate";
 			};
 			name = Debug;
 		};
@@ -1538,7 +1360,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/HatchReadyAppHatchIphoneTests/Supporting Files/HatchTest-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hatch.app/Hatch";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/WorklightSDK/include $(SRCROOT)/Hatch/AppDelegate";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Test;
@@ -1577,7 +1398,6 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRCROOT)/WorklightSDK/include",
 				);
 				INFOPLIST_FILE = "HatchReadyAppHatchIphoneTests/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
@@ -1586,7 +1406,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/HatchReadyAppHatchIphoneTests/Supporting Files/HatchTest-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hatch.app/Hatch";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/WorklightSDK/include $(SRCROOT)/Hatch/AppDelegate";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Distribution;
@@ -1625,12 +1444,10 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRCROOT)/WorklightSDK/include",
 				);
 				"HEADER_SEARCH_PATHS[arch=*]" = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					"$(SRCROOT)/WorklightSDK/include",
 				);
 				INFOPLIST_FILE = "HatchReadyAppHatchIphoneTests/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
@@ -1639,7 +1456,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/HatchReadyAppHatchIphoneTests/Supporting Files/HatchTest-Bridging-Header.h";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Hatch.app/Hatch";
-				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/WorklightSDK/include $(SRCROOT)/Hatch/AppDelegate";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1694,8 +1510,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
-					"\"$(SRCROOT)/WorklightSDK\"",
-					"$(PROJECT_DIR)/WorklightSDK",
 					"$(PROJECT_DIR)/Hatch/ExternalLibraries",
 					"$(PROJECT_DIR)/Hatch/ExternalLibraries/GoogleAnalytics",
 					"$(PROJECT_DIR)/Hatch/ExternalLibraries/GoogleAnalyticsServices/Google/Libraries",
@@ -1708,7 +1522,6 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Hatch/Supporting Files/Hatch-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/WorklightSDK/include";
 				VALID_ARCHS = "i386 armv7 armv7s arm64 x86_64";
 			};
 			name = Debug;
@@ -1761,8 +1574,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
-					"\"$(SRCROOT)/WorklightSDK\"",
-					"$(PROJECT_DIR)/WorklightSDK",
 					"$(PROJECT_DIR)/Hatch/ExternalLibraries",
 					"$(PROJECT_DIR)/Hatch/ExternalLibraries/GoogleAnalytics",
 					"$(PROJECT_DIR)/Hatch/ExternalLibraries/GoogleAnalyticsServices/Google/Libraries",
@@ -1775,7 +1586,6 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Hatch/Supporting Files/Hatch-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/WorklightSDK/include";
 				VALID_ARCHS = "i386 armv7 armv7s arm64 x86_64";
 			};
 			name = Release;
@@ -1851,8 +1661,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
-					"\"$(SRCROOT)/WorklightSDK\"",
-					"$(PROJECT_DIR)/WorklightSDK",
 					"$(PROJECT_DIR)/Hatch/ExternalLibraries",
 					"$(PROJECT_DIR)/Hatch/ExternalLibraries/GoogleAnalytics",
 					"$(PROJECT_DIR)/Hatch/ExternalLibraries/GoogleAnalyticsServices/Google/Libraries",
@@ -1864,7 +1672,6 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Hatch/Supporting Files/Hatch-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/WorklightSDK/include";
 				VALID_ARCHS = "i386 armv7 armv7s arm64 x86_64";
 			};
 			name = Distribution;
@@ -1905,8 +1712,6 @@
 				OTHER_LDFLAGS = (
 					"-force_load",
 					"\"$(BUILT_PRODUCTS_DIR)/libCordova.a\"",
-					"-force_load",
-					"\"$(SRCROOT)/WorklightSDK/libWorklightStaticLibProject.a\"",
 					"-ObjC",
 				);
 				SDKROOT = iphoneos;
@@ -1985,8 +1790,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)",
-					"\"$(SRCROOT)/WorklightSDK\"",
-					"$(PROJECT_DIR)/WorklightSDK",
 					"$(PROJECT_DIR)/Hatch/ExternalLibraries",
 					"$(PROJECT_DIR)/Hatch/ExternalLibraries/GoogleAnalytics",
 					"$(PROJECT_DIR)/Hatch/ExternalLibraries/GoogleAnalyticsServices/Google/Libraries",
@@ -1998,7 +1801,6 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "Hatch/Supporting Files/Hatch-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/WorklightSDK/include";
 				VALID_ARCHS = "i386 armv7 armv7s arm64 x86_64";
 			};
 			name = Test;

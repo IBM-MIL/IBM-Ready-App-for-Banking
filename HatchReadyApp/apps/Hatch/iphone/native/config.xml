@@ -184,5 +184,8 @@
     <feature name="WLAuthorizationManagerPlugin">
 		<param name="ios-package" value="WLAuthorizationManagerPlugin"/>
     </feature>
+    <feature name="WLCertificatePinningPlugin">
+		<param name="ios-package" value="WLCertificatePinningPlugin"/>
+    </feature>
     <access origin="*"/>
 </widget>

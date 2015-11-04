@@ -1,0 +1,1 @@
+If your application uses certificate pinning, put the DER format digital certificate in this folder.

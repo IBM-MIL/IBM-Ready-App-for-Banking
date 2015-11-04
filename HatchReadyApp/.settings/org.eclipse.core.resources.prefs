@@ -1,20 +1,20 @@
-#Thu Oct 15 10:12:30 CDT 2015
-base.iphone=3304563914
+#Wed Nov 04 17:21:40 CST 2015
+base.iphone=1038353722
 encoding//apps/Hatch/iphone/css/main.css=UTF-8
-base.android=1348550248
-jsonstore.windowsphone8=784214034
-common.android=3998981046
-fipshttp.android=3517017756
-wl_version=7.0.0.00.20150706-1910
+base.android=188543705
+jsonstore.windowsphone8=1864982580
+common.android=2602476710
+fipshttp.android=2225966711
+wl_version=7.1.0.00.20151023-1441
 eclipse.preferences.version=1
-base.windowsphone8=2357271116
+base.windowsphone8=4237699421
 encoding/<project>=UTF-8
-jsonstore.android=2033967206
+jsonstore.android=1718801641
 analytics.ipad=2554529831
-fipshttp.iphone=2487189175
-fipshttp.ipad=2487189175
+fipshttp.iphone=761882626
+fipshttp.ipad=761882626
 encoding//apps/Hatch/common/index.html=UTF-8
 wl_compatible_version=
-base.ipad=3304563914
+base.ipad=1038353722
 analytics.iphone=2554529831
 analytics.android=963009885
