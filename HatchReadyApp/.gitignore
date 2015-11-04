@@ -1,9 +1,10 @@
 # NOTE: This list is unofficial and may not be suitable for every MFP project.
 # Partially based on the information found in the following URL:
-# http://www-01.ibm.com/support/knowledgecenter/SSZH4A_6.2.0/com.ibm.worklight.dev.doc/devref/r_integrating_with_source_contro.html?lang=en
+# https://github.com/ibmmobiletipsntricks/mfp-gitignore/blob/master/MFP_7.1.gitignore
 # Please consider this file as a starting point.
 # This file should be placed at the root level of the MFP project.
-# Also remember, any folders or files that should be ignored should not be already added to git, as that will override the ignores.
+# Also remember, any folders or files that should be ignored should not be already added to git,
+# as that will override the ignores specified here.
 # To remove a resource from Git, you can use the following command: git rm -rf <folder name> 
 
 bin/
@@ -17,12 +18,16 @@ apps/*/android/native/gen
 apps/*/android/native/out
 
 # iOS resources to ignore
+apps/*/i*/native/build
 apps/*/i*/native/www
 apps/*/i*/native/CordovaLib
+apps/*/i*/native/Frameworks/IBMMobileFirstPlatformFoundationHybrid.framework
 apps/*/i*/native/WorklightSDK
 apps/*/i*/native/worklight.plist
 apps/*/i*/native/*.xcodeproj/xcuserdata
 apps/*/i*/native/*.xcodeproj/project.xcworkspace/xcuserdata
+apps/*/i*/native/Frameworks/sqlcipher.framework
+apps/*/i*/package
 
 # Windows resources to ignore
 apps/*/windowsphone*/native/Bin
@@ -47,3 +52,13 @@ apps/*/i*/native/DerivedData
 apps/*/i*/native/*.hmap
 apps/*/i*/native/*.ipa
 apps/*/i*/native/*.xcuserstate
+
+# Injected by the command-line tools
+derby.log
+
+# Ignore Mac OSX folder attributes
+/**/.DS_Store
+
+#
+# END mfp-gitignore rules
+#
