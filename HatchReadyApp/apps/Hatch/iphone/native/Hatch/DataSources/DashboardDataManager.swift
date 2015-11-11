@@ -7,8 +7,8 @@ Licensed Materials - Property of IBM
 import Foundation
 
 /**
-*  A shared resource manager for obtaining Business and Accounts specific data from MobileFirst Platform
-*/
+ *  A shared resource manager for obtaining Business and Accounts specific data from MobileFirst Platform
+ */
 public class DashboardDataManager: NSObject{
     
     // Callback function that will execute after the call returns
@@ -28,41 +28,40 @@ public class DashboardDataManager: NSObject{
     }
     
     /**
-    Calls the MobileFirst Platform service
-    
-    - parameter callback:  Callback to determine success
-    */
+     Calls the MobileFirst Platform service
+     
+     - parameter callback:  Callback to determine success
+     */
     func getDashboardData(callback: ((Bool, [Business]!)->())!){
         self.callback = callback
-        let adapterName : String = "SBBAdapter"
+        let adapterName : String = "SBBJavaAdapter"
         let procedureName : String = "getDashboardData"
         let caller = WLProcedureCaller(adapterName : adapterName, procedureName: procedureName)
-        let params = []
-        caller.invokeWithResponse(self, params: nil)
+        caller.invokeWithResponse(self,pathParam: nil,queryParams: nil)
         var userExists = false
     }
     
     /**
-    Method used for testing
-    */
+     Method used for testing
+     */
     public func getDashboardDataTest(){
         getDashboardData(nil)
     }
     
     /**
-    Method that is fired when a retry is attempted for dashboard data.
-    */
+     Method that is fired when a retry is attempted for dashboard data.
+     */
     func retryGetDashboardData(){
         getDashboardData(callback)
     }
     
     /**
-    Parses MobileFirst Platform's response and returns an array of account objects.
-    
-    - parameter worklightResponseJson: JSON response from MobileFirst Platform with Dashboard data.
-    
-    - returns: Array of account objects.
-    */
+     Parses MobileFirst Platform's response and returns an array of account objects.
+     
+     - parameter worklightResponseJson: JSON response from MobileFirst Platform with Dashboard data.
+     
+     - returns: Array of account objects.
+     */
     func parseDashboardResponse(worklightResponseJson: NSDictionary) -> [Business]{
         
         let businessesJsonString = worklightResponseJson["result"] as! String
@@ -113,10 +112,10 @@ public class DashboardDataManager: NSObject{
 extension DashboardDataManager: WLDataDelegate{
     
     /**
-    Delegate method for MobileFirst Platform. Called when connection and return is successful
-    
-    - parameter response: Response from MobileFirst Platform
-    */
+     Delegate method for MobileFirst Platform. Called when connection and return is successful
+     
+     - parameter response: Response from MobileFirst Platform
+     */
     public func onSuccess(response: WLResponse!) {
         let responseJson = response.getResponseJson() as NSDictionary
         
@@ -130,14 +129,30 @@ extension DashboardDataManager: WLDataDelegate{
     }
     
     /**
-    Delegate method for MobileFirst Platform. Called when connection or return is unsuccessful
-    
-    - parameter response: Response from MobileFirst Platform
-    */
+     Delegate method for MobileFirst Platform. Called when connection or return is unsuccessful
+     
+     - parameter response: Response from MobileFirst Platform
+     */
     public func onFailure(response: WLFailResponse!) {
         MQALogger.log("Response: \(response.responseText)")
-
+        
         if (response.errorCode.rawValue == 0) {
+            MILAlertViewManager.sharedInstance.show("Can not connect to the server, click to refresh", callback: retryGetDashboardData)
+        }
+        
+        callback(false, nil)
+        
+    }
+    
+    /**
+     Delegate method for MobileFirst Platform. Called when connection or return is unsuccessful
+     
+     - parameter response: Response from MobileFirst Platform
+     */
+    public func onFailureError(response: NSError!) {
+        MQALogger.log("Response: \(response.description)")
+        
+        if (response.code == 0) {
             MILAlertViewManager.sharedInstance.show("Can not connect to the server, click to refresh", callback: retryGetDashboardData)
         }
         
@@ -147,14 +162,14 @@ extension DashboardDataManager: WLDataDelegate{
     
     
     /**
-    Delegate method for MobileFirst Platform. Task to do before executing a call.
-    */
+     Delegate method for MobileFirst Platform. Task to do before executing a call.
+     */
     public func onPreExecute() {
     }
     
     /**
-    Delegate method for MobileFirst Platform. Task to do after executing a call.
-    */
+     Delegate method for MobileFirst Platform. Task to do after executing a call.
+     */
     public func onPostExecute() {
     }
 }

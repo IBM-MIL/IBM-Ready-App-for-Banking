@@ -6,8 +6,8 @@ Licensed Materials - Property of IBM
 import Foundation
 
 /**
-*  A shared resource manager for obtaining "Watson" specific data from MobileFirst Platform
-*/
+ *  A shared resource manager for obtaining "Watson" specific data from MobileFirst Platform
+ */
 public class WatsonDataManager: NSObject {
     /// Data received from MobileFirst Platform
     var data: [NSObject : AnyObject]!
@@ -27,28 +27,32 @@ public class WatsonDataManager: NSObject {
     }
     
     /**
-    This method is the callback to retry fetching Watson data upon failure
-    */
+     This method is the callback to retry fetching Watson data upon failure
+     */
     func retryCall(){
         fetchWatsonData(problemSentIn, callback: callback)
     }
     
     /**
-    *  Retrieves the Watson tradeoff data from MobileFirst Platform based on problem given
-    */
+     *  Retrieves the Watson tradeoff data from MobileFirst Platform based on problem given
+     */
     public func fetchWatsonData(problem: Array<AnyObject>, callback: ([NSObject: AnyObject])->()) {
-            self.problemSentIn = problem
-            self.callback = callback
-            let adapterName = "SBBAdapter"
-            let procedureName = "getTradeoffSolution"
-            let caller = WLProcedureCaller(adapterName: adapterName, procedureName: procedureName)
-            caller.invokeWithResponse(self, params: problem)
+        self.problemSentIn = problem
+        self.callback = callback
+        let adapterName = "SBBJavaAdapter"
+        let procedureName = "getTradeoffSolution"
+        let caller = WLProcedureCaller(adapterName: adapterName, procedureName: procedureName)
+        
+        var params: [String: AnyObject]!
+        params["dilemma"] = problem
+        
+        caller.invokeWithResponse(self, pathParam: nil, queryParams: params as! Dictionary<String,String>)
         
     }
     
     /**
-    This method gives the watson solution data back to
-    */
+     This method gives the watson solution data back to
+     */
     private func sendWatsonSolution(){
         callback(data) //give data to WatsonBestPlanViewController
         
@@ -65,6 +69,11 @@ extension WatsonDataManager: WLDataDelegate {
     
     public func onFailure(response : WLFailResponse!) {
         MQALogger.log("Failure Response : \(response.responseText)")
+        MILAlertViewManager.sharedInstance.show("Could not connect to the server, click to refresh", callback: retryCall)
+    }
+    
+    public func onFailureError(error: NSError!) {
+        MQALogger.log("Failure Response : \(error.description)")
         MILAlertViewManager.sharedInstance.show("Could not connect to the server, click to refresh", callback: retryCall)
     }
     

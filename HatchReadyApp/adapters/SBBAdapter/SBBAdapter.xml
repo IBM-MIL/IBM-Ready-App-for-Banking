@@ -33,17 +33,5 @@
 	</connectivity>
 
 	<procedure name="test" />
-	<procedure name="getUser" securityTest="ReadyAppHatch-securityTest"/>
-	<procedure name="getAccounts" securityTest="ReadyAppHatch-securityTest"/>
-	<procedure name="getTransactions" securityTest="ReadyAppHatch-securityTest"/>
-	<procedure name="getGoals" securityTest="ReadyAppHatch-securityTest"/>
-	<procedure name="getDashboardData" securityTest="ReadyAppHatch-securityTest"/>
-	<procedure name="getFeasibility" securityTest="ReadyAppHatch-securityTest"/>
 	<procedure name="submitAuthentication" />
-	<procedure name="getTradeoffSolution" securityTest="ReadyAppHatch-securityTest">
-		<displayName>getTradeoffSolution</displayName>
-	</procedure>
-	<procedure name="getOffers" securityTest="ReadyAppHatch-securityTest">
-		<displayName>getOffers</displayName>
-	</procedure>
 </wl:adapter>

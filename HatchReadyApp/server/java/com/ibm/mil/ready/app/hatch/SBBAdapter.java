@@ -16,6 +16,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
 import com.ibm.mil.ready.app.hatch.model.Goal;
 import com.ibm.mil.ready.app.hatch.model.Recommendation;
 import com.ibm.mil.ready.app.hatch.model.User;
@@ -42,6 +43,10 @@ public final class SBBAdapter {
 	private final WatsonService watsonService;
 	private final Gson parser = new Gson();
 	private final Utilities utils = new Utilities();
+	
+	private String currentUserId;
+	private String currentUsername;
+	private String currentUserLocale;
 	
 	public static final Logger LOGGER = Logger.getLogger(SBBAdapter.class.getName());
 	
@@ -119,7 +124,33 @@ public final class SBBAdapter {
 	 * @return user object
 	 */
 	public String verifyUser(String username, String password){
-		return userService.verifyUser(username, password);
+		LOGGER.log(Level.INFO, "In SBBAdapter verifyUser");
+		String userResponse = userService.verifyUser(username, password);
+		
+		JsonArray json = parser.fromJson(userResponse, JsonArray.class);
+//		Object[] json = utils.parseObject(userResponse, Object[].class);
+		try {
+			if (json.get(0).getAsBoolean()) {
+				this.currentUsername = username;
+				this.currentUserLocale = json.get(1).getAsString();
+				this.currentUserId = json.get(2).getAsJsonObject().get("_id").getAsString();
+			}	
+		} catch (NullPointerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+			
+		return userResponse;
+	}
+		
+	public String getCurrentUserId() {
+		return this.currentUserId;
+	}
+	public String getCurrentUsername() {
+		return this.currentUsername;
+	}
+	public String getCurrentUserLocale() {
+		return this.currentUserLocale;
 	}
 	
 	/**
