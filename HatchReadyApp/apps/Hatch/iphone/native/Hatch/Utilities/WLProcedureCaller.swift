@@ -21,11 +21,13 @@ class WLProcedureCaller: NSObject {
     private var dataDelegate : WLDataDelegate!
     private var adapterName : String!
     private var procedureName : String!
+    private var externalResourceURL : String!
+    private var headers : Dictionary<String, String>!
     private var logWLStartTime : NSDate!
     private let TIMEOUT_MILLIS = 10000
     
     /**
-     Constructor to initialize the procedure caller with both the adapter name and procedure name.
+     Constructor to initialize the procedure caller for calling adapter procedures.
      
      - parameter adapterName:
      - parameter procedureName:
@@ -38,6 +40,20 @@ class WLProcedureCaller: NSObject {
     }
     
     /**
+     Constructor to initialize the procedure caller for calling external resources.
+     
+     - parameter externalResourceURL: Full URL to external resource to be called
+     - parameter headers:             HTTP Header values
+     
+     - returns: WLProcedureCaller
+     */
+    init(externalResourceURL: String, headers: Dictionary<String, String>?) {
+        self.externalResourceURL = externalResourceURL
+        self.headers = headers
+        
+    }
+    
+    /**
      This function will execute the adapter procedure and invoke the appropriate functions of the
      WLDataDelegate that is passed in.
      
@@ -45,18 +61,29 @@ class WLProcedureCaller: NSObject {
      - parameter pathParam:   Parameter that is to be part of the REST path
      - parameter queryParams: Named parameters that are to be provided as query parameters to the REST service
      - parameter formParams:  Complex parameters that will be serialized to JSON and passed to the REST service as form parameters
+     - parameter bodyText:    Simple string that will be sent as the post body
      */
-    func invokeWithResponse(dataDelegate: WLDataDelegate, pathParam: String?, queryParams: Dictionary<String, String>? = nil, formParams: Dictionary<String,AnyObject>? = nil){
+    func invokeWithResponse(dataDelegate: WLDataDelegate, pathParam: String?, queryParams: Dictionary<String, String>? = nil, formParams: Dictionary<String,AnyObject>? = nil, bodyText: String? = nil){
         self.dataDelegate = dataDelegate
         self.dataDelegate.onPreExecute()
         
-        // Construct REST URL
-        var url = "/adapters/" + adapterName + "/" + procedureName
+        var url : String!
+        
+        // Construct base REST URL
+        if let externalURL = externalResourceURL {
+            // External resource
+            url = externalURL
+        } else {
+            // Adapter call
+            url = "/adapters/" + adapterName + "/" + procedureName
+        }
+
+        // Add path parameters, if they exist
         if let unwrappedPathParam = pathParam {
             url = url + "/" + unwrappedPathParam
         }
         
-        // If there are form parameters, the request will be made with the POST method
+        // Check to see if there are form parameters or bodyText, which will be sent with a POST
         if let unwrappedFormParams = formParams {
             // Create a POST request
             let request = WLResourceRequest(URL: NSURL(string: url), method: WLHttpMethodPost)
@@ -64,10 +91,31 @@ class WLProcedureCaller: NSObject {
             // Add query parameters, if they exist
             addQueryParamsToRequest(request, queryParams: queryParams)
             
+            // Add header parameters, if they exist
+            addHeaderParamsToRequest(request, headerParams: headers)
+            
             // Json-ify the form parameters
             let jsonFormParams = jsonifyFormParams(unwrappedFormParams)
             
             request.sendWithFormParameters(jsonFormParams, completionHandler: { (WLResponse response, NSError error) -> Void in
+                if (error == nil) {
+                    self.dataDelegate.onSuccess(response)
+                } else {
+                    self.dataDelegate.onFailureError(error)
+                }
+            })
+            
+        } else if bodyText != nil {
+            // Create a POST request
+            let request = WLResourceRequest(URL: NSURL(string: url), method: WLHttpMethodPost)
+            
+            // Add query parameters, if they exist
+            addQueryParamsToRequest(request, queryParams: queryParams)
+            
+            // Add header parameters, if they exist
+            addHeaderParamsToRequest(request, headerParams: headers)
+            
+            request.sendWithBody(bodyText, completionHandler: { (WLResponse response, NSError error) -> Void in
                 if (error == nil) {
                     self.dataDelegate.onSuccess(response)
                 } else {
@@ -81,6 +129,9 @@ class WLProcedureCaller: NSObject {
             
             // Add query parameters, if they exist
             addQueryParamsToRequest(request, queryParams: queryParams)
+            
+            // Add header parameters, if they exist
+            addHeaderParamsToRequest(request, headerParams: headers)
             
             request.sendWithCompletionHandler { (WLResponse response, NSError error) -> Void in
                 if (error == nil) {
@@ -103,6 +154,15 @@ class WLProcedureCaller: NSObject {
         if let unwrappedQueryParams = queryParams {
             for (queryParam, queryValue) in unwrappedQueryParams {
                 request.setQueryParameterValue(queryValue, forName: queryParam)
+            }
+        }
+    }
+    
+    
+    func addHeaderParamsToRequest(request: WLResourceRequest, headerParams: Dictionary<String,String>?) {
+        if let unwrappedHeaderParams = headerParams {
+            for (headerParam, headerValue) in unwrappedHeaderParams {
+                request.setHeaderValue(headerValue, forName: headerParam)
             }
         }
         
