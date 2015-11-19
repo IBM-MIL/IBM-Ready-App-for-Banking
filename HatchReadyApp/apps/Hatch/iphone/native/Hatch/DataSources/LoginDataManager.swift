@@ -44,7 +44,7 @@ public class LoginDataManager: NSObject{
         let caller = WLProcedureInvocationData(adapterName : adapterName, procedureName: procedureName)
         caller.parameters = [username, password]
         let locale = NSLocale.currentLocale().localeIdentifier
-        self.challengeHandler.submitAdapterAuthentication(caller, options: nil)
+        self.challengeHandler.submitAdapterAuthentication(caller, options: ["timeout":20000])
         
         
     }
