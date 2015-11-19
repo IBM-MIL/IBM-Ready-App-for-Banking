@@ -34,21 +34,27 @@ public class WatsonDataManager: NSObject {
     }
     
     /**
-     *  Retrieves the Watson tradeoff data from MobileFirst Platform based on problem given
+     *  Retrieves the Watson tradeoff data directly from Watson service
      */
     public func fetchWatsonData(problem: [NSObject : AnyObject], callback: ([NSObject: AnyObject])->()) {
         self.problemSentIn = problem
         self.callback = callback
-        let adapterName = "SBBJavaAdapter"
-        let procedureName = "getTradeoffSolution"
-        let caller = WLProcedureCaller(adapterName: adapterName, procedureName: procedureName)
         
-        // Send complex data (problem) as a form parameter
-        var formParams: [String: AnyObject] = [:]
-        formParams["dilemma"]       = problem
-        
-        
-        caller.invokeWithResponse(self, pathParam: nil, queryParams: nil, formParams: formParams)
+        let externUrl = "https://gateway.watsonplatform.net/tradeoff-analytics/api/v1/dilemmas"
+        let caller = WLProcedureCaller(externalResourceURL: externUrl, headers: [
+            "Authorization" : "Basic YTQwMGY1ZDAtZjU5Zi00M2UyLWIzYjktMWQ4YTdlZDFjZTIxOnlsMm5XZktnRXRWcA==",
+            "Content-Type"  : "application/json",
+            "Accept"        : "application/json"])
+
+        // Send problem as body text
+        do {
+            let jsonData = try NSJSONSerialization.dataWithJSONObject(problem, options: NSJSONWritingOptions(rawValue: 0))
+            let jsonString = NSString(data: jsonData, encoding: NSUTF8StringEncoding)
+            
+            caller.invokeWithResponse(self, pathParam: nil, queryParams: nil, bodyText: jsonString as? String)
+
+        } catch {
+        }
         
     }
     

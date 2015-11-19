@@ -11,19 +11,12 @@ class Resolution {
     var solutions : [Solution] = []
     
     init(jsonDict : [NSObject: AnyObject]) {
-        let resultString = jsonDict["result"] as! String
-        
-        // convert String to NSData
-        var data: NSData = resultString.dataUsingEncoding(NSUTF8StringEncoding)!
-        
-        // convert NSData to 'AnyObject'
-        let resultDict = (try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(rawValue: 0))) as! [NSObject: AnyObject]
-        
-        let resolutionDict = resultDict["resolution"] as! [NSObject: AnyObject]
+
+        let resolutionDict = jsonDict["resolution"] as! [NSObject: AnyObject]
         let solutionsArray = resolutionDict["solutions"] as! [[NSObject: AnyObject]]
         
         for dict in solutionsArray {
-            var solution = Solution(jsonDict: dict)
+            let solution = Solution(jsonDict: dict)
             self.solutions.append(solution)
         }
     }
