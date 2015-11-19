@@ -16,7 +16,7 @@ public class WatsonDataManager: NSObject {
     var callback : (([NSObject: AnyObject])->())!
     
     /// Parameter to send containing Watson Problem
-    var problemSentIn : Array<AnyObject>!
+    var problemSentIn : [NSObject : AnyObject]!
     
     /// Returns a shared instance of WatsonDataManager
     public class var sharedInstance : WatsonDataManager {
@@ -36,17 +36,19 @@ public class WatsonDataManager: NSObject {
     /**
      *  Retrieves the Watson tradeoff data from MobileFirst Platform based on problem given
      */
-    public func fetchWatsonData(problem: Array<AnyObject>, callback: ([NSObject: AnyObject])->()) {
+    public func fetchWatsonData(problem: [NSObject : AnyObject], callback: ([NSObject: AnyObject])->()) {
         self.problemSentIn = problem
         self.callback = callback
         let adapterName = "SBBJavaAdapter"
         let procedureName = "getTradeoffSolution"
         let caller = WLProcedureCaller(adapterName: adapterName, procedureName: procedureName)
         
-        var params: [String: AnyObject]!
-        params["dilemma"] = problem
+        // Send complex data (problem) as a form parameter
+        var formParams: [String: AnyObject] = [:]
+        formParams["dilemma"]       = problem
         
-        caller.invokeWithResponse(self, pathParam: nil, queryParams: params as! Dictionary<String,String>)
+        
+        caller.invokeWithResponse(self, pathParam: nil, queryParams: nil, formParams: formParams)
         
     }
     

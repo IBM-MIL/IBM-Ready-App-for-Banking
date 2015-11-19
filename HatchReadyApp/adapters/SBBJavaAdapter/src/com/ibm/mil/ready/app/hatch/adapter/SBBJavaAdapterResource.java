@@ -140,11 +140,11 @@ public class SBBJavaAdapterResource {
 	 * @returns solution
 	 */		
 	/* Path for method: "<server address>/HatchReadyApp/adapters/SBBJavaAdapter/getTradeoffSolution?dilemma=value" */
-	@GET
+	@POST
 	@OAuthSecurity(scope="ReadyAppHatchAuthRealm")
 	@Path("/getTradeoffSolution")
 	@Produces("application/json")
-	public String getTradeoffSolution(@QueryParam("dilemma") String dilemma) {
+	public String getTradeoffSolution(@FormParam("dilemma") String dilemma) {
 		logger.log(Level.INFO, "getTradeoffSolution dilemma: " + dilemma);
 
 		String solution = javaAdapter.getTradeoffSolution(dilemma);

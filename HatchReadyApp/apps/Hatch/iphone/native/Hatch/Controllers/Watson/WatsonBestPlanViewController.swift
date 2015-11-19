@@ -97,10 +97,7 @@ class WatsonBestPlanViewController: UIViewController {
         let offerArray : [Offer] = Offer.parseJsonArray(offers) //make all offers into an array of Offer objects
         var problem = [NSObject : AnyObject]()
         problem = ProblemJSONHelper.formatProblemJSON(offerArray, response: watsonChoice) //send this JSON that contains Watson Problem back to WL
-        var singleProblemArray : Array<AnyObject> = []
-        singleProblemArray.append(problem)
-        WatsonDataManager.sharedInstance.fetchWatsonData(singleProblemArray,callback:  gotWatsonSolution)
-        
+        WatsonDataManager.sharedInstance.fetchWatsonData(problem, callback:  gotWatsonSolution)
         
     }
     
