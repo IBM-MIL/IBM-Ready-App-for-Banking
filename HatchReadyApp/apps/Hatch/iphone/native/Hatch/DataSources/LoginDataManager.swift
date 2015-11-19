@@ -6,11 +6,11 @@ Licensed Materials - Property of IBM
 import Foundation
 
 /**
- *  A shared resource manager for validating a log in and obtaining the user specific data from MobileFirst Platform
- */
+*  A shared resource manager for validating a log in and obtaining the user specific data from MobileFirst Platform
+*/
 public class LoginDataManager: NSObject{
     public var challengeHandler: ReadyAppsChallengeHandler!
-    
+
     // User data from MobileFirst Platform
     var currentUser : CurrentUser!
     
@@ -29,21 +29,16 @@ public class LoginDataManager: NSObject{
     override init() {
         challengeHandler = ReadyAppsChallengeHandler()
         WLClient.sharedInstance().registerChallengeHandler(challengeHandler)
-        
-        // DWS
-        currentUser = CurrentUser()
-        currentUser.firstName = "Fred"
-        currentUser.locale = "en_US"
     }
-    
+
     /**
-     Submits authentication to MobileFirst Platform service with provided username and password.
-     
-     - parameter username:
-     - parameter password:
-     */
+    Submits authentication to MobileFirst Platform service with provided username and password.
+    
+    - parameter username:
+    - parameter password:
+    */
     public func submitAuthentication(username: String!, password: String!){
-        
+
         let adapterName : String = "SBBAdapter"
         let procedureName : String = "submitAuthentication"
         let caller = WLProcedureInvocationData(adapterName : adapterName, procedureName: procedureName)
@@ -55,10 +50,10 @@ public class LoginDataManager: NSObject{
     }
     
     /**
-     Parses MobileFirst Platform's login response and creates and fills out a current user.
-     
-     - parameter worklightResponseJson: JSON Response from MobileFirst Platform
-     */
+    Parses MobileFirst Platform's login response and creates and fills out a current user.
+    
+    - parameter worklightResponseJson: JSON Response from MobileFirst Platform
+    */
     func parseLoginResponse(worklightResponseJson: NSDictionary){
         
         MQALogger.log("---------parseLoginResponse-------------")
@@ -72,7 +67,7 @@ public class LoginDataManager: NSObject{
         currentUser.lastName    = jsonResult["lastName"] as! String!
         currentUser.locale      = jsonResult["locale"] as! String!
         currentUser.username    = jsonResult["username"] as! String!
-        
+      
     }
     
 }
