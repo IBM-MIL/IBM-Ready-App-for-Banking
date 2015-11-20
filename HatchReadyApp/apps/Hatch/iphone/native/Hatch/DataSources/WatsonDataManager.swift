@@ -40,7 +40,8 @@ public class WatsonDataManager: NSObject {
         self.problemSentIn = problem
         self.callback = callback
         
-        let externUrl = "https://gateway.watsonplatform.net/tradeoff-analytics/api/v1/dilemmas"
+        //let externUrl = "https://gateway.watsonplatform.net/tradeoff-analytics/api/v1/dilemmas"
+        let externUrl = "https://api.apim.ibmcloud.com/dennisschultzusibmcom-dev/sb/tradeoff-analytics/api/v1/dilemmas"
         let caller = WLProcedureCaller(externalResourceURL: externUrl, headers: [
             "Authorization" : "Basic YTQwMGY1ZDAtZjU5Zi00M2UyLWIzYjktMWQ4YTdlZDFjZTIxOnlsMm5XZktnRXRWcA==",
             "Content-Type"  : "application/json",
