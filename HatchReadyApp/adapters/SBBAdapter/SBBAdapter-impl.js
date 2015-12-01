@@ -9,17 +9,13 @@
  */
 
 'use strict';
-var javaAdapter = com.ibm.mil.ready.app.hatch.SBBAdapter.getInstance()
-var msgService = com.ibm.mil.ready.app.hatch.service.MessageService
-		.getInstance();
-var jsonParser = new com.google.gson.Gson();
-var defaultLocale = 'en_US';
 
 /**
  * Test method so the client side folks can ensure MFP client is configured
  * properly.
  */
 function test() {
+	WL.Logger.info("SBBAdapter test ")
 	return {
 		isSuccessful : true,
 		result : 'Success!'
@@ -56,12 +52,23 @@ function onAuthRequired(headers, errorMessage) {
 function submitAuthentication(username, password) {
 	WL.Logger.info("submitAuthentication " + username)
 	
-	var response = javaAdapter.verifyUser(username, password);
-	var responseArray = JSON.parse(response);
+	var input = {
+			method : 'post',
+			returnedContentType : 'json',
+			path : "HatchReadyApp/adapters/SBBJavaAdapter/authenticate",
+			body : {
+            	contentType : 'application/x-www-form-urlencoded',
+            	content     : 'username=' + username + '&password=' + password
+				}
+	};
 
-	var validUser = responseArray[0];
-	var userLocale = responseArray[1];
-	var user = responseArray[2];
+	var response = WL.Server.invokeHttp(input);
+	
+	WL.Logger.debug("SBBJavaAdapter/authenticate returned " + JSON.stringify(response));
+
+	var validUser = response.array[0];
+	var userLocale = response.array[1];
+	var user = response.array[2];
 
 	WL.Logger.info("validUser is " + validUser)
 	

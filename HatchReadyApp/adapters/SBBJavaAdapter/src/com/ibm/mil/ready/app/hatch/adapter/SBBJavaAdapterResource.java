@@ -8,6 +8,7 @@
 package com.ibm.mil.ready.app.hatch.adapter;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,9 +22,12 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
 import com.google.gson.Gson;
+import com.ibm.json.java.JSON;
+import com.ibm.json.java.JSONArray;
 import com.ibm.json.java.JSONObject;
 import com.ibm.mil.ready.app.hatch.SBBAdapter;
 import com.ibm.mil.ready.app.hatch.model.User;
+import com.ibm.mil.ready.app.hatch.service.UserService;
 import com.worklight.adapters.rest.api.WLServerAPI;
 import com.worklight.adapters.rest.api.WLServerAPIProvider;
 import com.worklight.core.auth.OAuthSecurity;
@@ -40,14 +44,15 @@ public class SBBJavaAdapterResource {
     //Define the server api to be able to perform server operations
     WLServerAPI api = WLServerAPIProvider.getWLServerAPI();
 
-    private static SBBAdapter javaAdapter;
 	private final Gson parser = new Gson();
 	private static String defaultLocale = "en_US";
+	private static UserService userService;
 
     
     
     public static void init() {
-    	javaAdapter = SBBAdapter.getInstance();
+//    	javaAdapter = SBBAdapter.getInstance();
+//		userService = UserService.getInstance();
     }
     
     
@@ -75,6 +80,33 @@ public class SBBJavaAdapterResource {
     	return "Fatal error";
 	}
 		
+		
+    /* Path for method: "<server address>/GreenwellBanking/adapters/caasJava/authenticate" */
+    @POST
+    @OAuthSecurity(enabled=false)
+    @Path("/authenticate")
+    @Produces("application/json")
+    public JSONArray authenticate (
+    		@FormParam("username") String username,
+    		@FormParam("password") String password) throws UnsupportedEncodingException {
+    	logger.info("Authenticate " + username );
+   
+    	String ret = UserService.getInstance().verifyUser(username, password);
+    	
+    	logger.info("verifyUser returned " + ret);
+    	
+    	JSONArray retJson = new JSONArray();
+		try {
+			retJson = (JSONArray) JSON.parse(ret);
+		} catch (NullPointerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	return retJson;
+    }
 
 	/**
 	 * Finds a user by username in the back end. Requires a username and a locale
@@ -96,7 +128,7 @@ public class SBBJavaAdapterResource {
 
 		String locale = getUserLocale();
 
-		List<User> users = javaAdapter.getUser(username, locale);
+		List<User> users = SBBAdapter.getInstance().getUser(username, locale);
 		
 		boolean success = (users != null);
 
@@ -129,7 +161,7 @@ public class SBBJavaAdapterResource {
 		String activeUserId = getUserId();
 		String locale = getUserLocale();
 		
-		String dashboardData = javaAdapter.getDashboardData(activeUserId, locale);
+		String dashboardData = SBBAdapter.getInstance().getDashboardData(activeUserId, locale);
 
 		return buildReturnValue(dashboardData);
 	}
@@ -147,7 +179,7 @@ public class SBBJavaAdapterResource {
 	public String getTradeoffSolution(@FormParam("dilemma") String dilemma) {
 		logger.log(Level.INFO, "getTradeoffSolution dilemma: " + dilemma);
 
-		String solution = javaAdapter.getTradeoffSolution(dilemma);
+		String solution = SBBAdapter.getInstance().getTradeoffSolution(dilemma);
 		boolean success = solution == null ? false : true;
 		logger.info("Watson solution: " + solution);
 		logger.info("Watson success: " + success);
@@ -181,7 +213,7 @@ public class SBBJavaAdapterResource {
 		String locale = getUserLocale();
 		locale = locale == null ? defaultLocale : locale;
 
-		String accounts = javaAdapter.getAccounts(activeUserId, locale);
+		String accounts = SBBAdapter.getInstance().getAccounts(activeUserId, locale);
 		
     	return buildReturnValue(accounts);
 	}
@@ -207,7 +239,7 @@ public class SBBJavaAdapterResource {
 		String locale = getUserLocale();
 		locale = locale == null ? defaultLocale : locale;
 		
-		String goals = javaAdapter.getGoals(activeUserId, locale);
+		String goals = SBBAdapter.getInstance().getGoals(activeUserId, locale);
 		
 		return buildReturnValue(goals);
 	}
@@ -235,7 +267,7 @@ public class SBBJavaAdapterResource {
 		String locale = getUserLocale();
 		locale = locale == null ? defaultLocale : locale;
 
-		String transactions = javaAdapter.getTransactions(accountId, locale);
+		String transactions = SBBAdapter.getInstance().getTransactions(accountId, locale);
 
 		return buildReturnValue(transactions);
 	}
@@ -252,7 +284,7 @@ public class SBBJavaAdapterResource {
 	public String getOffers() {
 		logger.log(Level.INFO, "getOffers");
 		
-		String offers = javaAdapter.getOffers();
+		String offers = SBBAdapter.getInstance().getOffers();
 		
 		return buildReturnValue(offers);
 	}
@@ -289,7 +321,7 @@ public class SBBJavaAdapterResource {
 		String locale = getUserLocale();
 		locale = locale == null ? defaultLocale : locale;
 
-		String recommendations = javaAdapter.getFeasibility(userId, businessId, newGoal, 
+		String recommendations = SBBAdapter.getInstance().getFeasibility(userId, businessId, newGoal, 
 				existingGoals, locale);
 		logger.info(recommendations);
 		boolean success = recommendations == null ? false : true;
