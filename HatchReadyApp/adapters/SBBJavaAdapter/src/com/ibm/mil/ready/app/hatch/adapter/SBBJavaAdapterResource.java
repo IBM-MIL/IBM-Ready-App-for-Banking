@@ -47,12 +47,13 @@ public class SBBJavaAdapterResource {
 	private final Gson parser = new Gson();
 	private static String defaultLocale = "en_US";
 	private static UserService userService;
+	private static SBBAdapter javaAdapter;
 
     
     
     public static void init() {
-//    	javaAdapter = SBBAdapter.getInstance();
-//		userService = UserService.getInstance();
+    	javaAdapter = SBBAdapter.getInstance();
+		userService = UserService.getInstance();
     }
     
     
@@ -91,7 +92,7 @@ public class SBBJavaAdapterResource {
     		@FormParam("password") String password) throws UnsupportedEncodingException {
     	logger.info("Authenticate " + username );
    
-    	String ret = UserService.getInstance().verifyUser(username, password);
+    	String ret = userService.verifyUser(username, password);
     	
     	logger.info("verifyUser returned " + ret);
     	
@@ -128,7 +129,7 @@ public class SBBJavaAdapterResource {
 
 		String locale = getUserLocale();
 
-		List<User> users = SBBAdapter.getInstance().getUser(username, locale);
+		List<User> users = javaAdapter.getUser(username, locale);
 		
 		boolean success = (users != null);
 
@@ -161,7 +162,7 @@ public class SBBJavaAdapterResource {
 		String activeUserId = getUserId();
 		String locale = getUserLocale();
 		
-		String dashboardData = SBBAdapter.getInstance().getDashboardData(activeUserId, locale);
+		String dashboardData = javaAdapter.getDashboardData(activeUserId, locale);
 
 		return buildReturnValue(dashboardData);
 	}
@@ -179,7 +180,7 @@ public class SBBJavaAdapterResource {
 	public String getTradeoffSolution(@FormParam("dilemma") String dilemma) {
 		logger.log(Level.INFO, "getTradeoffSolution dilemma: " + dilemma);
 
-		String solution = SBBAdapter.getInstance().getTradeoffSolution(dilemma);
+		String solution = javaAdapter.getTradeoffSolution(dilemma);
 		boolean success = solution == null ? false : true;
 		logger.info("Watson solution: " + solution);
 		logger.info("Watson success: " + success);
@@ -213,7 +214,7 @@ public class SBBJavaAdapterResource {
 		String locale = getUserLocale();
 		locale = locale == null ? defaultLocale : locale;
 
-		String accounts = SBBAdapter.getInstance().getAccounts(activeUserId, locale);
+		String accounts = javaAdapter.getAccounts(activeUserId, locale);
 		
     	return buildReturnValue(accounts);
 	}
@@ -239,7 +240,7 @@ public class SBBJavaAdapterResource {
 		String locale = getUserLocale();
 		locale = locale == null ? defaultLocale : locale;
 		
-		String goals = SBBAdapter.getInstance().getGoals(activeUserId, locale);
+		String goals = javaAdapter.getGoals(activeUserId, locale);
 		
 		return buildReturnValue(goals);
 	}
@@ -267,7 +268,7 @@ public class SBBJavaAdapterResource {
 		String locale = getUserLocale();
 		locale = locale == null ? defaultLocale : locale;
 
-		String transactions = SBBAdapter.getInstance().getTransactions(accountId, locale);
+		String transactions = javaAdapter.getTransactions(accountId, locale);
 
 		return buildReturnValue(transactions);
 	}
@@ -284,7 +285,7 @@ public class SBBJavaAdapterResource {
 	public String getOffers() {
 		logger.log(Level.INFO, "getOffers");
 		
-		String offers = SBBAdapter.getInstance().getOffers();
+		String offers = javaAdapter.getOffers();
 		
 		return buildReturnValue(offers);
 	}
@@ -321,7 +322,7 @@ public class SBBJavaAdapterResource {
 		String locale = getUserLocale();
 		locale = locale == null ? defaultLocale : locale;
 
-		String recommendations = SBBAdapter.getInstance().getFeasibility(userId, businessId, newGoal, 
+		String recommendations = javaAdapter.getFeasibility(userId, businessId, newGoal, 
 				existingGoals, locale);
 		logger.info(recommendations);
 		boolean success = recommendations == null ? false : true;
@@ -350,13 +351,13 @@ public class SBBJavaAdapterResource {
 	}
 
 	private String getUserId() {
-		String userId = SBBAdapter.getInstance().getCurrentUserId();
+		String userId = javaAdapter.getCurrentUserId();
 		logger.log(Level.INFO, "userId is " + userId);
 		return userId;
 	}
 	
 	private String getUserLocale() {
-		String locale = SBBAdapter.getInstance().getCurrentUserLocale();
+		String locale = javaAdapter.getCurrentUserLocale();
 		logger.log(Level.INFO, "locale is " + locale);
 		return locale;
 	}
