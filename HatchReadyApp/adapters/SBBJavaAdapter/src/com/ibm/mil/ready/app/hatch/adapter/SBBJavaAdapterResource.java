@@ -92,7 +92,7 @@ public class SBBJavaAdapterResource {
     		@FormParam("password") String password) throws UnsupportedEncodingException {
     	logger.info("Authenticate " + username );
    
-    	String ret = userService.verifyUser(username, password);
+    	String ret = javaAdapter.verifyUser(username, password);
     	
     	logger.info("verifyUser returned " + ret);
     	
