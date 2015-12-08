@@ -20,6 +20,7 @@ var defaultLocale = 'en_US';
  * properly.
  */
 function test() {
+	WL.Logger.info("SBBAdapter test invoked");
 	return {
 		isSuccessful : true,
 		result : 'Success!'
