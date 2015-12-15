@@ -4,6 +4,7 @@
         <wb-resource deploy-path="/" source-path="/apps/Hatch/iphone"/>
         <wb-resource deploy-path="/" source-path="/tests/MobileFirstPlatform"/>
         <wb-resource deploy-path="/" source-path="/adapters/SBBJavaAdapter/src"/>
+        <wb-resource deploy-path="/" source-path="/tests/mobilefirst"/>
         <property name="context-root" value="HatchReadyApp"/>
     </wb-module>
 </project-modules>
