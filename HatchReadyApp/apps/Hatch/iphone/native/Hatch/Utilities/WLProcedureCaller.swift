@@ -63,7 +63,7 @@ class WLProcedureCaller: NSObject {
      - parameter formParams:  Complex parameters that will be serialized to JSON and passed to the REST service as form parameters
      - parameter bodyText:    Simple string that will be sent as the post body
      */
-    func invokeWithResponse(dataDelegate: WLDataDelegate, pathParam: String?, queryParams: Dictionary<String, String>? = nil, formParams: Dictionary<String,AnyObject>? = nil, bodyText: String? = nil){
+    func invokeWithResponse(dataDelegate: WLDataDelegate, pathParam: String? = nil, queryParams: Dictionary<String, String>? = nil, formParams: Dictionary<String,AnyObject>? = nil, bodyText: String? = nil){
         self.dataDelegate = dataDelegate
         self.dataDelegate.onPreExecute()
         

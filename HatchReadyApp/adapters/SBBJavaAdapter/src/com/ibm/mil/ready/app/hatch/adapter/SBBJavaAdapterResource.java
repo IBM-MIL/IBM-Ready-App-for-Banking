@@ -8,6 +8,7 @@
 package com.ibm.mil.ready.app.hatch.adapter;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,9 +22,12 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 
 import com.google.gson.Gson;
+import com.ibm.json.java.JSON;
+import com.ibm.json.java.JSONArray;
 import com.ibm.json.java.JSONObject;
 import com.ibm.mil.ready.app.hatch.SBBAdapter;
 import com.ibm.mil.ready.app.hatch.model.User;
+import com.ibm.mil.ready.app.hatch.service.UserService;
 import com.worklight.adapters.rest.api.WLServerAPI;
 import com.worklight.adapters.rest.api.WLServerAPIProvider;
 import com.worklight.core.auth.OAuthSecurity;
@@ -40,14 +44,16 @@ public class SBBJavaAdapterResource {
     //Define the server api to be able to perform server operations
     WLServerAPI api = WLServerAPIProvider.getWLServerAPI();
 
-    private static SBBAdapter javaAdapter;
 	private final Gson parser = new Gson();
 	private static String defaultLocale = "en_US";
+	private static UserService userService;
+	private static SBBAdapter javaAdapter;
 
     
     
     public static void init() {
     	javaAdapter = SBBAdapter.getInstance();
+		userService = UserService.getInstance();
     }
     
     
@@ -75,6 +81,33 @@ public class SBBJavaAdapterResource {
     	return "Fatal error";
 	}
 		
+		
+    /* Path for method: "<server address>/GreenwellBanking/adapters/caasJava/authenticate" */
+    @POST
+    @OAuthSecurity(enabled=false)
+    @Path("/authenticate")
+    @Produces("application/json")
+    public JSONArray authenticate (
+    		@FormParam("username") String username,
+    		@FormParam("password") String password) throws UnsupportedEncodingException {
+    	logger.info("Authenticate " + username );
+   
+    	String ret = javaAdapter.verifyUser(username, password);
+    	
+    	logger.info("verifyUser returned " + ret);
+    	
+    	JSONArray retJson = new JSONArray();
+		try {
+			retJson = (JSONArray) JSON.parse(ret);
+		} catch (NullPointerException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	return retJson;
+    }
 
 	/**
 	 * Finds a user by username in the back end. Requires a username and a locale
@@ -318,13 +351,13 @@ public class SBBJavaAdapterResource {
 	}
 
 	private String getUserId() {
-		String userId = SBBAdapter.getInstance().getCurrentUserId();
+		String userId = javaAdapter.getCurrentUserId();
 		logger.log(Level.INFO, "userId is " + userId);
 		return userId;
 	}
 	
 	private String getUserLocale() {
-		String locale = SBBAdapter.getInstance().getCurrentUserLocale();
+		String locale = javaAdapter.getCurrentUserLocale();
 		logger.log(Level.INFO, "locale is " + locale);
 		return locale;
 	}
