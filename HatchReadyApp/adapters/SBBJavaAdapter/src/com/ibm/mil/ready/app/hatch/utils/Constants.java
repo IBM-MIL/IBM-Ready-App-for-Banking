@@ -25,11 +25,6 @@ public class Constants {
 	 */
 	public final static String[] UPPER_STRING_BOUND = new String[]{"a"};
 
-	/*******  Constants for the WatsonService class  ******/
-	public final static String WATSON_BASE_URL_KEY = "WATSON_BASEURL";
-	public final static String WATSON_USERNAME_KEY = "WATSON_USERNAME";
-	public final static String WATSON_PASSWORD_KEY = "WATSON_PASSWORD";
-	
 	public final static String DEFAULT_LOCALE = "DEFAULT_LOCALE";
 	
 	/*******  Constants for the FeasibilityService class  ******/

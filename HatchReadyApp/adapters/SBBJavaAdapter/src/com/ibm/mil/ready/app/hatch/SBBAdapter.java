@@ -23,7 +23,6 @@ import com.ibm.mil.ready.app.hatch.model.User;
 import com.ibm.mil.ready.app.hatch.service.FeasibilityService;
 import com.ibm.mil.ready.app.hatch.service.HatchDBService;
 import com.ibm.mil.ready.app.hatch.service.UserService;
-import com.ibm.mil.ready.app.hatch.service.WatsonService;
 import com.ibm.mil.ready.app.hatch.utils.CashFlow;
 import com.ibm.mil.ready.app.hatch.utils.Constants;
 import com.ibm.mil.ready.app.hatch.utils.Utilities;
@@ -40,7 +39,6 @@ public final class SBBAdapter {
 	private static SBBAdapter adapter;
 	private final HatchDBService dbService;
 	private final UserService userService;
-	private final WatsonService watsonService;
 	private final Gson parser = new Gson();
 	private final Utilities utils = new Utilities();
 	
@@ -67,7 +65,6 @@ public final class SBBAdapter {
 	 */
 	private SBBAdapter() {
 		dbService = HatchDBService.getInstance();
-		watsonService = WatsonService.getInstance();
 		userService = UserService.getInstance();
 	}
 	
@@ -162,20 +159,6 @@ public final class SBBAdapter {
 	 */
 	public String getDashboardData(String userId, String locale){
 		return dbService.getDashboardData(userId, locale);
-	}
-	/**
-	 * Gets a Tradeoff Solution from the Watson Tradeoff Api
-	 * @param dilemma The dilemma to send
-	 * @return The Solution
-	 */
-	public String getTradeoffSolution(String dilemma) {
-		try {
-			return watsonService.getTradeoffSolution(dilemma);
-		} catch (Exception e) {
-			LOGGER.log(Level.SEVERE, e.getMessage());
-			e.printStackTrace();
-			return null;
-		}
 	}
 	
 	/**

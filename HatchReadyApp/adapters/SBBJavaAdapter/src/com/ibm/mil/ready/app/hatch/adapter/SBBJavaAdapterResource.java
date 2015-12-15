@@ -168,28 +168,6 @@ public class SBBJavaAdapterResource {
 	}
 
 	/**
-	 * Returns the solution from the Watson Tradeoff Service
-	 * @param dilemma
-	 * @returns solution
-	 */		
-	/* Path for method: "<server address>/HatchReadyApp/adapters/SBBJavaAdapter/getTradeoffSolution?dilemma=value" */
-	@POST
-	@OAuthSecurity(scope="ReadyAppHatchAuthRealm")
-	@Path("/getTradeoffSolution")
-	@Produces("application/json")
-	public String getTradeoffSolution(@FormParam("dilemma") String dilemma) {
-		logger.log(Level.INFO, "getTradeoffSolution dilemma: " + dilemma);
-
-		String solution = javaAdapter.getTradeoffSolution(dilemma);
-		boolean success = solution == null ? false : true;
-		logger.info("Watson solution: " + solution);
-		logger.info("Watson success: " + success);
-		
-        return buildReturnValue(solution);
-		
-	}
-
-	/**
 	 * Finds the accounts associated with the given userId. If the userId does not
 	 * exist, no accounts are returned.
 	 * 
