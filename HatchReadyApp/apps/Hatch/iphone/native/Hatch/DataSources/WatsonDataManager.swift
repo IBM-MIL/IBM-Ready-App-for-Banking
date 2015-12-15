@@ -40,10 +40,16 @@ public class WatsonDataManager: NSObject {
         self.problemSentIn = problem
         self.callback = callback
         
-        //let externUrl = "https://gateway.watsonplatform.net/tradeoff-analytics/api/v1/dilemmas"
-        let externUrl = "https://api.apim.ibmcloud.com/dennisschultzusibmcom-dev/sb/tradeoff-analytics/api/v1/dilemmas"
+        // Base64 encode credentials for authentication
+        let watsonUsername = ConfigManager.sharedInstance.watsonUsername
+        let watsonPassword = ConfigManager.sharedInstance.watsonPassword
+        let creds = NSString(format: "%@:%@", watsonUsername, watsonPassword)
+        let utf8str: NSData = creds.dataUsingEncoding(NSUTF8StringEncoding)!
+        let encoding = utf8str.base64EncodedStringWithOptions(NSDataBase64EncodingOptions(rawValue: 0))
+        
+        let externUrl = ConfigManager.sharedInstance.watsonHostURL
         let caller = WLProcedureCaller(externalResourceURL: externUrl, headers: [
-            "Authorization" : "Basic YTQwMGY1ZDAtZjU5Zi00M2UyLWIzYjktMWQ4YTdlZDFjZTIxOnlsMm5XZktnRXRWcA==",
+            "Authorization" : "Basic \(encoding)",
             "Content-Type"  : "application/json",
             "Accept"        : "application/json"])
 

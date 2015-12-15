@@ -2,6 +2,15 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>Watson</key>
+	<dict>
+		<key>hostURL</key>
+		<string>https://api.apim.ibmcloud.com/dennisschultzusibmcom-dev/sb/tradeoff-analytics/api/v1/dilemmas</string>
+		<key>username</key>
+		<string>a400f5d0-f59f-43e2-b3b9-1d8a7ed1ce21</string>
+		<key>password</key>
+		<string>yl2nWfKgEtVp</string>
+	</dict>
 	<key>demoPassword</key>
 	<string>password1</string>
 	<key>demoUsername</key>

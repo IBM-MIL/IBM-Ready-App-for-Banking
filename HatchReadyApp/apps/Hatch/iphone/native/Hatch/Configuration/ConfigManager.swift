@@ -29,6 +29,12 @@ public class ConfigManager: NSObject {
     var demoUsername: String!
     /// Password to be used in demo mode
     var demoPassword: String!
+    /// Watson host location
+    var watsonHostURL: String!
+    /// Watson service username
+    var watsonUsername: String!
+    /// Watson service password
+    var watsonPassword: String!
     
     public class var sharedInstance : ConfigManager{
         
@@ -78,6 +84,25 @@ public class ConfigManager: NSObject {
                 hasValidConfiguration = false
                 errorMessage = "Open the Conflig.plist file and set the demoPassword"
             }
+            
+            watsonHostURL = configuration["Watson"]!["hostURL"] as! String
+            if (watsonHostURL == nil){
+                hasValidConfiguration = false
+                errorMessage = "Open the Conflig.plist file and set the Watson/hostURL"
+            }
+
+            watsonUsername = configuration["Watson"]!["username"] as! String
+            if (watsonUsername == nil){
+                hasValidConfiguration = false
+                errorMessage = "Open the Conflig.plist file and set the Watson/username"
+            }
+            
+            watsonPassword = configuration["Watson"]!["password"] as! String
+            if (watsonPassword == nil){
+                hasValidConfiguration = false
+                errorMessage = "Open the Conflig.plist file and set the Watson/password"
+            }
+            
         }
         
         if(!hasValidConfiguration){
