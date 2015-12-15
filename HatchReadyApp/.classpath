@@ -6,34 +6,6 @@
 	<classpathentry excluding="build/**|libs/**" kind="src" path="tests/mobilefirst"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="lib" path="server/lib/async-http-client-1.6.1.jar"/>
-	<classpathentry kind="lib" path="server/lib/cloudant-client-1.0.1-.jar"/>
-	<classpathentry kind="lib" path="server/lib/commons-codec-1.9.jar"/>
-	<classpathentry kind="lib" path="server/lib/commons-logging-1.1.3.jar"/>
-	<classpathentry kind="lib" path="server/lib/commons-validator-1.4.0.jar"/>
-	<classpathentry kind="lib" path="server/lib/gson-2.2.4.jar"/>
-	<classpathentry kind="lib" path="server/lib/gson-2.3.1-sources.jar"/>
-	<classpathentry kind="lib" path="server/lib/httpclient-4.3.3.jar"/>
-	<classpathentry kind="lib" path="server/lib/httpcore-4.3.2.jar"/>
-	<classpathentry kind="lib" path="server/lib/jackson-annotations-2.3.1.jar"/>
-	<classpathentry kind="lib" path="server/lib/jackson-core-2.3.1.jar"/>
-	<classpathentry kind="lib" path="server/lib/jackson-databind-2.3.1.jar"/>
-	<classpathentry kind="lib" path="server/lib/slf4j-api-1.7.5.jar"/>
-	<classpathentry kind="lib" path="server/lib/slf4j-simple-1.7.5.jar"/>
 	<classpathentry kind="src" output="adapters/SBBJavaAdapter/bin" path="adapters/SBBJavaAdapter/src"/>
-	<classpathentry kind="lib" path="/Users/dennis/Projects/ReadyApps/Hatch/source/7.0/IBM-Ready-App-for-Banking/HatchReadyApp/server/lib/async-http-client-1.6.1.jar" rootpath="/"/>
-	<classpathentry kind="lib" path="/Users/dennis/Projects/ReadyApps/Hatch/source/7.0/IBM-Ready-App-for-Banking/HatchReadyApp/server/lib/cloudant-client-1.0.1-.jar" rootpath="/"/>
-	<classpathentry kind="lib" path="/Users/dennis/Projects/ReadyApps/Hatch/source/7.0/IBM-Ready-App-for-Banking/HatchReadyApp/server/lib/commons-codec-1.9.jar" rootpath="/"/>
-	<classpathentry kind="lib" path="/Users/dennis/Projects/ReadyApps/Hatch/source/7.0/IBM-Ready-App-for-Banking/HatchReadyApp/server/lib/commons-logging-1.1.3.jar" rootpath="/"/>
-	<classpathentry kind="lib" path="/Users/dennis/Projects/ReadyApps/Hatch/source/7.0/IBM-Ready-App-for-Banking/HatchReadyApp/server/lib/commons-validator-1.4.0.jar" rootpath="/"/>
-	<classpathentry kind="lib" path="/Users/dennis/Projects/ReadyApps/Hatch/source/7.0/IBM-Ready-App-for-Banking/HatchReadyApp/server/lib/gson-2.2.4.jar" rootpath="/"/>
-	<classpathentry kind="lib" path="/Users/dennis/Projects/ReadyApps/Hatch/source/7.0/IBM-Ready-App-for-Banking/HatchReadyApp/server/lib/gson-2.3.1-sources.jar" rootpath="/"/>
-	<classpathentry kind="lib" path="/Users/dennis/Projects/ReadyApps/Hatch/source/7.0/IBM-Ready-App-for-Banking/HatchReadyApp/server/lib/httpclient-4.3.3.jar" rootpath="/"/>
-	<classpathentry kind="lib" path="/Users/dennis/Projects/ReadyApps/Hatch/source/7.0/IBM-Ready-App-for-Banking/HatchReadyApp/server/lib/httpcore-4.3.2.jar" rootpath="/"/>
-	<classpathentry kind="lib" path="/Users/dennis/Projects/ReadyApps/Hatch/source/7.0/IBM-Ready-App-for-Banking/HatchReadyApp/server/lib/jackson-annotations-2.3.1.jar" rootpath="/"/>
-	<classpathentry kind="lib" path="/Users/dennis/Projects/ReadyApps/Hatch/source/7.0/IBM-Ready-App-for-Banking/HatchReadyApp/server/lib/jackson-core-2.3.1.jar" rootpath="/"/>
-	<classpathentry kind="lib" path="/Users/dennis/Projects/ReadyApps/Hatch/source/7.0/IBM-Ready-App-for-Banking/HatchReadyApp/server/lib/jackson-databind-2.3.1.jar" rootpath="/"/>
-	<classpathentry kind="lib" path="/Users/dennis/Projects/ReadyApps/Hatch/source/7.0/IBM-Ready-App-for-Banking/HatchReadyApp/server/lib/slf4j-api-1.7.5.jar" rootpath="/"/>
-	<classpathentry kind="lib" path="/Users/dennis/Projects/ReadyApps/Hatch/source/7.0/IBM-Ready-App-for-Banking/HatchReadyApp/server/lib/slf4j-simple-1.7.5.jar" rootpath="/"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
